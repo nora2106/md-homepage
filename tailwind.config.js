@@ -1,13 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero': "url('/img/bg1.png')",
+      },
+    },
   },
   plugins: [],
   content: [
-    './app/**/*.{js}',
-    './pages/**/*.{js}',
-    './components/**/*.{js}',
+    './app/**/*.{html,js}',
+    './app/*.{html,js}',
+    './app/pages/**/*.{html,js}',
+    './app/components/**/*.{html,js}',
   ],
 }
 

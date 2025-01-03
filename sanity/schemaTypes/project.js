@@ -4,9 +4,11 @@ export const project = defineType({
     name: 'project',
     title: 'Projekt',
     type: 'document',
+    description: 'Neues Projekt hinzufügen',
     fields: [
         defineField({
             name: 'Name',
+            title: 'Projektname',
             type: 'string',
             validation: (rule) => rule.required(),
         }),
