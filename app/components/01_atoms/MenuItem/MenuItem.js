@@ -1,8 +1,9 @@
 import Link from "next/link";
+import style from "./menuitem.module.scss";
 
 export const MenuItem = (props) => {
     return (
-        <li className='h-fit'>
+        <li className={style.item}>
             <Link href={props.url}>
                 <span className=''>{props.text}</span>
             </Link>

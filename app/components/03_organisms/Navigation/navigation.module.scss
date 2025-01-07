@@ -1,0 +1,23 @@
+.wrapper {
+  position: fixed;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: black;
+  padding-inline: 4em;
+  padding-block: 2em;
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    height: fit-content;
+    list-style: none;
+  }
+}

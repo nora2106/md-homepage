@@ -1,0 +1,19 @@
+.hero {
+  background-image: url('/img/bg1.png');
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  height: 75%;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  left: 45%;
+
+  img {
+    height: 100%;
+    width: auto;
+  }
+}

@@ -1,11 +1,12 @@
+import styles from "./heading.module.scss";
 
 export const Heading = (props) => {
     const Tag = props.tag;
     return (
-        <Tag className="relative mt-80 text-8xl uppercase ml-5">
+        <Tag className={styles.heading}>
             <span>{props.firstLine}</span>
             <br/>
-            <span className='ml-20'>{props.secondLine}</span>
+            <span className={styles.secondLine}>{props.secondLine}</span>
         </Tag>
     );
 };
