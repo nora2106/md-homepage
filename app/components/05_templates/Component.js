@@ -1,3 +1,4 @@
+import style from "./";
 
 export const Component = () => {
     return (

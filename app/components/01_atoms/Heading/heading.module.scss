@@ -3,9 +3,13 @@
   margin-left: .2em;
   text-transform: uppercase;
   font-size: 8em;
-  margin-top: 2em;
+  margin-block: .5em;
+}
+
+.indented {
+  margin-left: .8em;
 }
 
 .secondLine {
-  margin-left: .8em;
+  color: grey;
 }

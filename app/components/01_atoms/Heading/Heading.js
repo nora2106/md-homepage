@@ -1,12 +1,16 @@
 import styles from "./heading.module.scss";
+import classnames from "classnames";
 
 export const Heading = (props) => {
     const Tag = props.tag;
     return (
         <Tag className={styles.heading}>
-            <span>{props.firstLine}</span>
+
+            <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
             <br/>
-            <span className={styles.secondLine}>{props.secondLine}</span>
+            <span className={[classnames(styles.secondLine, {
+                [styles.indented]: !props.reversed
+            })].join(" ")}>{props.secondLine}</span>
         </Tag>
     );
 };
