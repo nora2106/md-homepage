@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
-import "./components/00_utilities/globals.css";
+import "./components/00_utilities/globals.scss";
 import {Navigation} from "./components/03_organisms/Navigation/Navigation";
 import {Footer} from "./components/03_organisms/Footer/Footer";
 

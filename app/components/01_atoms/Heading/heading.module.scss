@@ -1,9 +1,11 @@
+@use '../../00_utilities/variables.scss';
+
 .heading {
   position: relative;
   margin-left: .2em;
   text-transform: uppercase;
-  font-size: 8em;
   margin-block: .5em;
+  color: variables.$white;
 }
 
 .indented {
@@ -11,5 +13,8 @@
 }
 
 .secondLine {
-  color: grey;
+  color: transparent;
+  background-color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 2px variables.$white;
 }

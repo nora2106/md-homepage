@@ -5,7 +5,9 @@ import styles from "./hero.module.scss"
 export const Hero = () => {
     return (
         <div className={styles.hero}>
-            <Heading tag='h1' firstLine='Marion' secondLine='Dimbath'/>
+            <div className={styles.headlineWrapper}>
+                <Heading tag='h1' firstLine='Marion' secondLine='Dimbath'/>
+            </div>
             <div className={styles.imageWrapper}>
                 <Image width="500" height="600" src='/img/player1.png' alt=''/>
             </div>
