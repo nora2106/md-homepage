@@ -1,9 +1,14 @@
+@use '../../00_utilities/variables.scss';
+
 .hero {
+  --hero-height: 95vh;
+  --nav-height: 5vh;
   background-image: url('/img/bg1.png');
   background-size: cover;
-  height: 95vh;
+  height: var(--hero-height);
   overflow: hidden;
-  margin-top: 5vh;
+  margin-top: var(--nav-height);
+  width: 100%;
 }
 
 .headlineWrapper {
@@ -11,14 +16,23 @@
 }
 
 .imageWrapper {
-  height: 80%;
-  width: fit-content;
-  position: absolute;
-  bottom: 0;
-  left: 40%;
+  width: 80%;
 
   img {
-    height: 100%;
-    width: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (min-width: variables.$md) {
+    height: 80%;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
   }
 }

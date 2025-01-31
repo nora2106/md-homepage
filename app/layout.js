@@ -3,16 +3,19 @@ import Head from "next/head";
 import "./components/00_utilities/globals.scss";
 import {Navigation} from "./components/03_organisms/Navigation/Navigation";
 import {Footer} from "./components/03_organisms/Footer/Footer";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const libreFranklin = localFont({
+    variable: '--font-libre-franklin',
+    src: '../public/fonts/LibreFranklin.ttf',
+    subsets: ["latin"],
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = localFont({
+    variable: '--font-inter',
+    src: '../public/fonts/Inter.ttf',
+    subsets: ["latin"],
+})
 
 //@todo replace metadata
 export const metadata = {
@@ -29,7 +32,7 @@ export default function RootLayout({children}){
               <meta name="description" content="Your page description goes here"/>
               <link rel="canonical" href="https://yourwebsite.com/page-url"/>
           </Head>
-        <body>
+        <body className={`${inter.variable} ${libreFranklin.variable} `}>
             <header>
                 <Navigation/>
             </header>

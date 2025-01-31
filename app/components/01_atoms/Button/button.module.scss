@@ -8,7 +8,13 @@
   color: variables.$white;
   background-color: transparent;
 
-  &.secondary {
-    border-color: variables.$white;
+  &:hover {
+    cursor: pointer;
   }
+}
+
+.secondary {
+  border-color: variables.$white;
+  background-color: variables.$white;
+  color: variables.$black;
 }

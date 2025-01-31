@@ -4,7 +4,7 @@ import styles from "./navigation.module.scss";
 
 export const Navigation = () => {
     return (
-        <div className={styles.wrapper}>
+        <div id='header' className={styles.wrapper}>
             <nav className={styles.navigation}>
                 <ul className={styles.list}>
                     <MenuItem url='/' text='Homepage'/>

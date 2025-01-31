@@ -1,0 +1,36 @@
+@use '../../00_utilities/variables.scss';
+
+.wrapper {
+  width: 105%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+
+  img {
+    width: 100%;
+    max-width: 30em;
+    transform: translateX(-10%);
+  }
+
+  @media (min-width: variables.$lg) {
+    width: 100%;
+    transform: translateX(0);
+    left: 0;
+    gap: 0;
+    flex-direction: row;
+
+    img {
+      max-width: none;
+      height: 100%;
+      width: auto;
+      transform: translateX(0);
+    }
+  }
+
+
+}
+

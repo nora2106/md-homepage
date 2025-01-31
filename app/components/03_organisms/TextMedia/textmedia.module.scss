@@ -1,17 +1,27 @@
+@use '../../00_utilities/variables.scss';
+
 .wrapper {
   display: flex;
   width: 100%;
   overflow: hidden;
-  flex-direction: row;
-  gap: 1em;
+  flex-direction: column-reverse;
   margin-block: 4em;
+  gap: 1.5em;
+
+  @media (min-width: variables.$md) {
+    flex-direction: row;
+    gap: 1em;
+  }
 }
 
 .text {
-  margin-top: 4em;
-  margin-left: 1em;
   text-align: left;
   flex: 1;
+  margin-inline: variables.$text-padding-mobile;
+
+  p {
+    margin-bottom: 6px;
+  }
 }
 
 .media {

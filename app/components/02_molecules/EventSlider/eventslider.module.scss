@@ -1,0 +1,22 @@
+@use '../../00_utilities/variables.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  margin-block: 1em;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: variables.$lg) {
+    align-items: center;
+  }
+
+  div:nth-child(even) {
+      align-self: flex-end;
+
+    @media (min-width: variables.$lg) {
+      align-self: initial;
+    }
+  }
+}

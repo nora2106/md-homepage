@@ -1,9 +1,37 @@
-.container {
+@use '../../00_utilities/variables.scss';
 
+.container {
+  width: 90%;
+  border: 2px solid variables.$white;
+  padding-inline: 2em;
+  min-height: 14em;
+  color: variables.$white;
+  max-width: 30em;
+  padding-bottom: 1.5em;
+  min-width: 20em;
 }
 
 .date {
-
+  border-bottom: 1px solid variables.$light-grey;
+  padding-block: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.
+.headline {
+  padding-block: .5em;
+}
+
+.text {
+  margin-bottom: 1em;
+  color: variables.$light-grey;
+}
+
+.bottomLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
