@@ -26,14 +26,20 @@ export const event = defineType({
             validation: (rule) => rule.max(200),
         }),
         defineField({
+            name: 'location',
+            title: 'Ort der Veranstaltung',
+            type: 'string',
+        }),
+        defineField({
             name: 'link',
             title: 'Link zu mehr Details',
             type: 'url',
         }),
         defineField({
-            name: 'location',
-            title: 'Ort der Veranstaltung',
+            name: 'link_name',
+            title: 'Text des "Mehr Details"-Buttons',
             type: 'string',
+            hidden: ({document}) => !document?.link
         }),
     ],
 })

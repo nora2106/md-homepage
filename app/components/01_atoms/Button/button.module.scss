@@ -2,14 +2,24 @@
 
 .button {
   border: 2px solid variables.$primary;
-  border-radius: 1em;
-  padding-inline: 1.5em;
+  border-radius: .8em;
+  padding-inline: 1em;
   padding-block: .5em;
   color: variables.$white;
   background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (min-width: variables.$lg) {
+    border-radius: 1em;
+    padding-inline: 1.5em;
+    padding-block: .5em;
   }
 }
 

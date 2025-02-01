@@ -21,7 +21,8 @@ export async function getEvents() {
       date,
       description,
       link,
-      location
+      location,
+      link_name
     }`
     );
 }

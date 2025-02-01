@@ -2,20 +2,26 @@
 import style from "./event.module.scss";
 import Button from "@/app/components/01_atoms/Button/Button";
 import {useEffect, useState} from "react";
+import { IoLocationOutline } from "react-icons/io5";
 
 export const Event = (props) => {
     const [date, setDate] = useState("");
     const [time, setTime] = useState("");
+    const [btnText, setBtnText] = useState("Mehr erfahren");
     const dateOptions = {
         day: '2-digit',
         year: 'numeric',
         month: '2-digit',
     };
 
+
     useEffect(() => {
         const toDate = new Date(props.date);
         setDate(toDate.toLocaleDateString('de-DE', dateOptions));
         setTime(toDate.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'}))
+        if(props.linkText) {
+            setBtnText(props.linkText);
+        }
     }, []);
     return (
         <div className={`${style.container} event`}>
@@ -31,10 +37,19 @@ export const Event = (props) => {
                     <div/>
             }
             <div className={style.bottomLine}>
-                <span>{props.location}</span>
+                {
+                    props.location ?
+                        <span className={style.locationText}>
+                            <IoLocationOutline/>
+                            {props.location}
+                        </span>
+                    :
+                        <span/>
+                }
+
                 {
                     props.link ?
-                        <Button secondary={true} url={props.link} text='Details ->'/>
+                        <Button secondary={true} url={props.link} text={btnText} arrow={true}/>
                         :
                         <div/>
                 }
