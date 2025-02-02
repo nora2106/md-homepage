@@ -17,10 +17,14 @@
 .text {
   text-align: left;
   flex: 1;
-  margin-inline: variables.$text-padding-mobile;
+  padding-inline: variables.$text-padding-mobile;
 
   p {
     margin-bottom: 6px;
+  }
+
+  @media (min-width: variables.$lg) {
+    padding-inline: variables.$text-padding-desktop;
   }
 }
 
@@ -28,9 +32,12 @@
   width: 100%;
   height: auto;
   flex: 1;
+  justify-self: flex-end;
 
   img {
-    width: 100%;
+    width: 80%;
     height: auto;
+    //for video:
+    //float: right;
   }
 }

@@ -1,8 +1,12 @@
-export const Projects = () => {
+import {getProjects} from "@/sanity/sanity-query";
+
+export const Projects = async () => {
+    const data = await getProjects();
+    console.log(data)
     return (
-        <div>
+        <main>
             <p>Meine Projekte</p>
-        </div>
+        </main>
     );
 };
 

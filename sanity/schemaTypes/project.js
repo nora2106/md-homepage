@@ -7,7 +7,7 @@ export const project = defineType({
     description: 'Neues Projekt hinzufügen',
     fields: [
         defineField({
-            name: 'Name',
+            name: 'name',
             title: 'Projektname',
             type: 'string',
             validation: (rule) => rule.required(),
@@ -25,9 +25,9 @@ export const project = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'image',
-            title: 'Bild',
-            type: 'image',
+            name: 'media',
+            title: 'Video',
+            type: 'file',
         }),
         defineField({
             name: 'body',

@@ -4,11 +4,16 @@
   width: 90%;
   border: 2px solid variables.$white;
   padding-inline: 2em;
-  min-height: 14em;
+  min-height: 10em;
   color: variables.$white;
-  max-width: 30em;
+  max-width: 40em;
   padding-bottom: 1.5em;
-  min-width: 20em;
+
+  @media (min-width: variables.$lg) {
+    width: 100%;
+    max-width: none;
+    min-height: 13em;
+  }
 }
 
 .date {
@@ -25,6 +30,15 @@
 
 .text {
   margin-bottom: 1em;
+  font-size: .8rem;
+
+  @media (min-width: variables.$md) {
+    font-size: 1rem;
+  }
+
+  @media (min-width: variables.$lg) {
+    font-size: 1.1rem;
+  }
 }
 
 .bottomLine {

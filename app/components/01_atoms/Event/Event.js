@@ -14,7 +14,6 @@ export const Event = (props) => {
         month: '2-digit',
     };
 
-
     useEffect(() => {
         const toDate = new Date(props.date);
         setDate(toDate.toLocaleDateString('de-DE', dateOptions));
@@ -22,7 +21,8 @@ export const Event = (props) => {
         if(props.linkText) {
             setBtnText(props.linkText);
         }
-    }, []);
+    }, [props.date]);
+
     return (
         <div className={`${style.container} event`}>
             <div className={style.date}>

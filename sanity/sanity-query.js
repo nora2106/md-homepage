@@ -26,3 +26,15 @@ export async function getEvents() {
     }`
     );
 }
+
+export async function getProjects() {
+    return client.fetch(
+        groq`*[_type == "project"]{
+      name,
+      description,
+      slug,
+      media,
+      body
+    }`
+    );
+}
