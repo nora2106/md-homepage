@@ -8,7 +8,10 @@ export const EventColumn = async (props) => {
 
     return (
         <div className={style.wrapper}>
-            <CustomImage img={props.media}/>
+            { props.media ?
+                <CustomImage img={props.media}/>
+                : <div/>
+            }
             <EventSlider data={events}/>
         </div>
     );

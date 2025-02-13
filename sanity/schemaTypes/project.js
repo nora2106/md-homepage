@@ -25,17 +25,28 @@ export const project = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'media',
-            title: 'Media',
-            description: 'Bilder oder Videos',
-            type: 'array',
-            of: [{type: 'file'}],
-        }),
-        defineField({
             name: 'body',
             title: 'Text',
             type: 'array',
             of: [{type: 'block'}],
+        }),
+        defineField({
+            name: 'media',
+            title: 'Media',
+            description: 'Bilder oder Videos',
+            type: 'array',
+            of: [
+                {
+                    type: "image",
+                    title: "Bild",
+                    options: { hotspot: true },
+                },
+                {
+                    type: "file",
+                    title: "Video",
+                    options: { accept: "video/*" },
+                },
+            ],
         }),
     ],
 })

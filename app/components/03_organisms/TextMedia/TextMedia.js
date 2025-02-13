@@ -36,14 +36,18 @@ export function TextMedia (props) {
     return (
         <div className={style.wrapper}>
             <div ref={textRef} className={style.text}></div>
-            <div className={style.media}>
-                {
-                    props.media._type === 'image' ?
-                        <CustomImage img={props.media}/>
-                        :
-                        <video/>
-                }
-            </div>
+            {
+                props.media ?
+                <div className={style.media}>
+                    {
+                        props.media._type === 'image' ?
+                            <CustomImage img={props.media}/>
+                            :
+                            <video/>
+                    }
+                </div>
+                : <div/>
+            }
         </div>
     );
 }

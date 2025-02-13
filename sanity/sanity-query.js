@@ -3,13 +3,14 @@ import client from "./sanity-client";
 
 export async function getHomepage() {
     return client.fetch(
-        groq`*[_type == "homepage"]{
+        groq`*[_type == "homepage2"]{
       page_headline,
       about_me_headline,
       about_me_media,
       about_me_text,
       events_headline,
-      events_image
+      events_image,
+      banner_text
     }`
     );
 }

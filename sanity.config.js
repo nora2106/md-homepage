@@ -24,15 +24,15 @@ export default defineConfig({
                                 .title('Allgemeine Einstellungen')
                                 .child(S.document().schemaType('settings').documentId('settings')),
                             S.listItem()
-                                .title('Homepage')
-                                .child(S.document().schemaType('homepage').documentId('homepage')),
+                                .title('Startseite')
+                                .child(S.document().schemaType('homepage2').documentId('homepage2')),
                             S.listItem()
                                 .title('Unterricht')
                                 .child(S.document().schemaType('lessons').documentId('lessons')),
                         ])
         ),
     ...S.documentTypeListItems().filter(
-        (listItem) => !['homepage', 'lessons', 'settings'].includes(listItem.getId())
+        (listItem) => !['homepage2', 'lessons', 'settings'].includes(listItem.getId())
     ),
   ])
   }), visionTool()],

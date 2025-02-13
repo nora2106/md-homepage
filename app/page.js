@@ -7,7 +7,7 @@ import { getHomepage} from "@/sanity/sanity-query";
 export const Home = async () => {
     const pageContent = await getHomepage();
     const data = pageContent[0];
-
+    console.log(data)
     return (
         <main>
             <Hero headline1={data.page_headline[0]} headline2={data.page_headline[1]}/>
