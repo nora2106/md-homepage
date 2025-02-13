@@ -26,12 +26,19 @@ export const settings = defineType({
             of: [{type: 'block'}],
         }),
         defineField({
-            name: 'footer-credit',
+            name: 'imprint_text',
+            title: 'Impressum-Text',
+            description: 'Haftungstext für Impressum',
+            type: 'array',
+            of: [{type: 'block'}],
+        }),
+        defineField({
+            name: 'footer_credit',
             title: 'Footer Credit',
             type: 'string',
         }),
         defineField({
-            name: 'footer-link',
+            name: 'footer_link',
             title: 'Footer Link',
             type: 'string',
         }),

@@ -9,7 +9,33 @@ export default defineConfig({
   title: process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE,
   dataset: 'production',
   basepath: '/studio',
-  plugins: [structureTool(), visionTool()],
+  plugins: [structureTool({
+    structure: (S) =>
+        S.list()
+            .title('Base')
+            .items([
+              S.listItem()
+                  .title('Seiten')
+                  .child(
+                      S.list()
+                          .title('Settings Documents')
+                          .items([
+                            S.listItem()
+                                .title('Allgemeine Einstellungen')
+                                .child(S.document().schemaType('settings').documentId('settings')),
+                            S.listItem()
+                                .title('Homepage')
+                                .child(S.document().schemaType('homepage').documentId('homepage')),
+                            S.listItem()
+                                .title('Unterricht')
+                                .child(S.document().schemaType('lessons').documentId('lessons')),
+                        ])
+        ),
+    ...S.documentTypeListItems().filter(
+        (listItem) => !['homepage', 'lessons', 'settings'].includes(listItem.getId())
+    ),
+  ])
+  }), visionTool()],
   schema: {
     types: schemaTypes,
   },

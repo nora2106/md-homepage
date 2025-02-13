@@ -20,7 +20,7 @@ export const lessons = defineType({
             of: [{type: 'file'}],
         }),
         defineField({
-            name: 'body',
+            name: 'text',
             title: 'Text',
             type: 'array',
             of: [{type: 'block'}],

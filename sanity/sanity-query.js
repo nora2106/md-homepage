@@ -38,3 +38,26 @@ export async function getProjects() {
     }`
     );
 }
+
+export async function getSettings() {
+    return client.fetch(
+        groq`*[_type == "settings"]{
+      name,
+      email,
+      address,
+      imprint_text,
+      footer_credit,
+      footer_link
+    }`
+    );
+}
+
+export async function getLessonsPage() {
+    return client.fetch(
+        groq`*[_type == "lesson"]{
+      headline,
+      media,
+      text,
+    }`
+    );
+}
