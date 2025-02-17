@@ -5,12 +5,13 @@
   --nav-height: 5vh;
   background-image: url('/img/bg1.png');
   background-size: cover;
-  height: var(--hero-height);
+  height: 100dvh;
   overflow: hidden;
   width: 100%;
 
   @media (min-width: variables.$md) {
     margin-top: var(--nav-height);
+    height: var(--hero-height);
   }
 }
 

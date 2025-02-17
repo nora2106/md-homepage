@@ -1,0 +1,35 @@
+@use '../../00_utilities/variables.scss';
+
+.container {
+  //overflow: hidden;
+  width: 100vw;
+  position: absolute;
+  top: -25%;
+  left: 0;
+  z-index: 3;
+
+  @media (min-width: variables.$md) {
+    display: none;
+  }
+}
+
+.ellipse {
+  fill: variables.$secondary;
+  position: absolute;
+  z-index: 3;
+  left: -15%;
+  width: 120%;
+  max-width: 32em;
+}
+
+.backgroundEllipse {
+  fill: variables.$secondary;
+  position: absolute;
+  transform: scale(1.2);
+  width: 120%;
+  left: -10%;
+  //top: -10%;
+  z-index: 3;
+  opacity: .8;
+  max-width: 30em;
+}

@@ -1,0 +1,34 @@
+@use '../../00_utilities/variables.scss';
+
+.button {
+  background-color: variables.$secondary;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  height: 4em;
+  width: 4em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: .5em 1em;
+  position: fixed;
+
+  @media (min-width: variables.$md) {
+    display: none;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+
+.open {
+  display: block;
+
+  @media (min-width: variables.$md) {
+    display: none;
+  }
+}

@@ -1,47 +1,42 @@
 @use '../../00_utilities/variables.scss';
 
 .wrapper {
-  position: fixed;
   width: 100%;
   height: 100%;
   z-index: 4;
 }
 
-.menuButton {
-
-  @media (min-width: variables.$md) {
-    display: none;
-  }
-}
-
-.desktop {
-  display: none;
-  @media (min-width: variables.$md) {
-    display: block;
-  }
-
-}
-
 .navigation {
   width: 100%;
-  height: 80%;
+  height: 100%;
+  position: fixed;
+  z-index: 4;
 
   @media (min-width: variables.$md) {
-    background-image: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
     height: fit-content;
-    background-color: black;
-    padding-inline: 1.5em;
-    padding-block: 1.5em;
   }
 }
 
 .listWrapper {
-  //position: fixed;
+  width: 100%;
+  height: 50%;
+  padding: 1em 2em;
+  display: none;
+
+  @media (min-width: variables.$md) {
+    display: block;
+    height: fit-content;
+  }
+}
+
+.showNavi {
+  display: block;
+  position: fixed;
+
+  @media (min-width: variables.$md) {
+    position: relative;
+  }
 }
 
 .bgImage {
@@ -50,27 +45,5 @@
   width: auto;
   @media (min-width: variables.$md) {
     display: none;
-  }
-}
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  z-index: 2;
-
-  @media (min-width: variables.$md) {
-    flex-direction: row;
-    align-items: center;
-    height: fit-content;
-    width: 100%;
-  }
-
-  button {
-    margin-top: auto;
-
-    @media (min-width: variables.$md) {
-      margin-left: auto;
-    }
   }
 }

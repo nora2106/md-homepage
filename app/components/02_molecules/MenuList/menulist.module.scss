@@ -1,0 +1,31 @@
+@use '../../00_utilities/variables';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  z-index: 4;
+  position: relative;
+  list-style: none;
+  height: 100%;
+  width: fit-content;
+  margin-top: 2em;
+  margin-left: 2em;
+
+  @media (min-width: variables.$md) {
+    flex-direction: row;
+    align-items: center;
+    height: fit-content;
+    width: 100%;
+    gap: 1em;
+    margin: 0 1em;
+  }
+
+  button {
+    margin-top: auto;
+
+    @media (min-width: variables.$md) {
+      margin-left: auto;
+    }
+  }
+}

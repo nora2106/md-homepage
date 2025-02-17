@@ -1,7 +1,0 @@
-@use '../../00_utilities/variables.scss';
-
-.mobileNavi {
-  @media (min-width: variables.$md) {
-    display: none;
-  }
-}
