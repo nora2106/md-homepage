@@ -7,8 +7,11 @@
   background-size: cover;
   height: var(--hero-height);
   overflow: hidden;
-  margin-top: var(--nav-height);
   width: 100%;
+
+  @media (min-width: variables.$md) {
+    margin-top: var(--nav-height);
+  }
 }
 
 .headlineWrapper {
