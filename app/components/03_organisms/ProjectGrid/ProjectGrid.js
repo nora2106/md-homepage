@@ -1,7 +1,7 @@
 import style from "./grid.module.scss";
-import Project from "@/app/components/01_atoms/Project/Project";
+import Project from "@/app/components/02_molecules/ProjectTeaser/Project";
 
-export const Grid = (props) => {
+export const ProjectGrid = (props) => {
     return (
         <div className={style.gridWrapper}>
             {
@@ -15,4 +15,4 @@ export const Grid = (props) => {
     );
 };
 
-export default Grid;
+export default ProjectGrid;

@@ -11,6 +11,7 @@
   font-weight: 600;
   margin: .5em 1em;
   position: fixed;
+  z-index: 6;
 
   @media (min-width: variables.$md) {
     display: none;

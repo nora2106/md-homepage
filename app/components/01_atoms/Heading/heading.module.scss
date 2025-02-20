@@ -4,7 +4,7 @@
   position: relative;
   margin-left: 1rem;
   text-transform: uppercase;
-  margin-block: 1em;
+  margin-block: .8em;
   color: variables.$white;
 }
 
@@ -21,6 +21,8 @@
   background-color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px variables.$white;
+  height: fit-content;
+  display: block;
 
   @media (min-width: variables.$md) {
     -webkit-text-stroke: 2px variables.$white;

@@ -5,6 +5,7 @@
   border-radius: .8em;
   padding-inline: 1em;
   padding-block: .5em;
+  font-size: .8rem;
   color: variables.$white;
   background-color: transparent;
   display: flex;
@@ -17,7 +18,12 @@
     cursor: pointer;
   }
 
+  @media (min-width: variables.$md) {
+    font-size: 1rem;
+  }
+
   @media (min-width: variables.$lg) {
+    font-size: 1.2rem;
     border-radius: 1em;
     padding-inline: 1.5em;
     padding-block: .5em;

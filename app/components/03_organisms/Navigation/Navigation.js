@@ -23,6 +23,7 @@ export const Navigation = () => {
                 <div className={` ${styles.listWrapper} ${open ? styles.showNavi : ''}`}>
                     <MenuList/>
                     <MenuBackground/>
+                    <div className={styles.overlay}/>
                 </div>
                 <MenuButton open={open} close={true} action={toggleMenu}/>
             </nav>
