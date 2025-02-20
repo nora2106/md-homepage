@@ -7,7 +7,7 @@ export const ProjectGrid = (props) => {
             {
                 props.projects ?
                     props.projects.map((project, key) =>
-                        <Project data={project} key={key}/>
+                        <Project data={project} index={key} key={key}/>
                     )
                     : <div/>
             }

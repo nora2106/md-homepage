@@ -2,10 +2,9 @@
 
 .gridWrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 20em);
+  grid-template-columns: repeat(auto-fill, 18em);
   grid-auto-rows: auto;
-  gap: 4rem;
-  grid-column-gap: 4rem;
-  margin-top: 3em;
-  justify-content: center;
+  grid-column-gap: 10em;
+  grid-row-gap: 4em;
+  padding: 1em;
 }

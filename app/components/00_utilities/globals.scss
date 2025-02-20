@@ -21,6 +21,14 @@ body {
   margin: 0;
 }
 
+header {
+  --nav-height: 2em;
+
+  @media (min-width: variables.$md) {
+    height: var(--nav-height);
+  }
+}
+
 //typography
 h1, .headline-1 {
   font-size: 3.5rem;
@@ -28,7 +36,7 @@ h1, .headline-1 {
   font-family: var(--font-libre-franklin);
 
   @media (min-width: variables.$md) {
-    font-size: 8rem;
+    font-size: 6.25rem;
     line-height: 7.5rem;
   }
 }

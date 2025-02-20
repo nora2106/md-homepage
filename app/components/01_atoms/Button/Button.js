@@ -13,10 +13,10 @@ export const Button = (props) => {
                     </button>
                 </Link>
                 :
-                <button onClick={props.action} className={` ${styles.button} ${props.secondary ? styles.secondary : ''}`}>
+                <a href={props.link} onClick={props.action} className={` ${styles.button} ${props.secondary ? styles.secondary : ''} button`}>
                     {props.text}
                     {props.arrow ? <FaArrowRight/> : ''}
-                </button>
+                </a>
         )
 
     );

@@ -2,12 +2,16 @@
 
 .wrapper {
   height: 100%;
-  padding-block: 4em;
+  &:first-child {
+    &::before {
+      display: none;
+    }
+  }
   &:after {
     height: 1px;
     display: block;
-    width: 90%;
-    margin: 1.5em auto 0 auto;
+    width: 95%;
+    margin: 2em auto 0 auto;
     background-color: variables.$grey;
     content: '';
   }
@@ -22,19 +26,18 @@
     pointer-events: none;
     display: block;
     margin-top: 4em;
-    margin-left: -1.5em;
+    margin-left: -5em;
   }
 }
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2em;
   align-items: center;
 }
 
 .headline {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: variables.$white;
   font-family: var(--font-inter);
   font-weight: 300;
@@ -57,11 +60,12 @@
   background-color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 4px variables.$white;
-  font-size: 8rem;
+  font-size: 6rem;
   font-family: var(--font-libre-franklin);
 }
 
 .shape {
-  height: 18em;
+  height: 14em;
   width: auto;
+  margin-bottom: 2em;
 }

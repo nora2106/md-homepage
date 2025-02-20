@@ -10,20 +10,21 @@ import {usePathname} from "next/navigation";
 export const Project = (props) => {
     const shapes = [shape1, shape2, shape3];
     const letter = props.data.name.slice(0, 1);
-    const currentURl = usePathname();
-    //@todo maybe assign random shape in backend?
+    const currentURl = ""
+
+    //assign one of the possible shapes
     function getRandomShape() {
-        let randomNum = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-        return shapes[randomNum - 1].src;
+        return shapes[props.index % shapes.length];
     }
 
     return (
         <div className={style.wrapper}>
             <div className={style.container}>
+                <p>{props.key}</p>
                 <h2 className={style.headline}>{props.data.name}</h2>
                 <div className={style.shapeContainer}>
                     <span className={style.letter}>{letter}</span>
-                    <Image className={style.shape} width="300" height="300" src={shape1} alt=""/>
+                    <Image className={style.shape} width="300" height="300" src={getRandomShape()} alt=""/>
                 </div>
                 {/*<p>{props.data.description}</p>*/}
                 <Button text="Anschauen" slug={currentURl + "/" + props.data.slug.current} arrow={true}/>

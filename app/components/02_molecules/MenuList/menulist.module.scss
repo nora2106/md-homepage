@@ -21,7 +21,7 @@
     margin: 0 1em;
   }
 
-  button {
+  :last-child {
     margin-top: 100%;
 
     @media (min-width: variables.$md) {

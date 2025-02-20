@@ -9,13 +9,28 @@
 .navigation {
   width: 100%;
   height: 100%;
-  position: fixed;
   z-index: 4;
+  position: fixed;
+  transition: transform .4s ease-in-out;
 
   @media (min-width: variables.$md) {
     width: 100%;
     height: fit-content;
     background-color: variables.$page-bg;
+    &:after {
+      width: 95%;
+      margin: 0 auto;
+      display: block;
+      content: "";
+      height: 1px;
+      background-color: variables.$grey;
+    }
+  }
+}
+
+.navigationHidden {
+  @media (min-width: variables.$md) {
+    transform: translateY(-100%);
   }
 }
 
