@@ -14,27 +14,105 @@
 }
 
 .headlineWrapper {
-  margin-top: 15%;
+  margin-top: 80%;
+
+  @media (min-width: variables.$md) {
+    margin-top: 15%;
+  }
 }
 
 .imageWrapper {
-  width: 80%;
-
-  img {
-    width: 100%;
-    height: auto;
-  }
+  position: absolute;
+  width: 100%;
+  max-width: 24em;
+  top: 0;
 
   @media (min-width: variables.$md) {
-    height: 80%;
-    width: fit-content;
-    position: absolute;
-    bottom: 0;
+    max-width: 28em;
     left: 40%;
-
-    img {
-      height: 100%;
-      width: auto;
-    }
+    bottom: -.5%;
+    top: auto;
   }
+  @media (min-width: variables.$lg) {
+    max-width: 36em;
+  }
+}
+
+.playerImgs {
+  width: 100%;
+  height: auto;
+  z-index: 3;
+  position: relative;
+}
+
+.player {
+  width: 100%;
+  height: auto;
+
+  //@media (min-width: variables.$md) {
+  //  height: 100%;
+  //  width: auto;
+  //}
+}
+
+.bird {
+  top: 31%;
+  left: -8%;
+  width: 42%;
+  height: auto;
+  position: absolute;
+}
+
+.flower {
+  top: 42%;
+  left: 30%;
+  width: 35%;
+  height: auto;
+  position: absolute;
+}
+
+.topFlowers {
+  width: 33em;
+  height: auto;
+  position: absolute;
+  z-index: 2;
+  top: -15%;
+  left: -10%;
+}
+
+.leftPlants {
+  position: absolute;
+  width: 20em;
+  height: auto;
+  left: 0;
+  bottom: 0;
+}
+
+.rightPlant {
+  position: absolute;
+  right: -3em;
+  width: 20em;
+  height: auto;
+  bottom: 0;
+  z-index: 3;
+}
+
+.rightPlantSecond {
+  position: absolute;
+  right: 25%;
+  transform: rotate(90deg) scaleY(-1);
+  width: 15em;
+  height: auto;
+  bottom: -5.5%;
+  z-index: 4;
+}
+
+.rightPlantThird {
+  position: absolute;
+  right: 10%;
+  transform: rotate(90deg);
+  width: 13em;
+  height: auto;
+  bottom: -4.8%;
+  z-index: 2;
 }

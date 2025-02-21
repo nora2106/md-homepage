@@ -23,6 +23,10 @@
     margin-bottom: 6px;
   }
 
+  @media (min-width: variables.$md) {
+    margin-top: 5%;
+  }
+
   @media (min-width: variables.$lg) {
     padding-inline: variables.$text-padding-desktop;
   }

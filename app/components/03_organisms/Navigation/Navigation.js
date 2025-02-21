@@ -14,7 +14,7 @@ export const Navigation = () => {
         setOpen(!open);
     }
     useEffect(() => {
-        // calcVH();
+        calcVH();
         window.addEventListener('scroll', onscroll, true);
         window.addEventListener('resize', calcVH, true);
     }, []);
