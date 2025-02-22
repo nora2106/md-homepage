@@ -19,10 +19,9 @@
 }
 
 .closeButton {
-  position: absolute;
-  bottom: 2em;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  right: 50%;
+  transform: translateX(60%);
   display: none;
 }
 

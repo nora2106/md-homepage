@@ -49,8 +49,8 @@ export const Navigation = () => {
                     <MenuBackground/>
                     <div className={styles.overlay}/>
                 </div>
-                <MenuButton open={open} close={true} action={toggleMenu}/>
             </nav>
+            <MenuButton open={open} close={true} action={toggleMenu}/>
         </div>
     );
 };

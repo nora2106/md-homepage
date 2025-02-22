@@ -36,6 +36,16 @@ h1, .headline-1 {
   font-family: var(--font-libre-franklin);
 
   @media (min-width: variables.$md) {
+    font-size: 4.25rem;
+    line-height: 4rem;
+  }
+
+  @media (min-width: variables.$lg) {
+    font-size: 5.25rem;
+    line-height: 5rem;
+  }
+
+  @media (min-width: variables.$xl) {
     font-size: 7.25rem;
     line-height: 7rem;
   }
