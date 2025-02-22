@@ -4,6 +4,10 @@
     font-size: 1.2rem;
     margin-top: 2px;
 
+    * {
+        text-decoration: none;
+    }
+
     &:after {
         content: "";
         width: 0;
