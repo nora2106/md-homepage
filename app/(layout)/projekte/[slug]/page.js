@@ -1,5 +1,5 @@
 import {getProjects} from "@/sanity/sanity-query";
-import Heading from "../../components/01_atoms/Heading/Heading"
+import Heading from "@/app/components/01_atoms/Heading/Heading"
 
 export const ProjectDetail = async ({params}) => {
     let projectData = [];

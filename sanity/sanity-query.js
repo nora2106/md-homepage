@@ -10,7 +10,8 @@ export async function getHomepage() {
       about_me_text,
       events_headline,
       events_image,
-      banner_text
+      banner_text,
+      media_centered
     }`
     );
 }

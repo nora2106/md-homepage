@@ -17,7 +17,8 @@ export const Hero = (props) => {
     function calcVH() {
         const navHeight = document.querySelector('#header').clientHeight;
         let vH = (window.innerHeight - navHeight);
-        if(heroRef.current.style != null) {
+        // @todo fix this
+        if(heroRef.current != null) {
             heroRef.current.style.setProperty("--hero-height", vH + "px");
         }
     }

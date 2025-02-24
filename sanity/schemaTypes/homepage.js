@@ -28,10 +28,22 @@ export const homepage = defineType({
         }),
         defineField({
             name: 'about_me_media',
-            title: 'Video',
-            description: 'Video zum Abschnitt "Über mich"',
-            type: 'image',
-        }),
+            title: 'Bild/Video',
+            description: 'Bild oder Video zum Abschnitt "Über mich"',
+            type: 'array',
+            of: [
+                {
+                    type: "image",
+                    title: "Bild",
+                    options: { hotspot: true },
+                },
+                {
+                    type: "file",
+                    title: "Video",
+                    options: { accept: "video/*" },
+                },
+            ],
+            validation: rule => rule.required().max(1),        }),
         defineField({
             name: 'about_me_text',
             title: 'Über mich',
@@ -42,8 +54,27 @@ export const homepage = defineType({
         defineField({
             name: 'banner_text',
             title: 'Banner-Text',
-            description: 'Farbiges Banner mit Text',
+            description: 'Farbiges Banner mit Text (optional)',
             type: 'string',
+        }),
+        defineField({
+            name: 'media_centered',
+            title: 'Bild/Video mittig',
+            description: 'Bild oder Video mittig unter "Über mich" (optional)',
+            type: 'array',
+            of: [
+                {
+                    type: "image",
+                    title: "Bild",
+                    options: { hotspot: true },
+                },
+                {
+                    type: "file",
+                    title: "Video",
+                    options: { accept: "video/*" },
+                },
+            ],
+            validation: rule => rule.max(1),
         }),
         defineField({
             name: 'events_headline',

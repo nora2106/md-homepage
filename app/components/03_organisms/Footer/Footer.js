@@ -7,15 +7,18 @@ export const Footer = () => {
         <div className={styles.mailIcon}>
             <FaAt/>
         </div>
-        <div className={styles.contactField}>
-            <p className={styles.contactText}>Kontaktiere mich unter: </p>
-            <a className={styles.mail} href=''>marion@triorange.de</a>
+        <div className={styles.footerContent}>
+            <div className={styles.contactField}>
+                <p className={styles.contactText}>Kontaktiere mich unter: </p>
+                <a className={styles.mail} href=''>marion@triorange.de</a>
+            </div>
+            <div className={styles.text}>
+                <p>2025, alle Rechte vorbehalten.</p>
+                <Link href="/impressum">Impressum</Link>
+                <p>Webseite erstellt von <a href="/">Nora Klinger</a></p>
+            </div>
         </div>
-        <div className={styles.text}>
-            <p>2025, alle Rechte vorbehalten.</p>
-            <Link href="/impressum">Impressum</Link>
-            <p>Webseite erstellt von <a href="/">Nora Klinger</a></p>
-        </div>
+
     </div>
 };
 

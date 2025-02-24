@@ -2,7 +2,7 @@
 import style from "./textmedia.module.scss";
 import Image from "next/image";
 import {useEffect, useState, useRef} from "react";
-import CustomImage from "@/app/components/01_atoms/CustomImage/CustomImage";
+import Media from "@/app/components/01_atoms/Media/Media";
 
 export function TextMedia (props) {
     const textRef = useRef(null);
@@ -36,18 +36,14 @@ export function TextMedia (props) {
     return (
         <div className={style.wrapper}>
             <div ref={textRef} className={style.text}></div>
-            {
-                props.media ?
-                <div className={style.media}>
-                    {
-                        props.media._type === 'image' ?
-                            <CustomImage img={props.media}/>
-                            :
-                            <video/>
-                    }
-                </div>
-                : <div/>
-            }
+            <div className={style.media}>
+                {
+                    props.media ?
+                        <Media media={props.media}/>
+                        : <div/>
+                }
+            </div>
+
         </div>
     );
 }

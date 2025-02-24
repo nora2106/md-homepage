@@ -1,0 +1,20 @@
+@use '../../00_utilities/variables';
+
+.container {
+  background-color: variables.$secondary;
+  width: 100%;
+  padding-block: 4em;
+  margin-block: 8em;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 90%;
+  font-size: 1.4rem;
+
+  @media (min-width: variables.$md) {
+    max-width: 50%;
+  }
+}
