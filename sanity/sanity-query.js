@@ -12,7 +12,10 @@ export async function getHomepage() {
       events_image,
       banner_text,
       media_centered
-    }`
+    }`, {},
+        {
+            next: {revalidate: 60}
+        }
     );
 }
 
@@ -25,7 +28,10 @@ export async function getEvents() {
       link,
       location,
       link_name
-    }`
+    }`, {},
+        {
+            next: {revalidate: 60}
+        }
     );
 }
 
@@ -37,7 +43,10 @@ export async function getProjects() {
       slug,
       media,
       body
-    }`
+    }`, {},
+        {
+            next: {revalidate: 60}
+        }
     );
 }
 
@@ -50,7 +59,10 @@ export async function getSettings() {
       imprint_text,
       footer_credit,
       footer_link
-    }`
+    }`, {},
+        {
+            next: {revalidate: 60}
+        }
     );
 }
 
@@ -60,6 +72,9 @@ export async function getLessonsPage() {
       headline,
       media,
       text,
-    }`
+    }`, {},
+        {
+            next: {revalidate: 60}
+        }
     );
 }

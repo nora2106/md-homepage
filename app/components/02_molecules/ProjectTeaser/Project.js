@@ -10,7 +10,7 @@ import {usePathname} from "next/navigation";
 export const Project = (props) => {
     const shapes = [shape1, shape2, shape3];
     const letter = props.data.name.slice(0, 1);
-    const currentURl = ""
+    const currentURl = usePathname();
 
     //assign one of the possible shapes
     function getRandomShape() {

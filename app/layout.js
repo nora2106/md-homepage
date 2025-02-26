@@ -5,7 +5,7 @@ export const metadata = {
 export default function Layout({children}) {
     return (
         <html lang="de">
-                {children}
+            {children}
         </html>
     );
 }
