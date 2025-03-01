@@ -5,15 +5,15 @@ export const TextBlock = (props) => {
     const textRef = useRef(null);
 
     useEffect(() => {
-        console.log(props.text)
         props.text.forEach((text) => {
+            const markDefs = text.markDefs;
             //list
             if(text.listItem) {
                 let listElement = document.createElement('ul');
                 listElement.classList.add(styles['list']);
                 textRef.current.appendChild(listElement);
                 text.children.forEach(span => {
-                    appendText( span, listElement, 'li');
+                    appendText( span, listElement, 'li', markDefs);
                 })
             }
             //paragraph
@@ -22,7 +22,7 @@ export const TextBlock = (props) => {
                 paragraph.classList.add(styles['paragraph']);
                 textRef.current.appendChild(paragraph);
                 text.children.forEach(span => {
-                        appendText(span, paragraph, 'span');
+                        appendText(span, paragraph, 'span', markDefs);
                 })
             }
             //headline
@@ -31,18 +31,29 @@ export const TextBlock = (props) => {
                 headline.classList.add(styles['headline']);
                 textRef.current.appendChild(headline);
                 text.children.forEach(span => {
-                    appendText(span, headline, 'span');
+                    appendText(span, headline, 'span', markDefs);
                 })
             }
         })
     }, [props]);
 
     //append text to parent element and add styles
-    function appendText(text, parent, elemType) {
-        const newSpan = document.createElement(elemType);
+    function appendText(text, parent, elemType, markDefs) {
+        let newSpan = document.createElement(elemType);
         newSpan.textContent = text.text;
         if(text.marks.length > 0) {
             text.marks.forEach(mark => {
+                if(markDefs.length > 0) {
+                    markDefs.forEach(markDef => {
+                        if(markDef._key === mark && markDef._type === 'link') {
+                            newSpan.remove();
+                            newSpan = document.createElement('a');
+                            newSpan.textContent = text.text;
+                            console.log(markDef.href)
+                            newSpan.href = '//' + markDef.href;
+                        }
+                    })
+                }
                 if(styles[mark]) {
                     newSpan.classList.add(styles[mark]);
                 }

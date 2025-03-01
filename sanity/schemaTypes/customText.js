@@ -18,30 +18,6 @@ export default {
                     { title: 'Italic', value: 'em' },
                     { title: 'Underline', value: 'underline' }
                 ],
-                annotations: [
-                    {
-                        title: 'Link',
-                        name: 'link',
-                        type: 'object',
-                        fields: [
-                            {
-                                title: 'URL',
-                                name: 'href',
-                                type: 'url',
-                                validation: (Rule) =>
-                                    Rule.uri({
-                                        scheme: ['http', 'https', 'mailto', 'tel', 'www']
-                                    })
-                            },
-                            {
-                                title: 'In neuem Tab öffnen',
-                                name: 'blank',
-                                type: 'boolean',
-                                initialValue: false
-                            }
-                        ]
-                    }
-                ]
             }
         }
     ]
