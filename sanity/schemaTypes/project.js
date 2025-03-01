@@ -1,4 +1,6 @@
 import {defineField, defineType} from 'sanity'
+import customMedia from "@/sanity/schemaTypes/customMedia";
+import customText from "@/sanity/schemaTypes/customText";
 
 export const project = defineType({
     name: 'project',
@@ -28,25 +30,14 @@ export const project = defineType({
             name: 'body',
             title: 'Text',
             type: 'array',
-            of: [{type: 'block'}],
+            of: customText.of,
         }),
         defineField({
             name: 'media',
             title: 'Media',
             description: 'Bilder oder Videos',
             type: 'array',
-            of: [
-                {
-                    type: "image",
-                    title: "Bild",
-                    options: { hotspot: true },
-                },
-                {
-                    type: "file",
-                    title: "Video",
-                    options: { accept: "video/*" },
-                },
-            ],
+            of: customMedia.of,
         }),
     ],
 })

@@ -14,20 +14,6 @@
   }
 }
 
-.text {
-  text-align: left;
-  flex: 1;
-  padding-inline: variables.$text-padding-mobile;
-
-  p {
-    margin-bottom: 6px;
-  }
-
-  @media (min-width: variables.$lg) {
-    padding-inline: variables.$text-padding-desktop;
-  }
-}
-
 .media {
   width: 100%;
   height: auto;

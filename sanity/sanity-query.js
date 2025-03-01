@@ -68,7 +68,7 @@ export async function getSettings() {
 
 export async function getLessonsPage() {
     return client.fetch(
-        groq`*[_type == "lesson"]{
+        groq`*[_type == "lessons"]{
       headline,
       media,
       text,

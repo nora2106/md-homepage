@@ -1,4 +1,6 @@
 import {defineField, defineType} from 'sanity'
+import customMedia from "@/sanity/schemaTypes/customMedia";
+import customText from "@/sanity/schemaTypes/customText";
 
 export const lessons = defineType({
     name: 'lessons',
@@ -13,17 +15,17 @@ export const lessons = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: 'text',
+            title: 'Text',
+            type: 'array',
+            of: customText.of,
+        }),
+        defineField({
             name: 'media',
             title: 'Media',
             description: 'Bilder oder Videos',
             type: 'array',
-            of: [{type: 'file'}],
-        }),
-        defineField({
-            name: 'text',
-            title: 'Text',
-            type: 'array',
-            of: [{type: 'block'}],
+            of: customMedia.of,
         }),
     ],
 })

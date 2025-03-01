@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
-
+import customText from './customText'
+import customMedia from "./customMedia";
 export const homepage = defineType({
     name: 'homepage2',
     title: 'Startseite',
@@ -31,25 +32,15 @@ export const homepage = defineType({
             title: 'Bild/Video',
             description: 'Bild oder Video zum Abschnitt "Über mich"',
             type: 'array',
-            of: [
-                {
-                    type: "image",
-                    title: "Bild",
-                    options: { hotspot: true },
-                },
-                {
-                    type: "file",
-                    title: "Video",
-                    options: { accept: "video/*" },
-                },
-            ],
-            validation: rule => rule.required().max(1),        }),
+            of: customMedia.of,
+            validation: rule => rule.required().max(1),
+        }),
         defineField({
             name: 'about_me_text',
             title: 'Über mich',
             description: 'Text zum Abschnitt "Über mich"',
             type: 'array',
-            of: [{type: 'block'}],
+            of: customText.of,
         }),
         defineField({
             name: 'banner_text',
@@ -62,18 +53,7 @@ export const homepage = defineType({
             title: 'Bild/Video mittig',
             description: 'Bild oder Video mittig unter "Über mich" (optional)',
             type: 'array',
-            of: [
-                {
-                    type: "image",
-                    title: "Bild",
-                    options: { hotspot: true },
-                },
-                {
-                    type: "file",
-                    title: "Video",
-                    options: { accept: "video/*" },
-                },
-            ],
+            of: customMedia.of,
             validation: rule => rule.max(1),
         }),
         defineField({
