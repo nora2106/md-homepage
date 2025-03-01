@@ -5,36 +5,39 @@ export const TextBlock = (props) => {
     const textRef = useRef(null);
 
     useEffect(() => {
-        props.text.forEach((text) => {
-            const markDefs = text.markDefs;
-            //list
-            if(text.listItem) {
-                let listElement = document.createElement('ul');
-                listElement.classList.add(styles['list']);
-                textRef.current.appendChild(listElement);
-                text.children.forEach(span => {
-                    appendText( span, listElement, 'li', markDefs);
-                })
-            }
-            //paragraph
-            else if(text.style === 'normal') {
-                let paragraph = document.createElement("p");
-                paragraph.classList.add(styles['paragraph']);
-                textRef.current.appendChild(paragraph);
-                text.children.forEach(span => {
+        //fill text block only if empty
+        if(textRef.current.childElementCount === 0) {
+            props.text.forEach((text) => {
+                const markDefs = text.markDefs;
+                //list
+                if(text.listItem) {
+                    let listElement = document.createElement('ul');
+                    listElement.classList.add(styles['list']);
+                    textRef.current.appendChild(listElement);
+                    text.children.forEach(span => {
+                        appendText( span, listElement, 'li', markDefs);
+                    })
+                }
+                //paragraph
+                else if(text.style === 'normal') {
+                    let paragraph = document.createElement("p");
+                    paragraph.classList.add(styles['paragraph']);
+                    textRef.current.appendChild(paragraph);
+                    text.children.forEach(span => {
                         appendText(span, paragraph, 'span', markDefs);
-                })
-            }
-            //headline
-            else if(text.style) {
-                let headline = document.createElement(text.style);
-                headline.classList.add(styles['headline']);
-                textRef.current.appendChild(headline);
-                text.children.forEach(span => {
-                    appendText(span, headline, 'span', markDefs);
-                })
-            }
-        })
+                    })
+                }
+                //headline
+                else if(text.style) {
+                    let headline = document.createElement(text.style);
+                    headline.classList.add(styles['headline']);
+                    textRef.current.appendChild(headline);
+                    text.children.forEach(span => {
+                        appendText(span, headline, 'span', markDefs);
+                    })
+                }
+            })
+        }
     }, [props]);
 
     //append text to parent element and add styles
@@ -45,11 +48,11 @@ export const TextBlock = (props) => {
             text.marks.forEach(mark => {
                 if(markDefs.length > 0) {
                     markDefs.forEach(markDef => {
+                        //link
                         if(markDef._key === mark && markDef._type === 'link') {
                             newSpan.remove();
                             newSpan = document.createElement('a');
                             newSpan.textContent = text.text;
-                            console.log(markDef.href)
                             newSpan.href = '//' + markDef.href;
                         }
                     })

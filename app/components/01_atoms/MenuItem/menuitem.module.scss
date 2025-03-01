@@ -3,16 +3,19 @@
 .item {
     font-size: 1.2rem;
     margin-top: 2px;
+    --color: #{variables.$white};
 
     * {
         text-decoration: none;
+        color: var(--color);
+        transition: color variables.$base-transition;
     }
 
     &:after {
         content: "";
         width: 0;
         height: 2px;
-        background-color: variables.$light-grey;
+        background-color: var(--color);
         margin-top: 8px;
         border-radius: 10em;
         display: block;
@@ -24,4 +27,8 @@
             width: 100%;
         }
     }
+}
+
+.active {
+    --color: #{variables.$secondaryLight};
 }
