@@ -13,7 +13,7 @@ export const Media = (props) => {
                 urlForImage(props.media.asset).width(width).quality(quality).url() }/>
             :
             <video className={style.video} width='500' height='500' controls preload="true">
-                <source src={getFileAsset(props.media[0].asset, {projectId: sanityConfig.projectId, dataset: sanityConfig.dataset}).url}/>
+                <source src={getFileAsset(props.media.asset, {projectId: sanityConfig.projectId, dataset: sanityConfig.dataset}).url}/>
             </video>
     );
 };

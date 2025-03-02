@@ -8,7 +8,7 @@ export const LessonsPage = async () => {
     return (
         <main>
             <Heading tag="h1" type="h1" firstLine="Unterricht"/>
-            <TextMedia text={data.text}/>
+            <TextMedia text={data.text} media={data.media}/>
         </main>
     );
 };

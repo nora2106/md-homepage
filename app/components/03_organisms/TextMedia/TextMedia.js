@@ -12,7 +12,9 @@ export function TextMedia (props) {
             <div className={style.media}>
                 {
                     props.media ?
-                        <Media media={props.media}/>
+                        props.media.map((media, index) =>
+                            <Media key={index} media={media}/>
+                        )
                         : <div/>
                 }
             </div>
