@@ -1,8 +1,8 @@
 @use '../../00_utilities/variables';
 
 .singleMedia {
-  width: 90%;
-  margin: 4em auto;
+  width: 100%;
+  margin: 0 auto;
 
   @media (min-width: variables.$md) {
     width: 70%;

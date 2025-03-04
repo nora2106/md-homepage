@@ -26,8 +26,8 @@ export const Hero = (props) => {
     return (
         <div ref={heroRef} className={styles.hero}>
             <div className={styles.imageWrapper}>
+                <Image className={styles.topFlowers} width="500" height="600" src='/img/top-flowers.png' alt=''/>
                 <div className={styles.playerImageWrapper}>
-                    <Image className={styles.topFlowers} width="500" height="600" src='/img/top-flowers.png' alt=''/>
                     <div className={styles.playerImgs}>
                         <Image className={styles.player} width="500" height="600" src='/img/player1.png' alt=''/>
                         <Image className={styles.bird} width="400" height="500" src='/img/bird.png' alt=''/>

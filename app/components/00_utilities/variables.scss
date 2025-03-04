@@ -15,15 +15,21 @@ $black: #000;
 $text-light: $light-grey;
 $page-bg: $dark-green;
 
-//breakpoints
+// breakpoints
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
 
-//
-$text-padding-mobile: 1.5rem;
-$text-padding-desktop: 2rem;
+// font sizes
+$font-size-base: 1.2rem;
+$font-size-small: 1rem;
+$font-size-smallest: .8rem;
+$font-size-big: 1.4rem;
+$font-size-biggest: 1.8rem;
 
+// miscellaneous
+$text-padding-mobile: 2rem;
+$text-padding-desktop: 2.5rem;
 $base-transition: .3s ease-in;

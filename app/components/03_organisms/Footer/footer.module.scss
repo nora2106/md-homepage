@@ -8,6 +8,7 @@
   margin-top: 8em;
 
   @media (min-width: variables.$md) {
+    margin-top: 10em;
     height: 30em;
   }
 }
@@ -18,7 +19,12 @@
   flex-direction: column;
   height: 80%;
   justify-content: space-between;
-  padding-block: 2em;
+  margin-top: -2em;
+
+  @media (min-width: variables.$md) {
+    margin-top: -1em;
+    padding-block: 2em;
+  }
 }
 
 .mailIcon {

@@ -65,7 +65,7 @@ h2, .headline-2 {
 p,
 li {
   color: variables.$text-light;
-  font-size: 1.2rem;
+  font-size: variables.$font-size-base;
 }
 
 a {

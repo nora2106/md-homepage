@@ -1,12 +1,13 @@
 @use '../../00_utilities/variables';
 
 .block {
-  text-align: left;
   margin: 0 auto;
   flex: 1;
   padding-inline: variables.$text-padding-mobile;
+  text-align: justify;
 
   @media (min-width: variables.$lg) {
+    text-align: left;
     padding-inline: variables.$text-padding-desktop;
   }
 }

@@ -1,11 +1,15 @@
 @use '../../00_utilities/variables';
 
+.buttonWrapper {
+  text-decoration: none;
+}
+
 .button {
   border: 2px solid variables.$primary;
   border-radius: .8em;
   padding-inline: 1em;
   padding-block: .5em;
-  font-size: .6rem;
+  font-size: variables.$font-size-base;
   color: variables.$white;
   background-color: transparent;
   display: flex;
@@ -13,6 +17,7 @@
   align-items: center;
   gap: 5px;
   width: fit-content;
+
 
   &:hover {
     cursor: pointer;

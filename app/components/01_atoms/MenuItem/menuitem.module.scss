@@ -1,14 +1,14 @@
 @use '../../00_utilities/variables';
 
 .item {
-    font-size: 1.2rem;
     margin-top: 2px;
     --color: #{variables.$white};
+    text-decoration: none;
 
-    * {
-        text-decoration: none;
+    span {
         color: var(--color);
         transition: color variables.$base-transition;
+        font-size: 1.2rem;
     }
 
     &:after {
@@ -31,4 +31,5 @@
 
 .active {
     --color: #{variables.$secondaryLight};
+    color: variables.$secondaryLight;
 }

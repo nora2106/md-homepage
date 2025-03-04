@@ -18,7 +18,7 @@ export default defineConfig({
                   .title('Seiten')
                   .child(
                       S.list()
-                          .title('Settings Documents')
+                          .title('Seiten bearbeiten')
                           .items([
                             S.listItem()
                                 .title('Allgemeine Einstellungen')

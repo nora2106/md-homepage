@@ -7,6 +7,15 @@
   gap: 1em;
   float: right;
   align-self: flex-end;
+  margin-right: 2em;
+
+  @media (min-width: variables.$md) {
+    margin-right: 1em;
+  }
+
+  @media (min-width: variables.$lg) {
+    margin-right: 0;
+  }
 }
 
 .arrow {
