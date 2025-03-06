@@ -1,12 +1,15 @@
 "use client"
-// content block with text and media (separated)
-import style from "./textmedia.module.scss";
+// content block with varying media/text sections
+import style from "./textmediablocks.module.scss";
 import Image from "next/image";
 import {useEffect, useState, useRef} from "react";
 import Media from "@/app/components/01_atoms/Media/Media";
 import TextBlock from "@/app/components/02_molecules/TextBlock/TextBlock";
 
-export function TextMedia (props) {
+export function TextMediaBlocks (props) {
+    const mediaList = props.media;
+    const textList = props.text;
+
     return (
         <div className={style.wrapper}>
             <TextBlock text={props.text}/>
@@ -24,4 +27,4 @@ export function TextMedia (props) {
     );
 }
 
-export default TextMedia;
+export default TextMediaBlocks;

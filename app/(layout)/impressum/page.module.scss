@@ -1,0 +1,23 @@
+@use '../../components/00_utilities/variables';
+
+.text {
+  margin-inline: variables.$text-padding-mobile;
+  //max-width: 80%;
+  *:not(p) {
+    padding-inline: 0;
+    padding-block: 10px;
+  }
+
+  p {
+    text-align: left;
+  }
+
+  @media (min-width: variables.$md) {
+    margin-inline: variables.$text-padding-desktop * 2;
+    max-width: 80em;
+
+    p {
+      text-align: justify;
+    }
+  }
+}

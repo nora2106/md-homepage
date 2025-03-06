@@ -10,7 +10,6 @@ import Media from "@/app/components/01_atoms/Media/Media";
 export const Home = async () => {
     const pageContent = await getHomepage();
     const data = pageContent[0];
-    console.log(data)
 
     return (
         <main>

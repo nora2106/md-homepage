@@ -33,6 +33,12 @@ export const settings = defineType({
             of: [{type: 'block'}],
         }),
         defineField({
+            name: 'image_credit',
+            title: 'Illustration Credit',
+            description: 'Copyright-Notiz unter der Startseitenillustration',
+            type: 'string',
+        }),
+        defineField({
             name: 'footer_credit',
             title: 'Footer Credit',
             type: 'string',
