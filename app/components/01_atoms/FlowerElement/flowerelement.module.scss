@@ -1,0 +1,19 @@
+@use '../../00_utilities/variables';
+
+.wrapper {
+  position: relative;
+}
+
+.flower1 {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.flower2 {
+  position: absolute;
+  left: 0;
+  transform: scale(1.3);
+  width: 100%;
+  height: auto;
+}

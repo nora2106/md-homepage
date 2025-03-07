@@ -23,7 +23,6 @@ export const Footer = async () => {
                 <p>Webseite erstellt von <a href="/">Nora Klinger</a></p>
             </div>
         </div>
-
     </div>
 };
 

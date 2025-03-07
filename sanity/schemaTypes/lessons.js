@@ -6,7 +6,6 @@ export const lessons = defineType({
     name: 'lessons',
     title: 'Unterricht',
     type: 'document',
-    description: 'Neues Projekt hinzufügen',
     fields: [
         defineField({
             name: 'headline',
@@ -16,7 +15,7 @@ export const lessons = defineType({
         }),
         defineField({
             name: 'text',
-            title: 'Text',
+            title: 'Textblöcke',
             type: 'array',
             of: customText.of,
         }),

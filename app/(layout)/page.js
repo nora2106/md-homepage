@@ -6,6 +6,7 @@ import { getHomepage} from "@/sanity/sanity-query";
 import TextBanner from "@/app/components/02_molecules/TextBanner/TextBanner";
 import styles from "../components/06_pages/Home/home.module.scss"
 import Media from "@/app/components/01_atoms/Media/Media";
+import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
 
 export const Home = async () => {
     const pageContent = await getHomepage();
@@ -14,6 +15,9 @@ export const Home = async () => {
     return (
         <main>
             <Hero headline1={data.page_headline[0]} headline2={data.page_headline[1]}/>
+            <div className={styles.flowerWrapper1}>
+                <FlowerElement/>
+            </div>
             <Heading tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
             <TextMedia media={data.about_me_media} text={data.about_me_text}/>
             {
