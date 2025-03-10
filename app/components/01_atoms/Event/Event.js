@@ -29,7 +29,7 @@ export const Event = (props) => {
                 <span>{date}</span>
                 <span>{time}</span>
             </div>
-            <h3 className={style.headline}>{props.headline}</h3>
+            <h4 className={style.headline}>{props.headline}</h4>
             {
                 props.text ?
                     <p className={style.text}>{props.text}</p>

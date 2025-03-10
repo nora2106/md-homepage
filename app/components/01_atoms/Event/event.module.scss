@@ -30,15 +30,7 @@
 
 .text {
   margin-bottom: 1em;
-  font-size: .8rem;
-
-  @media (min-width: variables.$md) {
-    font-size: 1rem;
-  }
-
-  @media (min-width: variables.$lg) {
-    font-size: 1.1rem;
-  }
+  font-size: variables.$font-size-small;
 }
 
 .bottomLine {

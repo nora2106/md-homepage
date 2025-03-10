@@ -18,17 +18,11 @@
   gap: 5px;
   width: fit-content;
 
-
   &:hover {
     cursor: pointer;
   }
 
-  @media (min-width: variables.$md) {
-    font-size: .8rem;
-  }
-
   @media (min-width: variables.$lg) {
-    font-size: 1.2rem;
     border-radius: 1em;
     padding-inline: 1.5em;
     padding-block: .5em;

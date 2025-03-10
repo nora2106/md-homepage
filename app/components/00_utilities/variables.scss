@@ -23,11 +23,11 @@ $xl: 1200px;
 $xxl: 1400px;
 
 // font sizes
-$font-size-base: 1.2rem;
-$font-size-small: 1rem;
-$font-size-smallest: .8rem;
-$font-size-big: 1.4rem;
-$font-size-biggest: 1.8rem;
+$font-size-base: clamp(.6rem, 4vw, 1.2rem);
+$font-size-small: clamp(.5rem, 4vw, 1rem);
+$font-size-smallest: clamp(.4rem, 4vw, .8rem);
+$font-size-big: clamp(.7rem, 4vw, 1.4rem);
+$font-size-biggest: clamp(.9rem, 4vw, 1.8rem);
 
 // miscellaneous
 $text-padding-mobile: 2rem;

@@ -12,7 +12,7 @@
   text-align: center;
   margin: 0 auto;
   max-width: 90%;
-  font-size: 1.4rem;
+  font-size: variables.$font-size-big;
 
   @media (min-width: variables.$md) {
     max-width: 50%;

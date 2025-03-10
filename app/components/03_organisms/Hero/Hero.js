@@ -2,15 +2,29 @@
 import Image from 'next/image';
 import Heading from "@/app/components/01_atoms/Heading/Heading";
 import styles from "./hero.module.scss"
-import {useRef, useEffect} from "react";
+import {useRef, useEffect, useState} from "react";
+import {getSettings} from "@/sanity/sanity-query";
 
 export const Hero = (props) => {
     const heroRef = useRef(null);
+    const [imgCredit, setImgCredit] = useState("")
 
     useEffect(() => {
         calcVH();
         window.addEventListener('onorientationchange', calcVH, true);
         window.addEventListener('resize', calcVH, true);
+    }, []);
+
+    useEffect( () => {
+        (async function() {
+            try {
+                let settingData = await getSettings();
+                console.log(settingData)
+                setImgCredit(settingData[0].image_credit);
+            } catch (e) {
+                console.error(e);
+            }
+        })();
     }, []);
 
     //calculate height
@@ -40,6 +54,7 @@ export const Hero = (props) => {
                 <Image className={styles.rightPlantSecond} width="500" height="600" src='/img/right-plant2.png' alt=''/>
                 <Image className={styles.rightPlantThird} width="500" height="600" src='/img/right-plant2.png' alt=''/>
                 </div>
+                <p className={styles.annotation}>© Bild: {imgCredit}</p>
             </div>
             <div className={styles.headlineWrapper}>
                 <Heading tag='h1' type='headline--1' firstLine={props.headline1} secondLine={props.headline2}/>

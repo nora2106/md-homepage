@@ -7,6 +7,7 @@
   z-index: 5;
   width: 35%;
   animation: slideIn 2s forwards;
+  pointer-events: none;
 
   @media (min-width: variables.$sm) {
     width: 12em;

@@ -58,7 +58,8 @@ export async function getSettings() {
       address,
       imprint_text,
       footer_credit,
-      footer_link
+      footer_link,
+      image_credit,
     }`, {},
         {
             next: {revalidate: 60}
