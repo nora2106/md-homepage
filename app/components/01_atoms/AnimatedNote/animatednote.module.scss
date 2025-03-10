@@ -1,0 +1,76 @@
+@use '../../00_utilities/variables';
+
+.noteWrapper {
+  position: absolute;
+  right: 0;
+  bottom: -10%;
+  z-index: 5;
+  width: 35%;
+  animation: slideIn 2s forwards;
+
+  @media (min-width: variables.$sm) {
+    width: 12em;
+  }
+
+  @media (min-width: variables.$md) {
+    width: 16em;
+    bottom: 12%;
+  }
+
+  @media (min-width: variables.$lg) {
+    right: 5%;
+    width: 18em;
+    bottom: 15%;
+  }
+
+  @media (min-width: variables.$xl) {
+    width: 20em;
+    bottom: 0;
+  }
+
+  svg {
+    fill: variables.$page-bg;
+    animation: rotate 1.2s forwards;
+    animation-delay: 1s;
+    width: 100%;
+    height: auto;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes rotateBack {
+  from {
+    transform: rotate(8deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+

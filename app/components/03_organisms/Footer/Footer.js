@@ -2,6 +2,7 @@ import styles from "./footer.module.scss"
 import Link from "next/link";
 import { FaAt } from "react-icons/fa6";
 import {getSettings} from "@/sanity/sanity-query";
+import AnimatedNote from "@/app/components/01_atoms/AnimatedNote/AnimatedNote";
 
 export const Footer = async () => {
     const pageContent = await getSettings();
@@ -22,6 +23,8 @@ export const Footer = async () => {
                 <Link href="/impressum">Impressum</Link>
                 <p>Webseite erstellt von <a href="/">Nora Klinger</a></p>
             </div>
+            <a className={styles.attribution} href="https://www.vecteezy.com/free-vector/illustration">Illustration Vectors by Vecteezy</a>
+            <AnimatedNote/>
         </div>
     </div>
 };

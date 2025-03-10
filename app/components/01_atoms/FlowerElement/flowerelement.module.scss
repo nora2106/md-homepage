@@ -8,12 +8,46 @@
   position: relative;
   width: 100%;
   height: auto;
+  animation: grow 1.6s ease-out forwards;
+  transform: scale(.3);
+  opacity: 0;
 }
 
 .flower2 {
   position: absolute;
   left: 0;
-  transform: scale(1.3);
+  opacity: 0;
   width: 100%;
   height: auto;
+  animation: grow2 1.4s ease-in forwards;
+  animation-delay: .2s;
+}
+
+@keyframes grow {
+  0% {
+    opacity: 0;
+    transform: scale(.2) rotate(0deg);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(90deg);
+    opacity: 1;
+  }
+}
+
+@keyframes grow2 {
+  0% {
+    transform: scale(.3) rotate(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(.3) rotate(90deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3) rotate(90deg);
+    opacity: 1;
+  }
 }
