@@ -1,6 +1,8 @@
 import {defineField, defineType} from 'sanity'
 import customMedia from "@/sanity/schemaTypes/customMedia";
 import customText from "@/sanity/schemaTypes/customText";
+import client from "../sanity-client";
+
 
 export const project = defineType({
     name: 'project',
@@ -38,6 +40,28 @@ export const project = defineType({
             description: 'Bilder oder Videos',
             type: 'array',
             of: customMedia.of,
+        }),
+        defineField({
+            name: 'sort',
+            title: 'Sortierung',
+            description: 'Priorität des Projekts in der Anzeige (1 = ganz oben)',
+            type: 'number',
+            validation: (Rule) =>
+                Rule.custom(async (sortValue) => {
+                    if (sortValue < 1) {
+                        return 'Minimum-Priorität 1';
+                    }
+
+                    const totalProjects = await client.fetch(
+                        'count(*[_type == "project"])'
+                    );
+
+                    if (sortValue > totalProjects) {
+                        return `Priorität darf nicht höher als ${totalProjects} sein (Projektanzahl)`;
+                    }
+
+                    return true;
+                }),
         }),
     ],
 })

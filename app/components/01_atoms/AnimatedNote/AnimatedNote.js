@@ -1,5 +1,5 @@
 import styles from "./animatednote.module.scss";
-import Note from './../../../../public/img/music-note.svg'
+import Note from '@/public/img/music-note.svg'
 
 export const AnimatedNote = () => {
     return (

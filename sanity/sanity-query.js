@@ -42,7 +42,8 @@ export async function getProjects() {
       description,
       slug,
       media,
-      body
+      body,
+      sort
     }`, {},
         {
             next: {revalidate: 60}
