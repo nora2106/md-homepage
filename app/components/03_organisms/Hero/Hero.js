@@ -15,11 +15,11 @@ export const Hero = (props) => {
         window.addEventListener('resize', calcVH, true);
     }, []);
 
+    // @todo get via props to avoid delay
     useEffect( () => {
         (async function() {
             try {
                 let settingData = await getSettings();
-                console.log(settingData)
                 setImgCredit(settingData[0].image_credit);
             } catch (e) {
                 console.error(e);
@@ -31,9 +31,9 @@ export const Hero = (props) => {
     function calcVH() {
         const navHeight = document.querySelector('#header').clientHeight;
         let vH = (window.innerHeight - navHeight);
-        // @todo fix this
         if(heroRef.current != null) {
             heroRef.current.style.setProperty("--hero-height", vH + "px");
+            heroRef.current.style.setProperty("--nav-height", navHeight + "px");
         }
     }
 
@@ -50,9 +50,11 @@ export const Hero = (props) => {
                 </div>
                 <div className={styles.plants}>
                 <Image className={styles.leftPlants} width="500" height="600" src='/img/left-plant.png' alt=''/>
-                <Image className={styles.rightPlant} width="500" height="600" src='/img/right-plant.png' alt=''/>
-                <Image className={styles.rightPlantSecond} width="500" height="600" src='/img/right-plant2.png' alt=''/>
-                <Image className={styles.rightPlantThird} width="500" height="600" src='/img/right-plant2.png' alt=''/>
+                    <div className={styles.middlePlants}>
+                        <Image className={styles.rightPlantThird} width="500" height="600" src='/img/right-plant2.png' alt=''/>
+                        <Image className={styles.rightPlantSecond} width="500" height="600" src='/img/right-plant2.png' alt=''/>
+                    </div>
+                    <Image className={styles.rightPlant} width="500" height="600" src='/img/right-plant.png' alt=''/>
                 </div>
                 <p className={styles.annotation}>© Bild: {imgCredit}</p>
             </div>

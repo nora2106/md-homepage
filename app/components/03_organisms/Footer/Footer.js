@@ -21,7 +21,7 @@ export const Footer = async () => {
                 {/*@todo dynamic year*/}
                 <p>2025, alle Rechte vorbehalten.</p>
                 <Link href="/impressum">Impressum</Link>
-                <p>Webseite erstellt von <a href="/">Nora Klinger</a></p>
+                <p>Webseite erstellt von <a href={data.footer_link ? data.footer_link : "/"}>Nora Klinger</a></p>
             </div>
             <a className={styles.attribution} href="https://www.vecteezy.com/free-vector/illustration">Illustration Vectors by Vecteezy</a>
             <AnimatedNote/>

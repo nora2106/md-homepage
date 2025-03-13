@@ -7,7 +7,7 @@ export const LessonsPage = async () => {
     const data = pageContent[0];
     return (
         <main>
-            <Heading tag="h1" type="h1" firstLine="Unterricht"/>
+            <Heading tag="h1" type="headline-2" firstLine="Unterricht"/>
             <TextMedia text={data.text} media={data.media}/>
         </main>
     );

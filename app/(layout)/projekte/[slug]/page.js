@@ -15,7 +15,7 @@ export const ProjectDetail = async ({params}) => {
             {
                 projectData ?
                     <div>
-                        <Heading tag="h1" type="h2" firstLine={projectData.name}/>
+                        <Heading tag="h1" type="headline-2" firstLine={projectData.name}/>
                     </div>
                 :
                     <Heading tag="h1" type="h2" firstLine="404 not found"/>

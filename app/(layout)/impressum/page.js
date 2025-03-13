@@ -8,7 +8,7 @@ export const Imprint = async () => {
     const data = pageContent[0];
     return (
         <main>
-            <Heading tag="h1" type="h2" firstLine="Impressum"/>
+            <Heading tag="h1" type="headline-2" firstLine="Impressum"/>
             <div className={styles.text}>
                 <h2 className='headline-4'>Kontakt: </h2>
                 <div><p>{data.email}</p></div>
