@@ -20,7 +20,7 @@
   opacity: 0;
   width: 100%;
   height: auto;
-  animation: grow2 1.4s ease-in forwards;
+  animation: grow2 1.8s ease-in forwards;
   animation-delay: .2s;
 }
 
@@ -44,7 +44,7 @@
     opacity: 0;
   }
   40% {
-    transform: scale(.3) rotate(90deg);
+    transform: scale(.4) rotate(90deg);
     opacity: 1;
   }
   100% {

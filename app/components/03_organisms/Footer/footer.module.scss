@@ -71,8 +71,15 @@
 .mail {
   color: variables.$white;
   font-size: clamp(1.5rem, 4vw, 3rem);
-  font-weight: bold;
   font-family: var(--font-libre-franklin);
+  transition: all .6s ease-in-out, letter-spacing .4s ease-in-out;
+  font-variation-settings: "wght" 100;
+  letter-spacing: 0;
+
+  &:hover {
+    font-variation-settings: "wght" 350;
+    letter-spacing: 2px;
+  }
 }
 
 .text {

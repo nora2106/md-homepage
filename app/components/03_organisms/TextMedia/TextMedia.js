@@ -1,19 +1,19 @@
-"use client"
 // content block with text and media (separated)
 import style from "./textmedia.module.scss";
-import Image from "next/image";
-import {useEffect, useState, useRef} from "react";
 import Media from "@/app/components/01_atoms/Media/Media";
 import TextBlock from "@/app/components/02_molecules/TextBlock/TextBlock";
+import {getHomepage} from "@/sanity/sanity-query";
 
-export function TextMedia (props) {
+export async function TextMedia() {
+    const content = await getHomepage();
+    const data = content[0];
     return (
         <div className={style.wrapper}>
-            <TextBlock text={props.text}/>
+            <TextBlock text={data.about_me_text}/>
             <div className={style.media}>
                 {
-                    props.media ?
-                        props.media.map((media, index) =>
+                    data.about_me_media ?
+                        data.about_me_media.map((media, index) =>
                             <Media key={index} media={media}/>
                         )
                         : <div/>

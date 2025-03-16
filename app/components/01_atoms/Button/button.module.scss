@@ -1,25 +1,34 @@
 @use '../../00_utilities/variables';
+@property --bg-width {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
 
 .buttonWrapper {
   text-decoration: none;
 }
 
 .button {
-  border: 2px solid variables.$primary;
+  --border-color: #{variables.$primary};
+  --bg-width: 0;
+  border: 2px solid var(--border-color);
   border-radius: .8em;
   padding-inline: 1em;
   padding-block: .5em;
-  font-size: variables.$font-size-base;
+  font-size: variables.$font-size-small;
   color: variables.$white;
-  background-color: transparent;
-  display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 5px;
+  gap: .5em;
   width: fit-content;
+  transition: --bg-width .6s ease-in-out;
+  background: linear-gradient(90deg, var(--border-color) var(--bg-width), transparent 0%);
+  display: flex;
 
   &:hover {
     cursor: pointer;
+    --bg-width: 100%;
   }
 
   @media (min-width: variables.$lg) {
@@ -27,10 +36,18 @@
     padding-inline: 1.5em;
     padding-block: .5em;
   }
+
+  @keyframes animateBg {
+    0% {
+      background: linear-gradient(90deg, var(--border-color) 0%, transparent 0%);
+    }
+    100% {
+      background: linear-gradient(90deg, var(--border-color) 100%, transparent 0%);
+    }
+  }
+
 }
 
 .secondary {
-  border-color: variables.$white;
-  background-color: variables.$white;
-  color: variables.$black;
+  --border-color: #{variables.$secondary};
 }

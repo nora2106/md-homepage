@@ -1,21 +1,47 @@
 "use client"
 import style from "./media.module.scss";
-import Image from "next/image";
 import {urlForImage} from "@/sanity/sanity-client";
-import {getFileAsset} from "@sanity/asset-utils";
-import sanityConfig from "@/sanity.config";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export const Media = (props) => {
-    return (
-        props.media._type === 'image' ?
-            <Image className={style.image} src='empty' width='500' height='500' alt='' loader={({ width, quality = 100 }) =>
-                urlForImage(props.media.asset).width(width).quality(quality).url() }/>
-            :
-            <video className={style.video} width='500' height='500' controls preload="true">
-                <source src={getFileAsset(props.media.asset, {projectId: sanityConfig.projectId, dataset: sanityConfig.dataset}).url}/>
-            </video>
-    );
+
+    if (props.media._type === "image") {
+        return (
+            <img
+                className={style.image}
+                src={urlForImage(props.media.asset)
+                    .width(800)
+                    .quality(100)
+                    .auto("format")
+                    .url()}
+                alt="media"
+                width="500"
+                height="500"
+                loading="lazy"
+                fetchPriority="low"
+            />
+        );
+    }
+    else {
+        const [videoSrc, setVideoSrc] = useState("");
+
+        useEffect(() => {
+            const assetId = props.media.asset._ref.replace("file-", "").replace("-mp4", "");
+            const projectId = "mh231zz3";
+            const dataset = "production";
+            const url = `https://cdn.sanity.io/files/${projectId}/${dataset}/${assetId}.mp4`;
+            setVideoSrc(url);
+        }, [props.media]);
+
+        return (
+                videoSrc ?
+                    <video className={style.video} width='500' height='500' controls preload="true">
+                        <source src={videoSrc}/>
+                    </video>
+                    :
+                <div/>
+        );
+    }
 };
 
 export default Media;
