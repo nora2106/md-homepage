@@ -9,8 +9,8 @@
   position: relative;
   width: 100%;
   height: auto;
-  animation: grow 1.6s ease-out forwards;
-  transform: scale(.3);
+  //animation: grow 1.6s ease-out forwards;
+  transform: scale(.2);
   opacity: 0;
 }
 
@@ -20,7 +20,8 @@
   opacity: 0;
   width: 100%;
   height: auto;
-  animation: grow2 1.8s ease-in forwards;
+  transform: scale(.3);
+  //animation: grow2 1.8s ease-in forwards;
   animation-delay: .2s;
 }
 

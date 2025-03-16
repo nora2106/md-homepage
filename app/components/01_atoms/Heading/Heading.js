@@ -10,15 +10,24 @@ export const Heading = (props) => {
 
     const pathname = usePathname();
     const [renderKey, setRenderKey] = useState(0);
+    const [animHasStarted, setAnimHasStarted] = useState(false)
 
-    // rerender key on every page change to ensure animation firing
     useEffect(() => {
         setRenderKey(Math.random());
+        if(props.hasFallback) {
+            const timer = setTimeout(() => {
+                if(!animHasStarted) {
+                    setRenderKey(Math.random());
+                }
+            }, 140);
+
+            return () => clearTimeout(timer);
+        }
     }, [pathname]);
 
     const headlineVariants = {
         hide: {
-            x: -400,
+            x: -350,
             opacity: 0
         },
         show: {
@@ -33,7 +42,7 @@ export const Heading = (props) => {
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide" viewport={{ once: true }} variants={headlineVariants}>
+            <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide" viewport={{once: true}} variants={headlineVariants} onAnimationStart={() => setAnimHasStarted(true)}>
                 <Tag className={`${styles.heading} ${props.type} `}>
                     <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
                     <br/>
@@ -42,7 +51,7 @@ export const Heading = (props) => {
                     })].join(" ")}>{props.secondLine}</span>
                 </Tag>
             </motion.div>
-        </AnimatePresence>
+        // </AnimatePresence>
     );
 };
 

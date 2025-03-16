@@ -26,9 +26,17 @@
   background: linear-gradient(90deg, var(--border-color) var(--bg-width), transparent 0%);
   display: flex;
 
+  svg {
+    transition: transform variables.$base-transition;
+  }
+
   &:hover {
     cursor: pointer;
     --bg-width: 100%;
+
+    svg {
+      transform: scale(1.2);
+    }
   }
 
   @media (min-width: variables.$lg) {

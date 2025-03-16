@@ -3,7 +3,6 @@
 .container {
   background-color: variables.$secondary;
   width: 100%;
-  padding-block: 4em;
   margin-block: 8em;
 }
 
@@ -13,6 +12,7 @@
   margin: 0 auto;
   max-width: 90%;
   font-size: variables.$font-size-big;
+  height: fit-content;
 
   @media (min-width: variables.$md) {
     max-width: 50%;

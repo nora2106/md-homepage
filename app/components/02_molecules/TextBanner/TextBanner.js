@@ -1,14 +1,11 @@
 "use client"
 import styles from "./textbanner.module.scss";
-import {useEffect} from "react";
+import {motion} from "motion/react";
 
 export const TextBanner = (props) => {
-    useEffect(() => {
-        console.log("Banner requested at:", performance.now());
-    }, []);
     return (
         <div className={styles.container}>
-            <p className={styles.text}>{props.text}</p>
+            <motion.p initial={{paddingTop: 0, paddingBottom: 0, opacity: 0}} whileInView={{paddingTop: 50, paddingBottom: 50, opacity: 1}}  transition={{ duration: 1 }} viewport={{once: true}} className={styles.text}>{props.text}</motion.p>
         </div>
     );
 };
