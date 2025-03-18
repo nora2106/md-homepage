@@ -2,12 +2,65 @@
 import style from "./media.module.scss";
 import {urlForImage} from "@/sanity/sanity-client";
 import {useEffect, useState} from "react";
+import {motion} from "motion/react";
 
 export const Media = (props) => {
+    let mediaVariants = {
+        hide: {
+            opacity: 0,
+            x: 500,
+        },
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 1.2,
+                transition: ["ease-in"],
+            }
+        },
+    }
+
+    if (props.left) {
+        mediaVariants = {
+            hide: {
+                opacity: 0,
+                x: -500,
+            },
+            show: {
+                opacity: 1,
+                x: 0,
+                transition: {
+                    duration: 1.4,
+                    transition: ["ease-in"],
+                }
+            },
+        }
+    }
+
+    if (props.centered) {
+        mediaVariants = {
+            hide: {
+                opacity: 0,
+                scale: .6,
+            },
+            show: {
+                opacity: 1,
+                scale: 1,
+                transition: {
+                    duration: 1.6,
+                    transition: ["ease-in"],
+                }
+            },
+        }
+    }
 
     if (props.media._type === "image") {
         return (
-            <img
+            <motion.img
+                initial="hide"
+                whileInView="show"
+                viewport={{once: true}}
+                variants={mediaVariants}
                 className={style.image}
                 src={urlForImage(props.media.asset)
                     .width(800)
@@ -21,8 +74,7 @@ export const Media = (props) => {
                 fetchPriority="low"
             />
         );
-    }
-    else {
+    } else {
         const [videoSrc, setVideoSrc] = useState("");
 
         useEffect(() => {
@@ -34,11 +86,15 @@ export const Media = (props) => {
         }, [props.media]);
 
         return (
-                videoSrc ?
-                    <video className={style.video} width='500' height='500' controls preload="true">
-                        <source src={videoSrc}/>
-                    </video>
-                    :
+            videoSrc ?
+                <motion.video initial="hide"
+                              whileInView="show"
+                              viewport={{once: true}}
+                              variants={mediaVariants}
+                              className={style.video} width='500' height='500' controls preload="true">
+                    <source src={videoSrc}/>
+                </motion.video>
+                :
                 <div/>
         );
     }

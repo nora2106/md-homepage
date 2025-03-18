@@ -9,7 +9,7 @@ export const EventColumn = async (props) => {
     return (
         <div className={style.wrapper}>
             { props.media ?
-                <Media media={props.media}/>
+                <Media left={true} media={props.media}/>
                 : <div/>
             }
             <EventSlider data={events}/>

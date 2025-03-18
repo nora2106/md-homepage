@@ -1,8 +1,9 @@
 "use client"
 import style from "./event.module.scss";
 import Button from "@/app/components/01_atoms/Button/Button";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import { IoLocationOutline } from "react-icons/io5";
+import {motion, useScroll, useTransform, useMotionValueEvent} from "motion/react";
 
 export const Event = (props) => {
     const [date, setDate] = useState("");
@@ -23,8 +24,31 @@ export const Event = (props) => {
         }
     }, [props.date]);
 
+    const target = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target,
+        offset: ['start end', 'end start'],
+    });
+    const parallax = useTransform(scrollYProgress, [0, 1], [-100, 100]);
+    useMotionValueEvent(parallax, 'change', (v) => console.log(v));
+
+    let sliderVariants = {
+        hide: {
+            opacity: 0,
+            x: 500
+        },
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 1.6,
+                transition: ["ease-in"],
+            }
+        },
+    }
+
     return (
-        <div className={`${style.container} event`}>
+        <motion.div ref={target} parallax={parallax}  className={`${style.container} event`}>
             <div className={style.date}>
                 <span>{date}</span>
                 <span>{time}</span>
@@ -55,7 +79,7 @@ export const Event = (props) => {
                 }
             </div>
 
-        </div>
+        </motion.div>
     );
 };
 

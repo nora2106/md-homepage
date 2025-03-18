@@ -65,10 +65,10 @@
   @media (min-width: variables.$lg) {
     overflow-y: clip;
     overflow-x: visible;
-    max-width: 28em;
+    max-width: 34em;
     bottom: 10%;
     top: auto;
-    width: 42%;
+    width: 50%;
   }
 
   @media (min-width: variables.$xl) {
@@ -76,8 +76,7 @@
   }
 
   @media (min-width: variables.$xxl) {
-    max-width: 32em;
-    right: 15%;
+    right: 16%;
   }
 
   @keyframes playerSlideIn {
@@ -176,16 +175,16 @@
   @media (min-width: variables.$md) {
     right: 25%;
     left: auto;
-    width: 45%;
+    width: 38%;
   }
 
   @media (min-width: variables.$lg) {
-    right: 20%;
-    max-width: 24em;
+    right: 25%;
+    max-width: 28em;
   }
 
   @media (min-width: variables.$xl) {
-    width: 30%;
+    width: 35%;
     max-width: 30em;
     right: 23%;
   }

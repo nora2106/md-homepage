@@ -1,9 +1,14 @@
 "use client"
 import styles from "./textblock.module.scss";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
+import {motion} from "motion/react";
+import {usePathname} from "next/navigation";
 
 export const TextBlock = (props) => {
     const textRef = useRef(null);
+    const pathname = usePathname();
+    const [renderKey, setRenderKey] = useState(0);
+    const [animPlayed, setAnimPlayed] = useState(false);
 
     useEffect(() => {
         //fill text block only if empty
@@ -77,8 +82,39 @@ export const TextBlock = (props) => {
         parent.appendChild(newSpan);
     }
 
+    let textVariants = {
+        hide: {
+            opacity: 0,
+            x: -500,
+        },
+        show: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 1.6,
+                transition: ["ease-in"],
+            }
+        },
+    }
+
+    useEffect(() => {
+        if(props.hasFallback) {
+            const timer = setTimeout(() => {
+                if(!animPlayed) {
+                    setRenderKey(Math.random());
+                }
+            }, 1200);
+
+            return () => clearTimeout(timer);
+        }
+    }, [pathname, animPlayed]);
+
     return (
-        <div ref={textRef} className={styles.block}></div>
+        <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide"
+                    viewport={{once: true}} variants={textVariants} ref={textRef}
+                    className={styles.block}
+                    onAnimationComplete={() => setAnimPlayed(true)}>
+        </motion.div>
     );
 };
 

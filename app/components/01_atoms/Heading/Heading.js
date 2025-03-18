@@ -10,20 +10,19 @@ export const Heading = (props) => {
 
     const pathname = usePathname();
     const [renderKey, setRenderKey] = useState(0);
-    const [animHasStarted, setAnimHasStarted] = useState(false)
+    const [animPlayed, setAnimPlayed] = useState(false)
 
     useEffect(() => {
-        setRenderKey(Math.random());
         if(props.hasFallback) {
             const timer = setTimeout(() => {
-                if(!animHasStarted) {
+                if(!animPlayed) {
                     setRenderKey(Math.random());
                 }
-            }, 140);
+            }, 1200);
 
             return () => clearTimeout(timer);
         }
-    }, [pathname]);
+    }, [pathname, animPlayed]);
 
     const headlineVariants = {
         hide: {
@@ -42,7 +41,9 @@ export const Heading = (props) => {
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide" viewport={{once: true}} variants={headlineVariants} onAnimationStart={() => setAnimHasStarted(true)}>
+            <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
+                        variants={headlineVariants} onAnimationComplete={() => setAnimPlayed(true)}
+            >
                 <Tag className={`${styles.heading} ${props.type} `}>
                     <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
                     <br/>

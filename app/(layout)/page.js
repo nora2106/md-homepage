@@ -19,12 +19,12 @@ export const Home = async () => {
             <div className={styles.flowerWrapper1}>
                 <FlowerElement/>
             </div>
-            <Heading tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
+            <Heading hasFallback={true} tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
             <TextMedia/>
             {
                 data.media_centered ?
                     <div className={styles.singleMedia}>
-                        <Media media={data.media_centered[0]} />
+                        <Media centered={true} media={data.media_centered[0]} />
                     </div>
                     : <div/>
             }
