@@ -24,6 +24,7 @@ export const EventSlider = (props) => {
         }
     });
 
+    //slider functionality
     useEffect(() => {
         const data = events;
         if(data.length > index) {
@@ -55,13 +56,14 @@ export const EventSlider = (props) => {
         setIndex(index - indexInc);
     }
 
+
     return (
         <div className={style.container}>
             <div ref={wrapperRef} className={style.wrapper}>
                 {
                     shownEvents ?
                         shownEvents.map((event, key) =>
-                            <Event key={key} headline={event.name} text={event.description} date={event.date} link={event.link} linkText={event.link_name} location={event.location}/>
+                            <Event change={index} index={key} parentRef={wrapperRef}  key={key} headline={event.name} text={event.description} date={event.date} link={event.link} linkText={event.link_name} location={event.location}/>
                         )
                         :
                         <div/>

@@ -2,7 +2,7 @@
 import style from "./event.module.scss";
 import Button from "@/app/components/01_atoms/Button/Button";
 import {useEffect, useRef, useState} from "react";
-import { IoLocationOutline } from "react-icons/io5";
+import {IoLocationOutline} from "react-icons/io5";
 import {motion, useScroll, useTransform, useMotionValueEvent} from "motion/react";
 
 export const Event = (props) => {
@@ -19,45 +19,45 @@ export const Event = (props) => {
         const toDate = new Date(props.date);
         setDate(toDate.toLocaleDateString('de-DE', dateOptions));
         setTime(toDate.toLocaleTimeString('de-DE', {hour: '2-digit', minute: '2-digit'}))
-        if(props.linkText) {
+        if (props.linkText) {
             setBtnText(props.linkText);
         }
     }, [props.date]);
 
+
     const target = useRef(null);
-    const { scrollYProgress } = useScroll({
+    const [scrollProgress, setScrollProgress] = useState("100%");
+
+    const {scrollYProgress} = useScroll({
         target,
         offset: ['start end', 'end start'],
     });
-    const parallax = useTransform(scrollYProgress, [0, 1], [-100, 100]);
-    useMotionValueEvent(parallax, 'change', (v) => console.log(v));
+    let progress;
 
-    let sliderVariants = {
-        hide: {
-            opacity: 0,
-            x: 500
-        },
-        show: {
-            opacity: 1,
-            x: 0,
-            transition: {
-                duration: 1.6,
-                transition: ["ease-in"],
-            }
-        },
-    }
+    useEffect(() => {
+
+    }, [props.change]);
+
+    let parallax = useTransform(scrollYProgress, [0, .2, .8, 1], [0, 100, 100, 0]);
+    useMotionValueEvent(parallax, 'change', (v) => {
+        progress = 100 - v;
+        setScrollProgress(progress.toFixed(2) + "%")
+        }
+    );
 
     return (
-        <motion.div ref={target} parallax={parallax}  className={`${style.container} event`}>
+        <motion.div key={props.change} ref={target} transition={{ease: "linear", duration: .4}} initial={{x: "100%"}}
+                    animate={{x: scrollProgress}} className={`${style.container} event`}>
             <div className={style.date}>
                 <span>{date}</span>
                 <span>{time}</span>
             </div>
+            <p>{scrollProgress}</p>
             <h4 className={style.headline}>{props.headline}</h4>
             {
                 props.text ?
                     <p className={style.text}>{props.text}</p>
-                :
+                    :
                     <div/>
             }
             <div className={style.bottomLine}>
@@ -67,7 +67,7 @@ export const Event = (props) => {
                             <IoLocationOutline/>
                             {props.location}
                         </span>
-                    :
+                        :
                         <span/>
                 }
 
