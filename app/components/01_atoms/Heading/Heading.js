@@ -8,22 +8,6 @@ import {useEffect, useState} from "react";
 export const Heading = (props) => {
     const Tag = props.tag;
 
-    const pathname = usePathname();
-    const [renderKey, setRenderKey] = useState(0);
-    const [animPlayed, setAnimPlayed] = useState(false)
-
-    useEffect(() => {
-        if(props.hasFallback) {
-            const timer = setTimeout(() => {
-                if(!animPlayed) {
-                    setRenderKey(Math.random());
-                }
-            }, 1200);
-
-            return () => clearTimeout(timer);
-        }
-    }, [pathname, animPlayed]);
-
     const headlineVariants = {
         hide: {
             x: -350,
@@ -32,26 +16,26 @@ export const Heading = (props) => {
         show: {
             x: 0,
             opacity: 1,
-            transition: {
-                duration: .8,
-                ease: ["easeIn"]
-            },
         },
     };
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
-                        variants={headlineVariants} onAnimationComplete={() => setAnimPlayed(true)}
-            >
                 <Tag className={`${styles.heading} ${props.type} `}>
-                    <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
-                    <br/>
-                    <span className={[classnames(styles.secondLine, {
-                        [styles.indented]: !props.reversed
-                    })].join(" ")}>{props.secondLine}</span>
+                    <motion.div animate={props.hasFallback ? "show" : ""} initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
+                                transition={{duration: .8, ease: ['easeIn']}}
+                                variants={headlineVariants}>
+                        <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
+                    </motion.div>
+                    <motion.div initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
+                                transition={{duration: .8, ease: ['easeIn'], delay: .6}}
+                                variants={headlineVariants} animate={props.hasFallback ? "show" : ""}>
+                        <span className={[classnames(styles.secondLine, {
+                            [styles.indented]: !props.reversed
+                        })].join(" ")}>{props.secondLine}
+                        </span>
+                    </motion.div>
                 </Tag>
-            </motion.div>
         // </AnimatePresence>
     );
 };

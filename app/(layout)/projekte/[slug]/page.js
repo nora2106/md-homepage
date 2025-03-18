@@ -1,5 +1,7 @@
 import {getProjects} from "@/sanity/sanity-query";
 import Heading from "@/app/components/01_atoms/Heading/Heading"
+import styles from "@/app/components/06_pages/Project/project.module.scss";
+import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
 
 export const ProjectDetail = async ({params}) => {
     let projectData = [];
@@ -12,6 +14,10 @@ export const ProjectDetail = async ({params}) => {
 
     return (
         <main>
+            <div className={styles.flowerWrapper}>
+                <FlowerElement/>
+            </div>
+            <div className={styles.content}>
             {
                 projectData ?
                     <div>
@@ -20,6 +26,7 @@ export const ProjectDetail = async ({params}) => {
                 :
                     <Heading tag="h1" type="h2" firstLine="404 not found"/>
             }
+            </div>
         </main>
     );
 };

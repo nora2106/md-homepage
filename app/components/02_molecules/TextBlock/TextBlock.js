@@ -97,23 +97,23 @@ export const TextBlock = (props) => {
         },
     }
 
-    useEffect(() => {
-        if(props.hasFallback) {
-            const timer = setTimeout(() => {
-                if(!animPlayed) {
-                    setRenderKey(Math.random());
-                }
-            }, 1200);
-
-            return () => clearTimeout(timer);
-        }
-    }, [pathname, animPlayed]);
+    // useEffect(() => {
+    //     if(props.hasFallback) {
+    //         const timer = setTimeout(() => {
+    //             if(!animPlayed) {
+    //                 setRenderKey(Math.random());
+    //             }
+    //         }, 1200);
+    //
+    //         return () => clearTimeout(timer);
+    //     }
+    // }, [pathname, animPlayed]);
 
     return (
-        <motion.div key={renderKey} initial="hide" whileInView="show" exit="hide"
+        <motion.div initial="hide" whileInView="show" exit="hide"
                     viewport={{once: true}} variants={textVariants} ref={textRef}
                     className={styles.block}
-                    onAnimationComplete={() => setAnimPlayed(true)}>
+                    animate={props.hasFallback ? "show" : ""}>
         </motion.div>
     );
 };
