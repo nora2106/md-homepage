@@ -2,7 +2,7 @@
 import styles from "./flowerelement.module.scss";
 import {motion} from "motion/react";
 
-export const FlowerElement = () => {
+export const FlowerElement = (props) => {
     const flower1Variants = {
         hide: {
             opacity: [1, 1, 0],
@@ -44,8 +44,8 @@ export const FlowerElement = () => {
 
     return (
         <div className={styles.wrapper}>
-                <motion.img whileInView="show" exit="hide" variants={flower1Variants} viewport={{once: true}} className={styles.flower1} width="500" height="600" src='/img/flower1.svg' alt=''/>
-                <motion.img whileInView="show" exit="hide" variants={flower2Variants} viewport={{once: true}} className={styles.flower2} width="500" height="600" src='/img/flower2.svg' alt=''/>
+                <motion.img animate={props.hasFallback ? "show" : ""}  whileInView="show" exit="hide" variants={flower1Variants} viewport={{once: true}} className={styles.flower1} width="500" height="600" src='/img/flower1.svg' alt=''/>
+                <motion.img animate={props.hasFallback ? "show" : ""}  whileInView="show" exit="hide" variants={flower2Variants} viewport={{once: true}} className={styles.flower2} width="500" height="600" src='/img/flower2.svg' alt=''/>
         </div>
     );
 };

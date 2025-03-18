@@ -6,7 +6,7 @@ export const Projects = async () => {
     const data = await getProjects();
     return (
         <main>
-            <Heading hasFallback={true} tag="h1" type="headline-2" firstLine="Projekte"/>
+            <Heading reversed={true} hasFallback={true} tag="h1" type="headline-2" secondLine="Projekte"/>
             <Grid projects={data}/>
         </main>
     );

@@ -15,7 +15,7 @@ export const ProjectDetail = async ({params}) => {
     return (
         <main>
             <div className={styles.flowerWrapper}>
-                <FlowerElement/>
+                <FlowerElement hasFallback={true}/>
             </div>
             <div className={styles.content}>
             {

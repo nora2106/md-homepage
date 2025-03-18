@@ -2,6 +2,8 @@
 
 .wrapper {
   height: 100%;
+  --border-width: 95%;
+  --border-height: 22em;
 
   &:first-child {
     &::before {
@@ -12,17 +14,17 @@
   &:after {
     height: 1px;
     display: block;
-    width: 95%;
+    width: var(--border-width);
     margin: 2em auto 0 auto;
     background-color: variables.$grey;
     content: '';
   }
 
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     width: 22em;
-    height: 22em;
+    height: var(--border-height);
     background-color: transparent;
     border-left: 1px solid variables.$grey;
     pointer-events: none;
@@ -61,8 +63,8 @@
 .letter {
   grid-area: 1 / 1 / 2 ;
   z-index: 2;
-  margin-top: 50%;
-  transform: translateY(-50%);
+  margin-top: 90%;
+  transform: translateY(-100%);
   color: transparent;
   background-color: transparent;
   -webkit-text-fill-color: transparent;
@@ -75,4 +77,6 @@
   height: 14em;
   width: auto;
   margin-bottom: 2em;
+  display: flex;
+  align-items: center;
 }

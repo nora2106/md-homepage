@@ -10,10 +10,10 @@ export const LessonsPage = async () => {
     return (
         <main>
             <div className={styles.flowerWrapper}>
-                <FlowerElement/>
+                <FlowerElement hasFallback={true}/>
             </div>
             <div className={styles.content}>
-                <Heading hasFallback={true} tag="h1" type="headline-2" firstLine="Unterricht"/>
+                <Heading hasFallback={true} tag="h1" type="headline-2" reversed={true} secondLine="Unterricht"/>
                 <TextMedia hasFallback={true} text={data.text} media={data.media}/>
             </div>
         </main>

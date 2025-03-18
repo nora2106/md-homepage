@@ -19,7 +19,7 @@ export const Home = async () => {
             <div className={styles.flowerWrapper1}>
                 <FlowerElement/>
             </div>
-            <Heading hasFallback={true} tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
+            <Heading tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
             <TextMedia/>
             {
                 data.media_centered ?

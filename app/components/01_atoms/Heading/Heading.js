@@ -22,13 +22,18 @@ export const Heading = (props) => {
     return (
         <AnimatePresence mode="wait">
                 <Tag className={`${styles.heading} ${props.type} `}>
-                    <motion.div animate={props.hasFallback ? "show" : ""} initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
-                                transition={{duration: .8, ease: ['easeIn']}}
-                                variants={headlineVariants}>
-                        <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
-                    </motion.div>
+                    {
+                        props.firstLine ?
+                            <motion.div animate={props.hasFallback ? "show" : ""} initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
+                                        transition={{duration: .8, ease: ['easeIn']}}
+                                        variants={headlineVariants}>
+                                <span className={props.reversed ? styles.indented : ''}>{props.firstLine}</span>
+                            </motion.div>
+                        : <div/>
+                    }
+
                     <motion.div initial="hide" whileInView="show" exit="hide" viewport={{once: true}}
-                                transition={{duration: .8, ease: ['easeIn'], delay: .6}}
+                                transition={ !props.reversed ? {duration: .8, ease: ['easeIn'], delay: .6} : {duration: .8, ease: ['easeIn']}}
                                 variants={headlineVariants} animate={props.hasFallback ? "show" : ""}>
                         <span className={[classnames(styles.secondLine, {
                             [styles.indented]: !props.reversed
