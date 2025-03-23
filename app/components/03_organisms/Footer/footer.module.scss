@@ -1,19 +1,28 @@
 @use '../../00_utilities/variables';
 
+.wrapper {
+  height: fit-content;
+  margin-top: 10em;
+  position: relative;
+
+  @media (min-width: variables.$md) {
+    margin-top: 15em;
+  }
+
+  @media (min-width: variables.$lg) {
+    margin-top: 25em;
+  }
+}
+
 .container {
   background-color: variables.$secondary;
   padding: 2em 1em;
   border-top-left-radius: 1em;
   border-top-right-radius: 1em;
-  margin-top: 8em;
+  width: 100%;
 
   @media (min-width: variables.$md) {
-    margin-top: 10em;
     height: 30em;
-  }
-
-  @media (min-width: variables.$lg) {
-    margin-top: 20em;
   }
 }
 

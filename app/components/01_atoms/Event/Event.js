@@ -34,8 +34,11 @@ export const Event = (props) => {
     });
     let progress;
 
+    // @todo reassign event listener on state change
     useEffect(() => {
-
+        if(scrollProgress !== "100%") {
+            setScrollProgress("0");
+        }
     }, [props.change]);
 
     let parallax = useTransform(scrollYProgress, [0, .2, .8, 1], [0, 100, 100, 0]);
@@ -46,13 +49,12 @@ export const Event = (props) => {
     );
 
     return (
-        <motion.div key={props.change} ref={target} transition={{ease: "linear", duration: .4}} initial={{x: "100%"}}
+        <motion.div key={props.change} ref={target} transition={{ease: "linear", duration: .6}} initial={{x: "100%"}}
                     animate={{x: scrollProgress}} className={`${style.container} event`}>
             <div className={style.date}>
                 <span>{date}</span>
                 <span>{time}</span>
             </div>
-            <p>{scrollProgress}</p>
             <h4 className={style.headline}>{props.headline}</h4>
             {
                 props.text ?
