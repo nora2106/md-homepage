@@ -21,26 +21,20 @@
 .wrapper {
   position: relative;
 
-  &:hover {
-    cursor: pointer;
+  @media (min-width: variables.$md) {
 
-    &:before {
-      --size: 100%;
-      --blur: 100%;
+    &:hover {
+      cursor: pointer;
+
+      &:before {
+        --size: 100%;
+        --blur: 100%;
+      }
+
+      .icon {
+        opacity: 1;
+      }
     }
-
-    &:after {
-      opacity: 1;
-    }
-  }
-
-  &:after {
-    content: "Download";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    opacity: 0;
-    transform: translateX(-50%) translateY(-50%);
   }
 
   &:before {
@@ -49,13 +43,53 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at 50% 50%, variables.$black var(--size), transparent var(--blur), transparent 100%);
-    opacity: .7;
+    background: radial-gradient(circle at 50% 50%, variables.$dark-green var(--size), transparent var(--blur), transparent 100%);
+    opacity: .9;
     position: absolute;
     width: 100%;
     aspect-ratio: 1/1;
     top: 0;
     bottom: 4px;
     left: 0;
+  }
+}
+
+.icon {
+  position: absolute;
+  transition: opacity .4s ease-in-out;
+  right: 8%;
+  top: 10%;
+  background-color: variables.$dark-green;
+  border-radius: 8px;
+  padding: .4em;
+  width: 2.5em;
+  height: 2.5em;
+
+  span {
+    display: none;
+  }
+
+  svg {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+
+  @media (min-width: variables.$md) {
+    //opacity: 0;
+    background-color: transparent;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-25%) translateY(-25%);
+    opacity: 0;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+
+    span {
+      display: block;
+    }
   }
 }

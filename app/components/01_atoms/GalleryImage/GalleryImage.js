@@ -1,6 +1,7 @@
 "use client"
 import styles from "./galleryimage.module.scss";
 import {urlForImage} from "@/sanity/sanity-client";
+import { MdDownload } from "react-icons/md";
 
 export const GalleryImage = (props) => {
     const download = async () => {
@@ -19,7 +20,7 @@ export const GalleryImage = (props) => {
     }
 
     return (
-        <div className={styles.wrapper} onClick={download}>
+        <a className={styles.wrapper} href="" onClick={download}>
             <img
                 className={styles.image}
                 src={urlForImage(props.media.asset)
@@ -33,7 +34,12 @@ export const GalleryImage = (props) => {
                 loading="lazy"
                 fetchPriority="low"
             />
-        </div>
+            <div className={styles.icon}>
+                <span>Download</span>
+                <MdDownload/>
+            </div>
+        </a>
+
 
     );
 };
