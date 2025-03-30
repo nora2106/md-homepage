@@ -11,6 +11,8 @@ export const Footer = () => {
     const [data, setData] = useState(null)
     const [scrollHeight, setScrollHeight] = useState("90%");
     const target = useRef(null);
+    let d = new Date();
+    const year = d.getFullYear().toString();
 
     useEffect( () => {
         async function getData() {
@@ -26,7 +28,6 @@ export const Footer = () => {
     });
     let parallax = useTransform(scrollYProgress, [0, 1], [0, 100]);
     useMotionValueEvent(parallax, 'change', (v) => {
-        // console.log(v)
             setScrollHeight(-1 * v.toFixed(2) + "%")
         }
     );
@@ -44,7 +45,7 @@ export const Footer = () => {
                     </div>
                     <div className={styles.text}>
                         {/*@todo dynamic year*/}
-                        <p>2025, alle Rechte vorbehalten.</p>
+                        <p>© {year}, alle Rechte vorbehalten.</p>
                         <Link href="/impressum">Impressum</Link>
                         <p>Webseite erstellt von <a href={data.footer_link ? data.footer_link : "/"}>Nora Klinger</a></p>
                     </div>

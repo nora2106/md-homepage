@@ -6,9 +6,6 @@ import {usePathname} from "next/navigation";
 
 export const TextBlock = (props) => {
     const textRef = useRef(null);
-    const pathname = usePathname();
-    const [renderKey, setRenderKey] = useState(0);
-    const [animPlayed, setAnimPlayed] = useState(false);
 
     useEffect(() => {
         //fill text block only if empty
@@ -85,11 +82,11 @@ export const TextBlock = (props) => {
     let textVariants = {
         hide: {
             opacity: 0,
-            x: -500,
+            x: "-100%",
         },
         show: {
             opacity: 1,
-            x: 0,
+            x: "0%",
             transition: {
                 duration: 1.6,
                 transition: ["ease-in"],
@@ -98,11 +95,14 @@ export const TextBlock = (props) => {
     }
 
     return (
-        <motion.div initial="hide" whileInView="show" exit="hide"
-                    viewport={{once: true}} variants={textVariants} ref={textRef}
-                    className={styles.block}
-                    animate={props.hasFallback ? "show" : ""}>
-        </motion.div>
+            props.noAnim ?
+                <div className={styles.block} ref={textRef}/>
+                :
+                <motion.div initial="hide" whileInView="show" exit="hide"
+                            viewport={{once: true}} variants={textVariants} ref={textRef}
+                            className={styles.block}
+                            animate={props.hasFallback ? "show" : ""}>
+                </motion.div>
     );
 };
 

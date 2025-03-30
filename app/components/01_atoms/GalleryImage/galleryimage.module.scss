@@ -1,0 +1,61 @@
+@use '../../00_utilities/variables';
+
+@property --size {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --blur {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.wrapper {
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+
+    &:before {
+      --size: 100%;
+      --blur: 100%;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &:after {
+    content: "Download";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &:before {
+    transition: --size .8s ease-in-out, --blur .5s ease-in-out;
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at 50% 50%, variables.$black var(--size), transparent var(--blur), transparent 100%);
+    opacity: .7;
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1/1;
+    top: 0;
+    bottom: 4px;
+    left: 0;
+  }
+}

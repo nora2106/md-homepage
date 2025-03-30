@@ -80,3 +80,23 @@ export async function getLessonsPage() {
         }
     );
 }
+
+export async function getGalleryImages() {
+    return client.fetch(
+        groq`*[_type == "gallery"]{
+        images[]{
+        alt,
+        image {
+                ...,
+                asset->{
+                    _id,
+                    url
+                }
+            }
+        }
+    }`, {},
+        {
+            next: {revalidate: 60}
+        }
+    );
+}

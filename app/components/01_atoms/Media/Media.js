@@ -8,7 +8,7 @@ export const Media = (props) => {
     let mediaVariants = {
         hide: {
             opacity: 0,
-            x: 500,
+            x: "100%",
         },
         show: {
             opacity: 1,
@@ -24,7 +24,7 @@ export const Media = (props) => {
         mediaVariants = {
             hide: {
                 opacity: 0,
-                x: -500,
+                x: "-100%",
             },
             show: {
                 opacity: 1,

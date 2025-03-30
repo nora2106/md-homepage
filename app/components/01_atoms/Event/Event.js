@@ -54,8 +54,7 @@ export const Event = (props) => {
         if(isMobile && props.index % 2 !== 1) {
             setScrollProgress(-1 * progress.toFixed(2) + "%")
         }
-        }
-    );
+    });
 
     return (
         <motion.div ref={target} transition={{ease: "linear", duration: .6}}

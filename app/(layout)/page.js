@@ -31,9 +31,6 @@ export const Home = async () => {
             <TextBanner text={data.banner_text}/>
             <Heading reversed={true} tag='h2' firstLine={data.events_headline[0]} secondLine={data.events_headline[1]}/>
             <EventColumn media={data.events_image}/>
-            <div className={styles.flowerWrapper2}>
-                <FlowerElement/>
-            </div>
         </main>
     );
 };

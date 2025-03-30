@@ -19,7 +19,6 @@ export async function TextMedia(props) {
                         : <div/>
                 }
             </div>
-
         </div>
     );
 }

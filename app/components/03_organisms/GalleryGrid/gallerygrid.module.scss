@@ -1,0 +1,16 @@
+@use '../../00_utilities/variables';
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 20em);
+  grid-auto-rows: auto;
+  grid-column-gap: 4em;
+  grid-row-gap: 4em;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 2em;
+
+  @media (min-width: variables.$md) {
+    grid-template-columns: repeat(auto-fill, 25em);
+  }
+}

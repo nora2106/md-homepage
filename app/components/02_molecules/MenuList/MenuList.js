@@ -7,6 +7,7 @@ export const Component = () => {
         <ul className={style.list}>
             <MenuItem url='/' text='Homepage'/>
             <MenuItem url='/projekte' text='Projekte'/>
+            <MenuItem url='/galerie' text='Bildergalerie'/>
             <MenuItem url='/unterricht' text='Unterricht'/>
             <Button text='Kontakt'/>
         </ul>
