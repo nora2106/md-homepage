@@ -3,10 +3,10 @@ import style from "./eventslider.module.scss";
 import {useEffect, useState, useRef} from "react";
 import Event from "@/app/components/01_atoms/Event/Event";
 import SliderArrows from "@/app/components/01_atoms/SliderArrows/SliderArrows";
+import {motion} from "motion/react";
 
 export const EventSlider = (props) => {
     const [events, setEvents] = useState([]);
-    const [shownEvents, setShownEvents] = useState([]);
     const [forwardArrow, setForwardArrow] = useState(false);
     const [backArrow, setBackArrow] = useState(false);
     const indexInc = 3;
@@ -28,7 +28,8 @@ export const EventSlider = (props) => {
     useEffect(() => {
         const data = events;
         if(data.length > index) {
-            setShownEvents(data.slice(index, index + indexInc));
+            // setShownEvents(data.slice(index, index + indexInc));
+
         }
         setForwardArrow(false);
         setBackArrow(false);
@@ -43,7 +44,6 @@ export const EventSlider = (props) => {
         //set wrapper min height if it's 0
         if(window.getComputedStyle(wrapperRef.current).getPropertyValue('--min-height') === "0") {
             let height = wrapperRef.current.clientHeight;
-            console.log(wrapperRef.current.clientHeight)
             wrapperRef.current.style.setProperty('--min-height', height + "px");
         }
     }, [index, events]);
@@ -56,19 +56,19 @@ export const EventSlider = (props) => {
         setIndex(index - indexInc);
     }
 
-
     return (
         <div className={style.container}>
-            <div ref={wrapperRef} className={style.wrapper}>
+            <motion.div key={index} transition={{ease: "linear", duration: .8}} initial={{x: "100%"}}
+                        animate={{x: "0%"}} ref={wrapperRef} className={style.wrapper}>
                 {
-                    shownEvents ?
-                        shownEvents.map((event, key) =>
-                            <Event change={index} index={key} parentRef={wrapperRef}  key={key} headline={event.name} text={event.description} date={event.date} link={event.link} linkText={event.link_name} location={event.location}/>
+                    events ?
+                        events.map((event, key) =>
+                            <Event shown={key < indexInc * (index + 1) && key >= (index + indexInc) - indexInc} change={index} index={key} parentRef={wrapperRef}  key={key} headline={event.name} text={event.description} date={event.date} link={event.link} linkText={event.link_name} location={event.location}/>
                         )
                         :
                         <div/>
                 }
-            </div>
+            </motion.div>
             <SliderArrows increase={increaseIndex} decrease={decreaseIndex} forwardActive={forwardArrow} backActive={backArrow}/>
         </div>
 

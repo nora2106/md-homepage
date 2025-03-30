@@ -4,6 +4,7 @@ import Button from "@/app/components/01_atoms/Button/Button";
 import {useEffect, useRef, useState} from "react";
 import {IoLocationOutline} from "react-icons/io5";
 import {motion, useScroll, useTransform, useMotionValueEvent} from "motion/react";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 export const Event = (props) => {
     const [date, setDate] = useState("");
@@ -26,31 +27,39 @@ export const Event = (props) => {
 
 
     const target = useRef(null);
+    const isMobile = useMediaQuery("only screen and (max-width : 768px)");
     const [scrollProgress, setScrollProgress] = useState("100%");
 
-    const {scrollYProgress} = useScroll({
+    useEffect(() => {
+        initializeMobileAnim();
+        window.addEventListener('resize', initializeMobileAnim);
+    }, []);
+
+    function initializeMobileAnim() {
+        if(isMobile && props.index % 2 !== 1) {
+            setScrollProgress(progress * -1 + "%");
+        }
+    }
+
+    let {scrollYProgress} = useScroll({
         target,
         offset: ['start end', 'end start'],
     });
-    let progress;
-
-    // @todo reassign event listener on state change
-    useEffect(() => {
-        if(scrollProgress !== "100%") {
-            setScrollProgress("0");
-        }
-    }, [props.change]);
+    let progress = 100;
 
     let parallax = useTransform(scrollYProgress, [0, .2, .8, 1], [0, 100, 100, 0]);
     useMotionValueEvent(parallax, 'change', (v) => {
         progress = 100 - v;
         setScrollProgress(progress.toFixed(2) + "%")
+        if(isMobile && props.index % 2 !== 1) {
+            setScrollProgress(-1 * progress.toFixed(2) + "%")
+        }
         }
     );
 
     return (
-        <motion.div key={props.change} ref={target} transition={{ease: "linear", duration: .6}} initial={{x: "100%"}}
-                    animate={{x: scrollProgress}} className={`${style.container} event`}>
+        <motion.div ref={target} transition={{ease: "linear", duration: .6}}
+                    animate={{x: scrollProgress}} className={ props.shown ? `${style.container} event` : `${style.container} ${style.hidden} event`}>
             <div className={style.date}>
                 <span>{date}</span>
                 <span>{time}</span>

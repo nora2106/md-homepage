@@ -8,12 +8,18 @@
   color: variables.$white;
   max-width: 40em;
   padding-bottom: 1.5em;
+  position: relative;
 
   @media (min-width: variables.$lg) {
     width: 100%;
     max-width: none;
     min-height: 13em;
   }
+}
+
+.hidden {
+  position: absolute;
+  opacity: 0;
 }
 
 .date {

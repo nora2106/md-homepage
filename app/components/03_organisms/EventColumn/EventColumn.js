@@ -12,7 +12,11 @@ export const EventColumn = async (props) => {
                 <Media left={true} media={props.media}/>
                 : <div/>
             }
-            <EventSlider data={events}/>
+            {
+                events ?
+                    <EventSlider data={events}/>
+                : <div/>
+            }
         </div>
     );
 };

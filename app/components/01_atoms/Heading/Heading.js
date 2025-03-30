@@ -41,7 +41,7 @@ export const Heading = (props) => {
                         </span>
                     </motion.div>
                 </Tag>
-        // </AnimatePresence>
+         </AnimatePresence>
     );
 };
 

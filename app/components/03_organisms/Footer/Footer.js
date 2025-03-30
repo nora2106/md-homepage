@@ -26,7 +26,7 @@ export const Footer = () => {
     });
     let parallax = useTransform(scrollYProgress, [0, 1], [0, 100]);
     useMotionValueEvent(parallax, 'change', (v) => {
-        console.log(v)
+        // console.log(v)
             setScrollHeight(-1 * v.toFixed(2) + "%")
         }
     );
