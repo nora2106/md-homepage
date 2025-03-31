@@ -31,6 +31,7 @@ export default function RootLayout({children}){
               <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
               <meta name="description" content="Your page description goes here"/>
               <link rel="canonical" href="https://yourwebsite.com/page-url"/>
+              <meta name="apple-mobile-web-app-title" content="MyWebSite" />
           </Head>
         <body className={`${inter.variable} ${libreFranklin.variable} `}>
             <header>
