@@ -1,5 +1,7 @@
+"use client"
 import styles from "./gallerygrid.module.scss";
 import GalleryImage from "@/app/components/01_atoms/GalleryImage/GalleryImage";
+import {useRef} from "react";
 
 export const GalleryGrid = (props) => {
     return (
@@ -7,7 +9,7 @@ export const GalleryGrid = (props) => {
                 <div className={styles.grid}>
                     {
                         props.data.images.map((elem, key) =>
-                            <GalleryImage key={key} media={elem.image} alt={elem.alt} url={elem.image.asset.url}/>
+                            <GalleryImage index={key} key={key} media={elem.image} alt={elem.alt} url={elem.image.asset.url}/>
                         )
                     }
                 </div>

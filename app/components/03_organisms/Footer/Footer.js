@@ -6,6 +6,7 @@ import {getSettings} from "@/sanity/sanity-query";
 import AnimatedNote from "@/app/components/01_atoms/AnimatedNote/AnimatedNote";
 import {motion, useMotionValueEvent, useScroll, useTransform} from "motion/react";
 import {useEffect, useRef, useState} from "react";
+import {usePathname} from "next/navigation";
 
 export const Footer = () => {
     const [data, setData] = useState(null)
@@ -13,6 +14,7 @@ export const Footer = () => {
     const target = useRef(null);
     let d = new Date();
     const year = d.getFullYear().toString();
+    const pathname = usePathname();
 
     useEffect( () => {
         async function getData() {
@@ -33,7 +35,7 @@ export const Footer = () => {
     );
 
     return <div ref={target} className={styles.wrapper}>
-        <motion.div initial={{y: "80%"}} whileInView={{y: "0"}} viewport={{once: true}} transition={{ease: "linear", duration: .6}} className={styles.container}>
+        <motion.div key={pathname} initial={{y: "80%"}} whileInView={{y: "0"}} viewport={{once: true}} transition={{ease: "linear", duration: .6}} className={styles.container}>
             <div className={styles.mailIcon}>
                 <FaAt/>
             </div>
@@ -44,7 +46,6 @@ export const Footer = () => {
                         <a className={styles.mail} href={'mailto:' + data.email}>{data.email}</a>
                     </div>
                     <div className={styles.text}>
-                        {/*@todo dynamic year*/}
                         <p>© {year}, alle Rechte vorbehalten.</p>
                         <Link href="/impressum">Impressum</Link>
                         <p>Webseite erstellt von <a href={data.footer_link ? data.footer_link : "/"}>Nora Klinger</a></p>

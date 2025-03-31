@@ -8,20 +8,20 @@ export const EventColumn = async (props) => {
     const events = await getEvents();
 
     return (
-        <div className={style.wrapper}>
-            { props.media ?
-                <Media left={true} media={props.media}/>
-                : <div/>
-            }
-            <div className={style.flowerWrapper}>
-                <FlowerElement/>
-            </div>
-            {
-                events ?
+        events ?
+            <div className={style.wrapper}>
+                {props.media ?
+                    <Media left={true} media={props.media}/>
+                    : <div/>
+                }
+                <div className={style.flowerWrapper}>
+                    <FlowerElement/>
+                </div>
+                {
                     <EventSlider data={events}/>
-                : <div/>
-            }
-        </div>
+                }
+            </div>
+            : <div/>
     );
 };
 

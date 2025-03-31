@@ -38,7 +38,7 @@
   }
 
   &:before {
-    transition: --size .8s ease-in-out, --blur .5s ease-in-out;
+    transition: --size .9s ease-in-out, --blur .6s ease-in-out;
     content: "";
     display: flex;
     justify-content: center;
@@ -76,7 +76,6 @@
   }
 
   @media (min-width: variables.$md) {
-    //opacity: 0;
     background-color: transparent;
     left: 50%;
     top: 50%;

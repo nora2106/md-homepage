@@ -7,7 +7,7 @@ export const Imprint = async () => {
     const data = imageData[0];
     return (
         <main>
-            <Heading hasFallback={true} tag="h1" type="headline-2" firstLine="Bildergalerie"/>
+            <Heading hasFallback={true} tag="h1" type="headline-2" reversed={true} secondLine="Bildergalerie"/>
             <GalleryGrid data={data}/>
         </main>
     );

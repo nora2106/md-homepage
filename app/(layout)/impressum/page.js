@@ -9,7 +9,7 @@ export const Imprint = async () => {
 
     return (
         <main>
-            <Heading hasFallback={true} tag="h1" type="headline-2" firstLine="Impressum"/>
+            <Heading hasFallback={true} tag="h1" type="headline-2" reversed={true} secondLine="Impressum"/>
             <div className={styles.text}>
                 <h2 className='headline-4'>Kontakt: </h2>
                 <div><p>{data.email}</p></div>

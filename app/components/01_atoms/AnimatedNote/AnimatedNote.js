@@ -16,7 +16,7 @@ export const AnimatedNote = () => {
             transition: {
                 duration: 2,
                 transition: ["ease-in", "ease-out"],
-                delay: .8,
+                delay: .7,
                 times: [0, .2, .8, 1]
             }
         },
