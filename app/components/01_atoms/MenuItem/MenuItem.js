@@ -15,7 +15,7 @@ export const MenuItem = (props) => {
         }
     }, [pathname]);
     return (
-        <Link href={props.url} className={` ${styles.item} ${active ? styles.active : ''}`}>
+        <Link onClick={props.toggle} href={props.url} className={` ${styles.item} ${active ? styles.active : ''}`}>
             <li>
                     <span className=''>{props.text}</span>
             </li>

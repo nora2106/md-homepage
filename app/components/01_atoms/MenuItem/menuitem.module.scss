@@ -4,11 +4,20 @@
     margin-top: 2px;
     --color: #{variables.$white};
     text-decoration: none;
+    width: fit-content;
 
     span {
         color: var(--color);
         transition: color variables.$base-transition;
         font-size: variables.$font-size-base;
+
+        @media (min-width: variables.$md) {
+            font-size: variables.$font-size-small;
+        }
+
+        @media (min-width: variables.$lg) {
+            font-size: variables.$font-size-base;
+        }
     }
 
     &:after {
@@ -30,6 +39,11 @@
 }
 
 .active {
-    --color: #{variables.$secondaryLight};
-    color: variables.$secondaryLight;
+    --color: #{variables.$primaryLight};
+    color: variables.$primaryLight;
+
+    @media (min-width: variables.$md) {
+        --color: #{variables.$secondaryLight};
+        color: variables.$secondaryLight;
+    }
 }

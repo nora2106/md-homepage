@@ -22,7 +22,11 @@
   bottom: 0;
   right: 50%;
   transform: translateX(60%);
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   svg {
     width: 75%;
@@ -31,7 +35,8 @@
 }
 
 .open {
-  display: block;
+  opacity: 1;
+  pointer-events: all;
 
   @media (min-width: variables.$md) {
     display: none;

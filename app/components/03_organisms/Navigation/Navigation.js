@@ -4,27 +4,21 @@ import MenuList from "@/app/components/02_molecules/MenuList/MenuList";
 import MenuButton from "@/app/components/01_atoms/MenuButton/MenuButton";
 import {useEffect, useState} from "react";
 import MenuBackground from "@/app/components/01_atoms/MenuBackground/MenuBackground";
+import {usePathname} from "next/navigation";
 
 export const Navigation = () => {
     const [open, setOpen] = useState(false);
     const [hidden, setHidden] = useState(false);
-    let navHeight;
+    const pathname = usePathname();
     let scrollPos = 0;
+
     function toggleMenu() {
         setOpen(!open);
     }
-    useEffect(() => {
-        // calcVH();
-        window.addEventListener('scroll', onscroll, true);
-        // window.addEventListener('resize', calcVH, true);
-    }, []);
 
-    //calculate header height
-    function calcVH() {
-        const header = document.getElementsByTagName('header');
-        navHeight = document.querySelector('#header').clientHeight;
-        header[0].style.setProperty("--nav-height", navHeight + "px");
-    }
+    useEffect(() => {
+        window.addEventListener('scroll', onscroll, true);
+    }, []);
 
     //disappear when scrolling and appear at top of page
     function onscroll() {
@@ -45,8 +39,8 @@ export const Navigation = () => {
             <nav id='header' className={` ${styles.navigation} ${hidden ? styles.navigationHidden : ''}`}>
                 <MenuButton action={toggleMenu}/>
                 <div className={` ${styles.listWrapper} ${open ? styles.showNavi : ''}`}>
-                    <MenuList/>
-                    <MenuBackground/>
+                    <MenuList toggle={toggleMenu} trigger={open}/>
+                    <MenuBackground trigger={open}/>
                     <div className={styles.overlay}/>
                 </div>
             </nav>
