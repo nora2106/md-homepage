@@ -6,9 +6,24 @@ import { getHomepage} from "@/sanity/sanity-query";
 import TextBanner from "@/app/components/02_molecules/TextBanner/TextBanner";
 import styles from "../components/06_pages/Home/home.module.scss"
 import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
-import dynamic from "next/dynamic";
-import {urlForImage} from "@/sanity/sanity-client";
 import Media from "@/app/components/01_atoms/Media/Media";
+
+export const metadata = {
+    title: "Marion Dimbath | Jazzposaune",
+    description: "Professionelle Posaunistin für Jazz, Konzerte & Unterricht in München.",
+    keywords: [
+        "Posaunistin München",
+        "Jazzposaune München",
+        "Posaunenunterricht München",
+        "Live Musik München",
+        "Jazzposaune",
+        "Posaune München",
+        "Posaune lernen"
+    ],
+    alternates: {
+        canonical: "www.marion-dimbath.de"
+    }
+}
 
 export const Home = async () => {
     const pageContent = await getHomepage();
