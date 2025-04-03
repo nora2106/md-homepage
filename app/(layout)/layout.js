@@ -37,7 +37,7 @@ export default function RootLayout({children}){
   return (
       <>
           <Head>
-              <title>Marion Dimbath | Jazzposaune</title>
+              <title>Marion Dimbath | Posaune</title>
               <link rel="canonical" href="https://marion-dimbath.netlify.app"/>
               <meta name="apple-mobile-web-app-title" content="MyWebSite"/>
           </Head>
