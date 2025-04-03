@@ -9,7 +9,6 @@ import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement
 import Media from "@/app/components/01_atoms/Media/Media";
 
 export const metadata = {
-    title: "Marion Dimbath | Jazzposaune",
     description: "Professionelle Posaunistin für Jazz, Konzerte & Unterricht in München.",
     keywords: [
         "Posaunistin München",

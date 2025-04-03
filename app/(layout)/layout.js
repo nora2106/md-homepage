@@ -17,6 +17,7 @@ const inter = localFont({
 })
 
 export const metadata = {
+    title: "Marion Dimbath | Posaune",
     metadataBase: new URL("https://marion-dimbath.netlify.app"),
     openGraph: {
         siteName: "Marion Dimbath | Posaune",

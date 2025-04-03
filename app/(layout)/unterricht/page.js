@@ -4,6 +4,11 @@ import TextMedia from "@/app/components/03_organisms/TextMedia/TextMedia";
 import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
 import styles from "@/app/components/06_pages/Unterricht/lessons.module.scss";
 
+export const metadata = {
+    title: "Marion Dimbath | Unterricht",
+    description: "Posaunen-Unterricht in München und Umgebung.",
+}
+
 export const LessonsPage = async () => {
     const pageContent = await getLessonsPage();
     const data = pageContent[0];
