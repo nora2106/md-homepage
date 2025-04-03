@@ -21,7 +21,7 @@ export const metadata = {
         "Posaune lernen"
     ],
     alternates: {
-        canonical: "www.marion-dimbath.de"
+        canonical: "https://marion-dimbath.netlify.app"
     }
 }
 

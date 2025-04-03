@@ -19,9 +19,9 @@ const inter = localFont({
 export const metadata = {
     metadataBase: new URL("https://marion-dimbath.netlify.app"),
     openGraph: {
-        siteName: "Blog | Minh Vu",
+        siteName: "Marion Dimbath | Posaune",
         type: "website",
-        locale: "en_US"
+        locale: "de_DE"
     },
     robots: {
         index: true,
@@ -31,6 +31,9 @@ export const metadata = {
         "max-video-preview": -1,
         googleBot: "index, follow"
     },
+    icons: {
+        icon: '../favicon.ico'
+    }
 };
 
 export default function RootLayout({children}){

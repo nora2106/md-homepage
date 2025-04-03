@@ -1,5 +1,5 @@
 import style from "./menubackground.module.scss";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import {animate} from "motion";
 
 export const MenuBackground = (props) => {
