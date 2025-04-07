@@ -15,11 +15,11 @@ export const MenuItem = (props) => {
         }
     }, [pathname]);
     return (
-        <Link onClick={props.toggle} href={props.url} className={` ${styles.item} ${active ? styles.active : ''}`}>
-            <li>
-                    <span className=''>{props.text}</span>
-            </li>
-        </Link>
+        <li>
+            <Link onClick={props.toggle} href={props.url} className={` ${styles.item} ${active ? styles.active : ''}`}>
+                <span className=''>{props.text}</span>
+            </Link>
+        </li>
     );
 };
 
