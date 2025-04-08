@@ -12,6 +12,7 @@ export const metadata = {
 export const LessonsPage = async () => {
     const pageContent = await getLessonsPage();
     const data = pageContent[0];
+    console.log(data.media)
     return (
         <main>
             <div className={styles.flowerWrapper}>

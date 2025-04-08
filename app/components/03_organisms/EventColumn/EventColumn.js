@@ -6,12 +6,13 @@ import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement
 
 export const EventColumn = async (props) => {
     const events = await getEvents();
+    console.log(props.media)
 
     return (
         events ?
             <div className={style.wrapper}>
                 {props.media ?
-                    <Media left={true} media={props.media}/>
+                    <Media left={true} media={props.media[0]}/>
                     : <div/>
                 }
                 <div className={style.flowerWrapper}>

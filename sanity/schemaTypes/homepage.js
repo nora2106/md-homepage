@@ -68,7 +68,9 @@ export const homepage = defineType({
             name: 'events_image',
             title: 'Bild',
             description: 'Bild zum Abschnitt "Öffentliche Termine"',
-            type: 'image',
+            type: 'array',
+            of: customMedia.of,
+            validation: rule => rule.max(1),
         }),
         defineField({
             name: 'contact_headline',

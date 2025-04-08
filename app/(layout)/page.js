@@ -34,7 +34,7 @@ export const Home = async () => {
                 <FlowerElement/>
             </div>
             <Heading tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
-            <TextMedia/>
+            <TextMedia text={data.about_me_text} media={data.about_me_media}/>
             {
                 data.media_centered ?
                     <div className={styles.singleMedia}>
