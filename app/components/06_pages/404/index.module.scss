@@ -1,0 +1,11 @@
+@use '../../00_utilities/variables';
+
+.wrapper {
+  margin-top: 6em;
+  margin-bottom: -10em;
+  padding-inline: variables.$text-padding-desktop;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
