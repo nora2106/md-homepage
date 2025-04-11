@@ -53,28 +53,7 @@ export const Media = (props) => {
             },
         }
     }
-
-    if (props.media._type === "image") {
-        return (
-            <motion.img
-                initial="hide"
-                whileInView="show"
-                viewport={{once: true}}
-                variants={mediaVariants}
-                className={style.image}
-                src={urlForImage(props.media.asset)
-                    .width(800)
-                    .quality(100)
-                    .auto("format")
-                    .url()}
-                alt="media"
-                width="500"
-                height="500"
-                loading="lazy"
-                fetchPriority="low"
-            />
-        );
-    } else {
+    if (props.media._type === "file") {
         const [videoSrc, setVideoSrc] = useState("");
 
         useEffect(() => {
@@ -96,6 +75,28 @@ export const Media = (props) => {
                 </motion.video>
                 :
                 <div/>
+        );
+    }
+
+    else if (props.media.image) {
+        return (
+            <motion.img
+                initial="hide"
+                whileInView="show"
+                viewport={{once: true}}
+                variants={mediaVariants}
+                className={style.image}
+                src={urlForImage(props.media.image.asset)
+                    .width(800)
+                    .quality(100)
+                    .auto("format")
+                    .url()}
+                alt={props.media.alt}
+                width="500"
+                height="500"
+                loading="lazy"
+                fetchPriority="low"
+            />
         );
     }
 };

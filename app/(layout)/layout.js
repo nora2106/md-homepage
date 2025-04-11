@@ -17,6 +17,7 @@ const inter = localFont({
 })
 
 export const metadata = {
+    title: "Marion Dimbath | Posaune",
     metadataBase: new URL("https://marion-dimbath.netlify.app"),
     openGraph: {
         siteName: "Marion Dimbath | Posaune",
@@ -43,6 +44,7 @@ export default function RootLayout({children}){
               <title>Marion Dimbath | Posaune</title>
               <link rel="canonical" href="https://marion-dimbath.netlify.app"/>
               <meta name="apple-mobile-web-app-title" content="MyWebSite"/>
+              <link rel="apple-touch-icon" href="../favicon.ico"></link>
           </Head>
         <body className={`${inter.variable} ${libreFranklin.variable} `}>
             <header>

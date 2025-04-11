@@ -3,6 +3,10 @@ import {getSettings} from "@/sanity/sanity-query";
 import TextBlock from "@/app/components/02_molecules/TextBlock/TextBlock";
 import styles from "./page.module.scss";
 
+export const metadata = {
+    title: "Marion Dimbath | Impressum",
+}
+
 export const Imprint = async () => {
     const pageContent = await getSettings();
     const data = pageContent[0];

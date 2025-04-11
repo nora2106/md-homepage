@@ -71,12 +71,13 @@
   color: variables.$white;
   font-size: variables.$font-size-base;
   padding-block: 5px;
+  z-index: 6;
 }
 
 .mail {
   color: variables.$white;
   font-size: clamp(1.5rem, 4vw, 3rem);
-  font-family: var(--font-libre-franklin);
+  font-family: var(--font-libre-franklin), sans-serif;
   transition: all .6s ease-in-out, letter-spacing .4s ease-in-out;
   font-variation-settings: "wght" 100;
   letter-spacing: 0;
@@ -91,6 +92,7 @@
   display: flex;
   flex-direction: column;
   gap: .8em;
+  z-index: 3;
 
   * {
     font-size: variables.$font-size-small;

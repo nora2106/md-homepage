@@ -2,6 +2,11 @@ import {getProjects} from "@/sanity/sanity-query";
 import Heading from "@/app/components/01_atoms/Heading/Heading";
 import Grid from "@/app/components/03_organisms/ProjectGrid/ProjectGrid";
 
+export const metadata = {
+    title: "Marion Dimbath | Projekte",
+    description: "Marion Dimbath: Meine aktuellen Projekte",
+}
+
 export const Projects = async () => {
     const data = await getProjects();
     return (

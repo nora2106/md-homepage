@@ -4,9 +4,21 @@ export default {
     type: 'array',
     of: [
         {
-            type: "image",
-            title: "Bild",
-            options: { hotspot: true },
+            type: 'object',
+            title: 'Bild',
+            fields: [
+                {
+                    name: 'image',
+                    type: 'image',
+                    title: 'Bild',
+                    options: { hotspot: true },
+                },
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alt-Text (für Barrierefreiheit und SEO)',
+                },
+            ]
         },
         {
             type: "file",
