@@ -37,7 +37,8 @@ export const Event = (props) => {
 
     function initializeMobileAnim() {
         if(isMobile && props.index % 2 !== 1) {
-            setScrollProgress(progress * -1 + "%");
+            // setScrollProgress(progress * -1 + "%");
+            setScrollProgress(progress + "%");
         }
     }
 

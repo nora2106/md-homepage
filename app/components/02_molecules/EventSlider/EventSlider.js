@@ -27,10 +27,6 @@ export const EventSlider = (props) => {
     //slider functionality
     useEffect(() => {
         const data = events;
-        if(data.length > index) {
-            // setShownEvents(data.slice(index, index + indexInc));
-
-        }
         setForwardArrow(false);
         setBackArrow(false);
         if(data.length > index && data.length > (index + indexInc)) {

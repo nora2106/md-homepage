@@ -123,7 +123,8 @@
 
 .attribution {
   margin-top: 1em;
-  font-size: variables.$font-size-smallest;
+  font-size: clamp(.4rem, 4vw, .6rem);
+  text-decoration: none;
 
   @media (min-width: variables.$md) {
     position: absolute;
