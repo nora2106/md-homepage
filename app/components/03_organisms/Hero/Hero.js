@@ -59,7 +59,7 @@ export const Hero = (props) => {
                 <p className={styles.annotation}>© Bild: {imgCredit}</p>
             </div>
             <div className={styles.headlineWrapper}>
-                <Heading hasFallback={true} tag='h1' type='headline--1' firstLine={props.headline1} secondLine={props.headline2}/>
+                <Heading hasFallback={true} tag='h1' type='headline-1' firstLine={props.headline1} secondLine={props.headline2}/>
             </div>
         </div>
     );

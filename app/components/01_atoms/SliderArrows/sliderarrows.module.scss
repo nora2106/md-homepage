@@ -28,8 +28,10 @@
 .active {
   pointer-events: all;
   color:  variables.$white;
+  transition: transform variables.$base-transition;
 
   &:hover {
     cursor: pointer;
+    transform: scale(1.15);
   }
 }

@@ -42,7 +42,8 @@ export const Home = async () => {
                     </div>
                     : <div/>
             }
-            <TextBanner text={data.banner_text}/>
+            <Heading tag='h2' firstLine={data.my_projects_headline[0]} secondLine={data.my_projects_headline[1]}/>
+            <TextBanner buttonText={data.banner_button_text} text={data.banner_text}/>
             <Heading reversed={true} tag='h2' firstLine={data.events_headline[0]} secondLine={data.events_headline[1]}/>
             <EventColumn media={data.events_image}/>
         </main>

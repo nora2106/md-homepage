@@ -10,7 +10,9 @@ export async function getHomepage() {
       about_me_text,
       events_headline,
       events_image,
+      my_projects_headline,
       banner_text,
+      banner_button_text,
       media_centered
     }`, {},
         {
