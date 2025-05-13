@@ -4,6 +4,16 @@
   background-color: variables.$secondary;
   width: 100%;
   margin-block: 8em;
+  padding-block: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: variables.$lg) {
+    padding-block: 3em;
+    gap: 1em;
+  }
 }
 
 .text {

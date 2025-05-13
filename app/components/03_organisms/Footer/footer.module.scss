@@ -30,6 +30,14 @@
   justify-content: space-between;
   margin-top: -2em;
 
+  a {
+    transition: all variables.$base-transition;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+
   @media (min-width: variables.$md) {
     margin-top: -1em;
   }

@@ -48,8 +48,8 @@
 .headline {
   font-size: variables.$font-size-biggest;
   color: variables.$white;
-  font-family: var(--font-inter);
-  font-weight: 300;
+  font-family: var(--font-inter), sans-serif;
+  font-variation-settings: "wght" 300;
 }
 
 .shapeContainer {
@@ -70,7 +70,8 @@
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 4px variables.$white;
   font-size: 6rem;
-  font-family: var(--font-libre-franklin);
+  font-family: var(--font-libre-franklin), sans-serif;
+  font-variation-settings: "wght" 600;
 }
 
 .shape {

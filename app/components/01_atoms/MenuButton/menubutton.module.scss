@@ -12,6 +12,7 @@
   margin: .5em 1em;
   position: fixed;
   z-index: 6;
+  pointer-events: all;
 
   @media (min-width: variables.$md) {
     display: none;

@@ -43,9 +43,23 @@ export const homepage = defineType({
             of: customText.of,
         }),
         defineField({
+            name: 'my_projects_headline',
+            title: 'Über mich',
+            description: 'Titel zum Teaser-Banner "Meine Projekte"',
+            type: 'array',
+            validation: rule => rule.required().min(1).max(2),
+            of: [{type: 'string'}],
+        }),
+        defineField({
             name: 'banner_text',
             title: 'Banner-Text',
             description: 'Farbiges Banner mit Text (optional)',
+            type: 'string',
+        }),
+        defineField({
+            name: 'banner_button_text',
+            title: 'Button-Text im Banner',
+            description: 'Link im Banner mit Verlinkung zur Projekte-Seite (optional)',
             type: 'string',
         }),
         defineField({
