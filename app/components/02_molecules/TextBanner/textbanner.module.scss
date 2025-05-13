@@ -3,7 +3,7 @@
 .container {
   background-color: variables.$secondary;
   width: 100%;
-  margin-block: 8em;
+  margin-block: 4em;
   padding-block: 2em;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@
   gap: 1em;
 
   @media (min-width: variables.$lg) {
+    margin-block: 6em;
     padding-block: 3em;
     gap: 1.5em;
   }
