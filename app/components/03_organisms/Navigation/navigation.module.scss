@@ -6,6 +6,7 @@
   z-index: 6;
   position: relative;
   background-color: variables.$page-bg;
+  max-height: 100vh;
 }
 
 .navigation {
@@ -57,6 +58,10 @@
   opacity: 1;
   pointer-events: all;
   --overlay-opacity: .7;
+
+  .overlay {
+    pointer-events: all;
+  }
 
   @media (min-width: variables.$md) {
     position: relative;
