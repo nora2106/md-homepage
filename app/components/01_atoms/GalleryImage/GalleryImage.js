@@ -3,21 +3,12 @@ import styles from "./galleryimage.module.scss";
 import {urlForImage} from "@/sanity/sanity-client";
 import { MdDownload } from "react-icons/md";
 import {motion} from "motion/react";
+import { saveAs } from 'file-saver';
 
 export const GalleryImage = (props) => {
-    const download = async () => {
-        const image = await fetch(props.url);
-
-        const fileName = props.alt.replace(" ", "-")
-
-        const imageBlob = await image.blob()
-        const imageURL = URL.createObjectURL(imageBlob)
-        const link = document.createElement('a')
-        link.href = imageURL;
-        link.download = "" + fileName + "";
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
+    const download = () => {
+        const fileName = props.alt.replace(" ", "-") + '.jpg'
+        saveAs(props.url, fileName);
     }
 
     let animFrames = {
@@ -32,9 +23,9 @@ export const GalleryImage = (props) => {
     }
 
     return (
-        <motion.a variants={animFrames} initial="hide" animate="show"
+        <motion.div variants={animFrames} initial="hide" animate="show"
                   transition={{ease: "easeIn", duration: .7, delay: (props.index * 0.3)}}
-                  className={styles.wrapper} href="" onClick={download}>
+                  className={styles.wrapper} onClick={download}>
             <img
                 className={styles.image}
                 src={urlForImage(props.media.asset)
@@ -52,7 +43,7 @@ export const GalleryImage = (props) => {
                 <span>Download</span>
                 <MdDownload/>
             </div>
-        </motion.a>
+        </motion.div>
 
 
     );
