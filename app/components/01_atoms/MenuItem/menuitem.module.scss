@@ -10,14 +10,6 @@
         color: var(--color);
         transition: color variables.$base-transition;
         font-size: variables.$font-size-base;
-
-        @media (min-width: variables.$md) {
-            font-size: variables.$font-size-small;
-        }
-
-        @media (min-width: variables.$lg) {
-            font-size: variables.$font-size-base;
-        }
     }
 
     &:after {

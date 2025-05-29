@@ -50,10 +50,12 @@ export const Event = (props) => {
 
     let parallax = useTransform(scrollYProgress, [0, .2, .8, 1], [0, 100, 100, 0]);
     useMotionValueEvent(parallax, 'change', (v) => {
-        progress = 100 - v;
-        setScrollProgress(progress.toFixed(2) + "%")
-        if(isMobile && props.index % 2 !== 1) {
-            setScrollProgress(-1 * progress.toFixed(2) + "%")
+        if(isMobile) {
+            setScrollProgress('0%');
+        }
+        else {
+            progress = 100 - v;
+            setScrollProgress(progress.toFixed(2) + "%")
         }
     });
 

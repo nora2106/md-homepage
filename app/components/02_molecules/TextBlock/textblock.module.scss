@@ -4,10 +4,9 @@
   margin: 0 auto;
   flex: 1;
   padding-inline: variables.$text-padding-mobile;
-  text-align: justify;
+  text-align: left;
 
   @media (min-width: variables.$lg) {
-    text-align: left;
     padding-inline: variables.$text-padding-desktop;
   }
 

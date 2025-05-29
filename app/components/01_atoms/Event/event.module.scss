@@ -29,6 +29,11 @@
   justify-content: space-between;
   align-items: center;
   font-size: variables.$font-size-small;
+  margin-bottom: 10px;
+
+  @media (min-width: variables.$md) {
+    margin-bottom: 0;
+  }
 }
 
 .headline {
@@ -42,9 +47,10 @@
 
 .bottomLine {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  align-items: flex-start;
   width: 100%;
 
   .locationText {
@@ -53,10 +59,16 @@
     justify-content: center;
     gap: 5px;
     color: variables.$text-light;
+    font-size: variables.$font-size-small;
 
     svg {
       margin: auto 0;
       color: variables.$white;
     }
+  }
+
+  @media (min-width: variables.$md) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
