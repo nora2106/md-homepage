@@ -9,7 +9,11 @@
     span {
         color: var(--color);
         transition: color variables.$base-transition;
-        font-size: variables.$font-size-base;
+        font-size: variables.$font-size-big;
+
+        @media (min-width: variables.$md) {
+            font-size: variables.$font-size-base;
+        }
     }
 
     &:after {

@@ -40,10 +40,16 @@ export const Project = (props) => {
                 <motion.div animate={{scale: 1.1, opacity: 1}} initial={{scale: .2, opacity: 0}}
                             transition={{duration: 1, ease: ['easeIn'], delay: delay}}
                             className={style.shapeContainer}>
-                    <motion.span animate={{opacity: 1}} initial={{opacity: 0}}
-                                 transition={{duration: .8, ease: ['easeIn'], delay: (delay + .4)}}
-                                 className={style.letter}>{letter}
-                    </motion.span>
+                    {
+                    props.data.image ?
+                        <span/>
+                    :
+                        <motion.span animate={{opacity: 1}} initial={{opacity: 0}}
+                                     transition={{duration: .8, ease: ['easeIn'], delay: (delay + .4)}}
+                                     className={style.letter}>{letter}
+                        </motion.span>
+                    }
+                    {/*@todo add background image if in data*/}
                     <div className={style.shape}>{selectedShape}</div>
                 </motion.div>
                 <motion.div animate={{opacity: 1}} initial={{opacity: 0}}

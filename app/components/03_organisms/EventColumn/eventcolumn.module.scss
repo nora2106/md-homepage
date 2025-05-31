@@ -43,25 +43,26 @@
 .flowerWrapper {
   width: 40%;
   position: absolute;
-  top: -6%;
+  top: -4%;
   right: -10%;
   z-index: 2;
-  max-width: 20em;
+  max-width: 14em;
 
   @media (min-width: variables.$md) {
-    right: 0;
+    right: 10%;
   }
 
   @media (min-width: variables.$lg) {
-    max-width: none;
+    max-width: 20em;
     width: 30%;
     right: auto;
     left: -2%;
-    top: 70%;
+    top: 88%;
   }
 
   @media (min-width: variables.$xl) {
-    top: 85%;
+    max-width: none;
+    top: 96%;
   }
 }
 
