@@ -8,7 +8,7 @@
   margin-bottom: .8em;
   color: variables.$white;
   z-index: 4;
-  hyphens: manual;
+  hyphens: auto;
 
   @media (min-width: variables.$md) {
     margin-block: .8em;

@@ -41,7 +41,7 @@ export async function getProjects() {
     return client.fetch(
         groq`*[_type == "project"]{
       name,
-      description,
+      previewImage,
       slug,
       media,
       body,

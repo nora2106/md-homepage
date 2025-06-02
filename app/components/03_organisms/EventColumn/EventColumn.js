@@ -15,9 +15,6 @@ export const EventColumn = async (props) => {
                     <Media left={true} media={props.media[0]}/>
                     : <div/>
                 }
-                <div className={style.flowerWrapper}>
-                    <FlowerElement/>
-                </div>
                 {
                     <EventSlider data={events}/>
                 }

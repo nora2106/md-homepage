@@ -3,12 +3,17 @@
 .container {
   width: 90%;
   border: 2px solid variables.$white;
-  padding-inline: 2em;
+  padding-inline: 1em;
   min-height: 10em;
   color: variables.$white;
   max-width: 40em;
   padding-bottom: 1em;
   position: relative;
+  pointer-events: all;
+
+  @media (min-width: variables.$lg) {
+    padding-inline: 2em;
+  }
 
   @media (min-width: variables.$lg) {
     width: 100%;
@@ -21,6 +26,7 @@
 .hidden {
   position: absolute;
   opacity: 0;
+  pointer-events: none;
 }
 
 .date {
@@ -44,7 +50,7 @@
 
 .text {
   margin-bottom: 1em;
-  font-size: variables.$font-size-small;
+  width: fit-content;
 }
 
 .bottomLine {
@@ -54,6 +60,11 @@
   gap: .5rem;
   align-items: flex-start;
   width: 100%;
+  height: fit-content;
+
+  a {
+    font-size: variables.$font-size-small;
+  }
 
   .locationText {
     display: flex;
@@ -73,5 +84,6 @@
     gap: 1rem;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 }

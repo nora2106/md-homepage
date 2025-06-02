@@ -1,9 +1,4 @@
 @use '../../00_utilities/variables';
-@property --bg-width {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
 
 .buttonWrapper {
   text-decoration: none;
@@ -16,15 +11,26 @@
   border-radius: .8em;
   padding-inline: 1em;
   padding-block: .5em;
-  font-size: variables.$font-size-big;
+  font-size: variables.$font-size-base;
   color: variables.$white;
   flex-direction: row;
   align-items: center;
   gap: .5em;
   width: fit-content;
-  transition: --bg-width .6s ease-in-out;
-  background: linear-gradient(90deg, var(--border-color) var(--bg-width), transparent 0%);
+  background-color: transparent;
   display: flex;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background: var(--border-color);
+    z-index: -1;
+    border-radius: .8em;
+    transition: width .6s ease-in-out, opacity .3s ease-in-out;
+  }
 
   svg {
     transition: transform variables.$base-transition;
@@ -32,10 +38,14 @@
 
   &:hover {
     cursor: pointer;
-    --bg-width: 100%;
 
     svg {
       transform: scale(1.2);
+    }
+
+    &::before {
+      width: 100%;
+      opacity: 1;
     }
   }
 
@@ -45,14 +55,14 @@
     padding-block: .5em;
   }
 
-  @keyframes animateBg {
-    0% {
-      background: linear-gradient(90deg, var(--border-color) 0%, transparent 0%);
-    }
-    100% {
-      background: linear-gradient(90deg, var(--border-color) 100%, transparent 0%);
-    }
-  }
+  //@keyframes animateBg {
+  //  0% {
+  //    opacity: 0;
+  //  }
+  //  100% {
+  //    width: 100%;
+  //  }
+  //}
 }
 
 .secondary {

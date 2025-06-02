@@ -29,7 +29,7 @@
 
   img,
   video {
-    width: 85%;
+    width: 80%;
     height: auto;
   }
 
@@ -37,10 +37,5 @@
     max-width: none;
     justify-self: flex-end;
     align-items: flex-end;
-
-    img,
-    video {
-      width: 90%;
-    }
   }
 }

@@ -17,16 +17,16 @@ export const project = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
-            name: 'description',
-            title: 'Kurzbeschreibung',
-            type: 'string',
-            validation: (rule) => rule.required(),
-        }),
-        defineField({
             name: 'slug',
             type: 'slug',
             options: {source: 'title'},
             validation: (rule) => rule.required(),
+        }),
+        defineField({
+            name: 'previewImage',
+            title: 'Vorschaubild',
+            description: 'Vorschaubild für Projektseite',
+            type: 'image',
         }),
         defineField({
             name: 'body',

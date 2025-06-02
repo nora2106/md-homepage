@@ -1,17 +1,5 @@
 @use '../../00_utilities/variables';
 
-@property --size {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
-
-@property --blur {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: 0%;
-}
-
 .image {
   width: 100%;
   height: auto;
@@ -27,8 +15,10 @@
       cursor: pointer;
 
       &:before {
-        --size: 100%;
-        --blur: 100%;
+        transform: scale(1);
+        opacity: .85;
+        border-radius: 0;
+        aspect-ratio: auto;
       }
 
       .icon {
@@ -38,16 +28,20 @@
   }
 
   &:before {
-    transition: --size .9s ease-in-out, --blur .6s ease-in-out;
+    transition: transform .6s ease-in-out, opacity .5s ease-in-out, border-radius .8s ease-in-out;
     content: "";
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at 50% 50%, variables.$dark-green var(--size), transparent var(--blur), transparent 100%);
-    opacity: .9;
+    background-color: variables.$dark-green;
+    opacity: 0;
     position: absolute;
+    margin: auto 0;
+    inset: 0;
     width: 100%;
-    aspect-ratio: 1/1;
+    height: auto;
+    transform: scale(.2);
+    border-radius: 100%;
     top: 0;
     bottom: 4px;
     left: 0;

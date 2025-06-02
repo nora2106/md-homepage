@@ -23,17 +23,14 @@
 
   :last-child {
     margin-top: auto;
-    font-size: variables.$font-size-big;
 
     @media (min-width: variables.$md) {
       margin-top: 0;
       margin-left: auto;
-      font-size: variables.$font-size-base;
     }
   }
 
   a {
-    font-size: variables.$font-size-base;
     --border-color: #{variables.$primaryLight};
     opacity: 0;
 

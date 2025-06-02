@@ -12,11 +12,15 @@
 }
 
 .flowerWrapper1 {
-  width: 30%;
+  width: 26%;
   float: right;
-  margin-top: -3%;
+  margin-top: -2%;
 
   @media (min-width: variables.$md) {
     width: 15%;
+  }
+
+  @media (min-width: variables.$xl) {
+    width: 12%;
   }
 }

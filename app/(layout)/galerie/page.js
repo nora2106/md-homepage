@@ -12,7 +12,7 @@ export const Imprint = async () => {
     const data = imageData[0];
     return (
         <main>
-            <Heading hasFallback={true} tag="h1" type="headline-2" reversed={true} secondLine="Bilder&shy;galerie"/>
+            <Heading hasFallback={true} tag="h1" type="headline-2" reversed={true} secondLine="Presse&shy;fotos"/>
             <GalleryGrid data={data}/>
         </main>
     );

@@ -10,37 +10,26 @@ import {usePathname} from "next/navigation";
 
 export const Footer = () => {
     const [data, setData] = useState(null)
-    const [scrollHeight, setScrollHeight] = useState("90%");
-    const target = useRef(null);
     let d = new Date();
     const year = d.getFullYear().toString();
     const pathname = usePathname();
 
-    useEffect( () => {
+    useEffect(() => {
         async function getData() {
             const pageContent = await getSettings();
             setData(pageContent[0]);
         }
+
         getData();
     }, []);
 
-    const {scrollYProgress} = useScroll({
-        target,
-        offset: ['start end', 'end start'],
-    });
-    let parallax = useTransform(scrollYProgress, [0, 1], [0, 100]);
-    useMotionValueEvent(parallax, 'change', (v) => {
-            setScrollHeight(-1 * v.toFixed(2) + "%")
-        }
-    );
-
-    return <div ref={target} className={styles.wrapper}>
-        <motion.div key={pathname} initial={{y: "80%"}} whileInView={{y: "0"}} viewport={{once: true}} transition={{ease: "linear", duration: .6}} className={styles.container}>
+    return <div className={styles.wrapper}>
+        <div key={pathname} className={styles.container}>
             <div className={styles.mailIcon}>
                 <FaAt/>
             </div>
             {data ?
-                <div  className={styles.footerContent}>
+                <div className={styles.footerContent}>
                     <div className={styles.contactField}>
                         <p className={styles.contactText}>Kontaktiere mich unter: </p>
                         <a className={styles.mail} href={'mailto:' + data.email}>{data.email}</a>
@@ -48,7 +37,8 @@ export const Footer = () => {
                     <div className={styles.text}>
                         <p>© {year}, alle Rechte vorbehalten.</p>
                         <Link href="/impressum">Impressum</Link>
-                        <p>Webseite erstellt von <a href={data.footer_link ? data.footer_link : "/"}>Nora Klinger</a></p>
+                        <p>Webseite erstellt von <a href={data.footer_link ? data.footer_link : "/"}>Nora Klinger</a>
+                        </p>
                     </div>
                     <a className={styles.attribution} href="https://www.vecteezy.com/free-vector/illustration">Illustration
                         Vectors by Vecteezy</a>
@@ -56,7 +46,7 @@ export const Footer = () => {
                 </div>
                 : <div/>
             }
-        </motion.div>
+        </div>
     </div>
 };
 

@@ -7,19 +7,30 @@
   transform: translateX(-50%);
   align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 3em;
+  flex-direction: column-reverse;
+  gap: 2em;
   z-index: 3;
 
   img {
     width: 80%;
     margin-left: -15%;
-    margin-top: 5em;
     z-index: 3;
 
     @media (min-width: variables.$md) {
       width: 60%;
       margin-left: -35%;
+    }
+
+    @media (min-width: variables.$lg) {
+      margin: 0;
+      justify-self: flex-start;
+      height: auto;
+      transform: translateX(0);
+      width: 40%;
+    }
+
+    @media (min-width: variables.$xl) {
+      width: 30%;
     }
   }
 
@@ -27,42 +38,6 @@
     width: 100%;
     transform: translateX(0);
     left: 0;
-    gap: 1em;
     flex-direction: row;
-
-    img {
-      margin: 0;
-      justify-self: flex-start;
-      height: auto;
-      width: 40%;
-      transform: translateX(0);
-    }
   }
 }
-
-.flowerWrapper {
-  width: 40%;
-  position: absolute;
-  top: -4%;
-  right: -10%;
-  z-index: 2;
-  max-width: 14em;
-
-  @media (min-width: variables.$md) {
-    right: 10%;
-  }
-
-  @media (min-width: variables.$lg) {
-    max-width: 20em;
-    width: 30%;
-    right: auto;
-    left: -2%;
-    top: 88%;
-  }
-
-  @media (min-width: variables.$xl) {
-    max-width: none;
-    top: 96%;
-  }
-}
-

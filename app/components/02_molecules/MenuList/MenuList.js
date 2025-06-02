@@ -32,7 +32,7 @@ export const MenuList = (props) => {
         <ul ref={scope} className={style.list}>
             <MenuItem toggle={props.toggle} url='/' text='Homepage'/>
             <MenuItem toggle={props.toggle} url='/projekte' text='Projekte'/>
-            <MenuItem toggle={props.toggle} url='/galerie' text='Bildergalerie'/>
+            <MenuItem toggle={props.toggle} url='/galerie' text='Pressefotos'/>
             <MenuItem toggle={props.toggle} url='/unterricht' text='Unterricht'/>
             <Button slug={'mailto:' + email} text='Kontakt'/>
         </ul>
