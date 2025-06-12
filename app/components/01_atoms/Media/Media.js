@@ -99,6 +99,9 @@ export const Media = (props) => {
             />
         );
     }
+    else if(props.media.link) {
+        return <div className={style.video} dangerouslySetInnerHTML={{ __html: props.media.link}}/>
+    }
 };
 
 export default Media;

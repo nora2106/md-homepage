@@ -6,6 +6,7 @@ export default {
         {
             type: 'object',
             title: 'Bild',
+            name: 'imageObject',
             fields: [
                 {
                     name: 'image',
@@ -24,6 +25,18 @@ export default {
             type: "file",
             title: "Video",
             options: { accept: "video/*" },
+        },
+        {
+            type: 'object',
+            title: 'Youtube-Link',
+            name: 'linkObject',
+            fields: [
+                {
+                    type: "string",
+                    name: "link",
+                    title: "Youtube Embed",
+                },
+            ]
         },
     ],
 }
