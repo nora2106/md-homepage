@@ -8,19 +8,20 @@ import styles from "../components/06_pages/Home/home.module.scss"
 import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
 import Media from "@/app/components/01_atoms/Media/Media";
 
+// @todo get metadata from backend
 export const metadata = {
-    description: "Professionelle Posaunistin für Jazz, Konzerte & Unterricht in München.",
+    description: "Marion Dimbath arbeitet als Posaunistin, Sängerin und Tubistin in verschiedenen Jazz-, Rock- und Popbesetzungen sowie am Theater.",
     keywords: [
         "Posaunistin München",
         "Jazzposaune München",
-        "Posaunenunterricht München",
         "Live Musik München",
         "Jazzposaune",
         "Posaune München",
-        "Posaune lernen"
+        "Musikerin München",
+        "Marion Dimbath"
     ],
     alternates: {
-        canonical: "https://marion-dimbath.netlify.app"
+        canonical: "https://www.mariondimbath.de"
     }
 }
 

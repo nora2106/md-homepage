@@ -15,11 +15,9 @@
     padding-inline: 2em;
   }
 
-  @media (min-width: variables.$lg) {
+  @media (min-width: variables.$xl) {
     width: 100%;
     max-width: none;
-    min-height: 13em;
-    padding-bottom: 1.5em;
   }
 }
 
@@ -51,6 +49,7 @@
 .text {
   margin-bottom: 1em;
   width: fit-content;
+  font-size: variables.$font-size-small;
 }
 
 .bottomLine {
@@ -72,7 +71,7 @@
     justify-content: center;
     gap: 5px;
     color: variables.$text-light;
-    font-size: variables.$font-size-small;
+    font-size: variables.$font-size-smallest;
 
     svg {
       margin: auto 0;
