@@ -15,7 +15,7 @@
     height: 1px;
     display: block;
     width: var(--border-width);
-    margin: 2em auto 0 auto;
+    margin: 3em auto 0 auto;
     background-color: variables.$grey;
     content: '';
   }
@@ -28,9 +28,13 @@
     background-color: transparent;
     border-left: 1px solid variables.$grey;
     pointer-events: none;
-    display: block;
+    display: none;
     margin-top: 4em;
     margin-left: -5em;
+
+    @media (min-width: variables.$md) {
+      display: block;
+    }
   }
 }
 .container {
@@ -40,6 +44,7 @@
   align-items: center;
   justify-content: space-between;
   gap: .8em;
+  padding-block: 1.5em;
 }
 
 .headline {

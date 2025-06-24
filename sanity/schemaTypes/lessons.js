@@ -8,6 +8,18 @@ export const lessons = defineType({
     type: 'document',
     fields: [
         defineField({
+            name: 'title',
+            title: 'Seitentitel',
+            description: 'Titel, der im Browserfenster angezeigt wird und dem Suchmaschinenranking dient',
+            type: 'string',
+        }),
+        defineField({
+            name: 'meta_description',
+            title: 'Seitenbeschreibung',
+            description: 'Zur Vorschau, dient dem Suchmaschinenranking',
+            type: 'string',
+        }),
+        defineField({
             name: 'headline',
             title: 'Überschrift',
             type: 'string',

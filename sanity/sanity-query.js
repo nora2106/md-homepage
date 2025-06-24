@@ -13,7 +13,9 @@ export async function getHomepage() {
       my_projects_headline,
       banner_text,
       banner_button_text,
-      media_centered
+      media_centered,
+      title,
+      meta_description
     }`, {},
         {
             next: {revalidate: 60}
@@ -63,6 +65,10 @@ export async function getSettings() {
       footer_credit,
       footer_link,
       image_credit,
+      projects_title,
+      projects_meta_description,
+      gallery_title,
+      gallery_meta_description
     }`, {},
         {
             next: {revalidate: 60}
@@ -76,6 +82,8 @@ export async function getLessonsPage() {
       headline,
       media,
       text,
+      title,
+      meta_description
     }`, {},
         {
             next: {revalidate: 60}
@@ -95,7 +103,7 @@ export async function getGalleryImages() {
                     url
                 }
             }
-        }
+        },
     }`, {},
         {
             next: {revalidate: 60}

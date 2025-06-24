@@ -18,11 +18,22 @@ const inter = localFont({
 
 export const metadata = {
     title: "Marion Dimbath | Posaune",
-    metadataBase: new URL("https://marion-dimbath.netlify.app"),
+    description: "Professionelle Posaunistin für Jazz, Konzerte & Unterricht in München.",
+    metadataBase: new URL("https://www.mariondimbath.de"),
     openGraph: {
         siteName: "Marion Dimbath | Posaune",
         type: "website",
-        locale: "de_DE"
+        locale: "de_DE",
+        url: "https://www.mariondimbath.de",
+        description: "Professionelle Posaunistin für Jazz, Konzerte & Unterricht in München.",
+        images: [
+            {
+                url: "https://www.mariondimbath.de/img/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Marion Dimbath mit Posaune"
+            }
+        ]
     },
     robots: {
         index: true,
@@ -34,6 +45,9 @@ export const metadata = {
     },
     icons: {
         icon: '../favicon.ico'
+    },
+    alternates: {
+        canonical: "https://www.mariondimbath.de"
     }
 };
 

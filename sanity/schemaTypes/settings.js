@@ -34,8 +34,8 @@ export const settings = defineType({
         }),
         defineField({
             name: 'image_credit',
-            title: 'Illustration Credit',
-            description: 'Copyright-Notiz unter der Startseitenillustration',
+            title: 'Illustration Copyright',
+            description: 'Copyright-Notiz unter der Illustration',
             type: 'string',
         }),
         defineField({
@@ -46,6 +46,26 @@ export const settings = defineType({
         defineField({
             name: 'footer_link',
             title: 'Footer Link',
+            type: 'string',
+        }),
+        defineField({
+            name: 'projects_title',
+            title: 'Meta-Titel für Projektseite',
+            type: 'string',
+        }),
+        defineField({
+            name: 'projects_meta_description',
+            title: 'Meta-Seitenbeschreibung für Projektseite',
+            type: 'string',
+        }),
+        defineField({
+            name: 'gallery_title',
+            title: 'Meta-Titel für Pressefoto-Seite',
+            type: 'string',
+        }),
+        defineField({
+            name: 'gallery_meta_description',
+            title: 'Meta-Seitenbeschreibung für Pressefoto-Seite',
             type: 'string',
         }),
     ],

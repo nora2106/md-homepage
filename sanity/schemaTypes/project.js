@@ -18,8 +18,10 @@ export const project = defineType({
         }),
         defineField({
             name: 'slug',
-            type: 'slug',
-            options: {source: 'title'},
+            type: 'string',
+            title: 'URL-Slug',
+            description: 'Projektname für URL-Adresse (kleingeschrieben, keine Umlaute)',
+            options: {source: 'name'},
             validation: (rule) => rule.required(),
         }),
         defineField({

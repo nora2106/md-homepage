@@ -8,7 +8,14 @@ export const homepage = defineType({
     fields: [
         defineField({
             name: 'title',
-            title: 'Titel',
+            title: 'Seitentitel',
+            description: 'Titel, der im Browserfenster angezeigt wird und dem Suchmaschinenranking dient',
+            type: 'string',
+        }),
+        defineField({
+            name: 'meta_description',
+            title: 'Seitenbeschreibung',
+            description: 'Zur Vorschau, dient dem Suchmaschinenranking',
             type: 'string',
         }),
         defineField({
