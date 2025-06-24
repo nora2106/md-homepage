@@ -6,13 +6,13 @@ export async function generateMetadata() {
     const pageContent = await getSettings();
     const data = pageContent[0];
 
-    if(!data.meta_description) {
+    if(!data.projects_meta_description) {
         return {
             title: data.projects_title,
         }
     }
 
-    if(!data.title) {
+    if(!data.projects_title) {
         return {
             description: data.projects_meta_description,
             openGraph: {

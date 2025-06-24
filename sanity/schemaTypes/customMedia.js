@@ -19,6 +19,11 @@ export default {
                     type: 'string',
                     title: 'Alt-Text (für Barrierefreiheit und SEO)',
                 },
+                {
+                    name: 'copyright',
+                    type: 'string',
+                    title: 'Name für Copyright',
+                },
             ]
         },
         {

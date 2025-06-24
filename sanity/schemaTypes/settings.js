@@ -39,11 +39,6 @@ export const settings = defineType({
             type: 'string',
         }),
         defineField({
-            name: 'footer_credit',
-            title: 'Footer Credit',
-            type: 'string',
-        }),
-        defineField({
             name: 'footer_link',
             title: 'Footer Link',
             type: 'string',
@@ -56,16 +51,6 @@ export const settings = defineType({
         defineField({
             name: 'projects_meta_description',
             title: 'Meta-Seitenbeschreibung für Projektseite',
-            type: 'string',
-        }),
-        defineField({
-            name: 'gallery_title',
-            title: 'Meta-Titel für Pressefoto-Seite',
-            type: 'string',
-        }),
-        defineField({
-            name: 'gallery_meta_description',
-            title: 'Meta-Seitenbeschreibung für Pressefoto-Seite',
             type: 'string',
         }),
     ],

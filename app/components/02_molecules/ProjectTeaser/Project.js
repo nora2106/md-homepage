@@ -13,7 +13,6 @@ import styles from "@/app/components/01_atoms/GalleryImage/galleryimage.module.s
 export const Project = (props) => {
     const letter = props.data.name.slice(0, 1);
     const currentURl = usePathname();
-    const shapes = [Shape1, Shape2, Shape3];
     const delay = (.3 + (props.index * 0.2))
     const [previewImg, setPreviewImg] = useState(null);
 
@@ -27,19 +26,6 @@ export const Project = (props) => {
                 .url());
         }
     }, [props.data]);
-
-    const gridVariants = {
-        hidden: {
-            "&:before": {
-                opacity: 0
-            }
-        },
-        visible: {
-            "&:before": {
-                opacity: 1
-            }
-        }
-    };
 
     return (
         <motion.div initial={{"--border-width": "0", "--border-height": "0"}}

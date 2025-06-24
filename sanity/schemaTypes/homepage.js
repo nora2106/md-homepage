@@ -70,6 +70,14 @@ export const homepage = defineType({
             type: 'string',
         }),
         defineField({
+            name: 'media_centered_headline',
+            title: 'Media-Überschrift',
+            description: 'Überschrift über Bild/Video mittig (optional)',
+            type: 'array',
+            validation: rule => rule.required().min(1).max(2),
+            of: [{type: 'string'}],
+        }),
+        defineField({
             name: 'media_centered',
             title: 'Bild/Video mittig',
             description: 'Bild oder Video mittig unter "Über mich" (optional)',

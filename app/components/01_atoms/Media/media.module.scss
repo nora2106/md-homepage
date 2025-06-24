@@ -1,6 +1,19 @@
+@use '../../00_utilities/variables';
+
 .image {
   width: 100%;
   height: auto;
+  max-width: 35rem;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.copyright {
+  font-size: variables.$font-size-smallest;
+  //position: absolute;
 }
 
 .video {

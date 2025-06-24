@@ -49,7 +49,12 @@ export const Home = async () => {
                 <FlowerElement/>
             </div>
             <Heading tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
-            <TextMedia text={data.about_me_text} media={data.about_me_media}/>
+            <TextMedia centered={true} text={data.about_me_text} media={data.about_me_media}/>
+            {
+                data.media_centered_headline ?
+                    <Heading tag='h2' firstLine={media_centered_headline[0]} secondLine={media_centered_headline[1]}/>
+                    : <div/>
+            }
             {
                 data.media_centered ?
                     <div className={styles.singleMedia}>

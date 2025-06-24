@@ -2,35 +2,30 @@ import Heading from "@/app/components/01_atoms/Heading/Heading";
 import {getGalleryImages} from "@/sanity/sanity-query";
 import GalleryGrid from "@/app/components/03_organisms/GalleryGrid/GalleryGrid";
 
-// export const metadata = {
-//     title: "Marion Dimbath | Bildergalerie",
-//     description: "Marion Dimbath: Aktuelle Pressebilder zum Download.",
-// }
-
 export async function generateMetadata() {
     const pageContent = await getGalleryImages();
     const data = pageContent[0];
 
     if(!data.meta_description) {
         return {
-            title: data.gallery_title,
+            title: data.title,
         }
     }
 
     if(!data.title) {
         return {
-            description: data.gallery_meta_description,
+            description: data.meta_description,
             openGraph: {
-                description: data.gallery_meta_description,
+                description: data.meta_description,
             },
         }
     }
 
     return {
-        description: data.gallery_meta_description,
-        title: data.gallery_title,
+        description: data.meta_description,
+        title: data.title,
         openGraph: {
-            description: data.gallery_meta_description,
+            description: data.meta_description,
         },
     }
 }
