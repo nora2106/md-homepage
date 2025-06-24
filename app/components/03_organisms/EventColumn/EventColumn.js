@@ -10,7 +10,9 @@ export const EventColumn = async (props) => {
         events ?
             <div className={style.wrapper}>
                 {props.media ?
-                    <Media left={true} media={props.media[0]}/>
+                    <div className={style.mediaWrapper}>
+                        <Media left={true} media={props.media[0]}/>
+                    </div>
                     : <div/>
                 }
                 {
