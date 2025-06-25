@@ -10,7 +10,7 @@
   position: relative;
   pointer-events: all;
 
-  @media (min-width: variables.$lg) {
+  @media (min-width: variables.$md) {
     padding-inline: 2em;
   }
 

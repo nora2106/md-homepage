@@ -14,7 +14,7 @@
   z-index: 6;
   pointer-events: all;
 
-  @media (min-width: variables.$md) {
+  @media (min-width: variables.$lg) {
     display: none;
   }
 }
