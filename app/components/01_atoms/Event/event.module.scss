@@ -6,7 +6,6 @@
   padding-inline: 1em;
   min-height: 10em;
   color: variables.$white;
-  max-width: 40em;
   padding-bottom: 1em;
   position: relative;
   pointer-events: all;
@@ -17,7 +16,6 @@
 
   @media (min-width: variables.$xl) {
     width: 100%;
-    max-width: none;
   }
 }
 
@@ -39,6 +37,10 @@
   @media (min-width: variables.$md) {
     padding-block: 10px;
     margin-bottom: 0;
+  }
+
+  @media (min-width: variables.$xl) {
+    padding-block: .8rem;
   }
 }
 

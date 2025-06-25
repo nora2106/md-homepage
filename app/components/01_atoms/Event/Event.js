@@ -28,7 +28,7 @@ export const Event = (props) => {
 
     const target = useRef(null);
     const isMobile = useMediaQuery("only screen and (max-width : 768px)");
-    const [scrollProgress, setScrollProgress] = useState("100%");
+    const [scrollProgress, setScrollProgress] = useState("80%");
 
     useEffect(() => {
         initializeMobileAnim();
@@ -37,7 +37,6 @@ export const Event = (props) => {
 
     function initializeMobileAnim() {
         if(isMobile && props.index % 2 !== 1) {
-            // setScrollProgress(progress * -1 + "%");
             setScrollProgress(progress + "%");
         }
     }
@@ -48,7 +47,7 @@ export const Event = (props) => {
     });
     let progress = 100;
 
-    let parallax = useTransform(scrollYProgress, [0, .2, .8, 1], [0, 100, 100, 0]);
+    let parallax = useTransform(scrollYProgress, [0, .2, .8, 1], [20, 100, 100, 20]);
     useMotionValueEvent(parallax, 'change', (v) => {
         if(isMobile) {
             setScrollProgress('0%');

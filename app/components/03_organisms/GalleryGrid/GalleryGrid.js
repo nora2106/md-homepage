@@ -1,14 +1,13 @@
 "use client"
 import styles from "./gallerygrid.module.scss";
 import GalleryImage from "@/app/components/01_atoms/GalleryImage/GalleryImage";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 
 export const GalleryGrid = (props) => {
     const [images, setImages] = useState([])
 
     useEffect(() => {
         let sortedArr = props.data.images;
-        console.log(sortedArr)
         sortedArr.forEach(elem => {
             if(elem.sort === null) {
                 elem.sort = sortedArr.length;

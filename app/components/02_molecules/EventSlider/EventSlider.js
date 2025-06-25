@@ -4,7 +4,6 @@ import {useEffect, useState, useRef} from "react";
 import Event from "@/app/components/01_atoms/Event/Event";
 import SliderArrows from "@/app/components/01_atoms/SliderArrows/SliderArrows";
 import {motion} from "motion/react";
-import {log} from "next/dist/server/typescript/utils";
 
 export const EventSlider = (props) => {
     const [events, setEvents] = useState([]);
@@ -56,8 +55,8 @@ export const EventSlider = (props) => {
 
     return (
         <div className={style.container}>
-            <motion.div key={index} transition={{ease: "linear", duration: .8}} initial={{x: "100%"}}
-                        animate={{x: "0%"}} ref={wrapperRef} className={style.wrapper}>
+            <motion.div key={index} transition={{ease: "linear", duration: .8}} initial={{x: "20%", opacity: 0}}
+                        animate={{x: 0, opacity: 1}} ref={wrapperRef} className={style.wrapper}>
                 {
                     events ?
                         events.map((event, key) =>
