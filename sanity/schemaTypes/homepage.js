@@ -74,7 +74,7 @@ export const homepage = defineType({
             title: 'Media-Überschrift',
             description: 'Überschrift über Bild/Video mittig (optional)',
             type: 'array',
-            validation: rule => rule.required().min(1).max(2),
+            validation: rule => rule.required().max(2),
             of: [{type: 'string'}],
         }),
         defineField({

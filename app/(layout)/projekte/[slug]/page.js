@@ -3,14 +3,13 @@ import Heading from "@/app/components/01_atoms/Heading/Heading"
 import styles from "@/app/components/06_pages/Project/project.module.scss";
 import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
 import TextMedia from "@/app/components/03_organisms/TextMedia/TextMedia";
-import Link from "next/link";
 import Button from "@/app/components/01_atoms/Button/Button";
 
 export const ProjectDetail = async ({params}) => {
     let projectData = [];
     const data = await getProjects();
     data.forEach(elem => {
-        if(elem.slug.current === params.slug) {
+        if(elem.slug === params.slug) {
             projectData = elem;
         }
     })
