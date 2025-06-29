@@ -59,7 +59,7 @@ export const Project = (props) => {
                 </motion.div>
                 <motion.div animate={{opacity: 1}} initial={{opacity: 0}}
                             transition={{duration: .8, ease: ['easeIn'], delay: (delay + .4)}}>
-                    <Button text="Anschauen" slug={currentURl + "/" + props.data.slug.current} arrow={true}/>
+                    <Button text="Anschauen" slug={currentURl + "/" + props.data.slug} arrow={true}/>
                 </motion.div>
             </div>
         </motion.div>
