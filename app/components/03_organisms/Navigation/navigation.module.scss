@@ -6,6 +6,7 @@
   z-index: 6;
   position: relative;
   background-color: variables.$page-bg;
+  max-height: 100vh;
 }
 
 .navigation {
@@ -15,7 +16,7 @@
   transition: transform .4s ease-in-out;
   pointer-events: none;
 
-  @media (min-width: variables.$md) {
+  @media (min-width: variables.$lg) {
     width: 100%;
     height: fit-content;
     background-color: variables.$page-bg;
@@ -33,7 +34,7 @@
 }
 
 .navigationHidden {
-  @media (min-width: variables.$md) {
+  @media (min-width: variables.$lg) {
     transform: translateY(-100%);
   }
 }
@@ -44,7 +45,7 @@
   padding: 1em 2em;
   --overlay-opacity: 0;
 
-  @media (min-width: variables.$md) {
+  @media (min-width: variables.$lg) {
     display: block;
     height: fit-content;
   }
@@ -58,7 +59,11 @@
   pointer-events: all;
   --overlay-opacity: .7;
 
-  @media (min-width: variables.$md) {
+  .overlay {
+    pointer-events: all;
+  }
+
+  @media (min-width: variables.$lg) {
     position: relative;
   }
 }
@@ -75,7 +80,7 @@
   z-index: 2;
   pointer-events: none;
 
-  @media (min-width: variables.$md) {
+  @media (min-width: variables.$lg) {
     display: none;
   }
 }

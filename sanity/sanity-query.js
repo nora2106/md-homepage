@@ -13,7 +13,10 @@ export async function getHomepage() {
       my_projects_headline,
       banner_text,
       banner_button_text,
-      media_centered
+      media_centered,
+      title,
+      media_centered_headline,
+      meta_description
     }`, {},
         {
             next: {revalidate: 60}
@@ -41,7 +44,7 @@ export async function getProjects() {
     return client.fetch(
         groq`*[_type == "project"]{
       name,
-      description,
+      previewImage,
       slug,
       media,
       body,
@@ -60,9 +63,10 @@ export async function getSettings() {
       email,
       address,
       imprint_text,
-      footer_credit,
       footer_link,
       image_credit,
+      projects_title,
+      projects_meta_description,
     }`, {},
         {
             next: {revalidate: 60}
@@ -76,6 +80,8 @@ export async function getLessonsPage() {
       headline,
       media,
       text,
+      title,
+      meta_description
     }`, {},
         {
             next: {revalidate: 60}
@@ -87,15 +93,18 @@ export async function getGalleryImages() {
     return client.fetch(
         groq`*[_type == "gallery"]{
         images[]{
-        alt,
-        image {
-                ...,
+            image {
                 asset->{
                     _id,
                     url
                 }
-            }
-        }
+            },
+            alt,
+            copyright,
+            sort
+        },
+        title,
+        meta_description
     }`, {},
         {
             next: {revalidate: 60}

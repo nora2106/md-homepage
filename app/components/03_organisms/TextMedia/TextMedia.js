@@ -7,7 +7,7 @@ import {getHomepage} from "@/sanity/sanity-query";
 export async function TextMedia(props) {
 
     return (
-        <div className={style.wrapper}>
+        <div className={` ${style.wrapper} ${props.centered ? style.centered : ''}`}>
             <TextBlock hasFallback={!!props.hasFallback} text={props.text}/>
             <div className={style.media}>
                 {

@@ -1,10 +1,33 @@
-import {getProjects} from "@/sanity/sanity-query";
+import {getProjects, getSettings} from "@/sanity/sanity-query";
 import Heading from "@/app/components/01_atoms/Heading/Heading";
 import Grid from "@/app/components/03_organisms/ProjectGrid/ProjectGrid";
 
-export const metadata = {
-    title: "Marion Dimbath | Projekte",
-    description: "Marion Dimbath: Meine aktuellen Projekte",
+export async function generateMetadata() {
+    const pageContent = await getSettings();
+    const data = pageContent[0];
+
+    if(!data.projects_meta_description) {
+        return {
+            title: data.projects_title,
+        }
+    }
+
+    if(!data.projects_title) {
+        return {
+            description: data.projects_meta_description,
+            openGraph: {
+                description: data.projects_meta_description,
+            },
+        }
+    }
+
+    return {
+        description: data.projects_meta_description,
+        title: data.title,
+        openGraph: {
+            description: data.projects_meta_description,
+        },
+    }
 }
 
 export const Projects = async () => {

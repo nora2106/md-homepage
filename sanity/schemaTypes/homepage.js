@@ -8,7 +8,14 @@ export const homepage = defineType({
     fields: [
         defineField({
             name: 'title',
-            title: 'Titel',
+            title: 'Seitentitel',
+            description: 'Titel, der im Browserfenster angezeigt wird und dem Suchmaschinenranking dient',
+            type: 'string',
+        }),
+        defineField({
+            name: 'meta_description',
+            title: 'Seitenbeschreibung',
+            description: 'Zur Vorschau, dient dem Suchmaschinenranking',
             type: 'string',
         }),
         defineField({
@@ -61,6 +68,14 @@ export const homepage = defineType({
             title: 'Button-Text im Banner',
             description: 'Link im Banner mit Verlinkung zur Projekte-Seite (optional)',
             type: 'string',
+        }),
+        defineField({
+            name: 'media_centered_headline',
+            title: 'Media-Überschrift',
+            description: 'Überschrift über Bild/Video mittig (optional)',
+            type: 'array',
+            validation: rule => rule.required().min(1).max(2),
+            of: [{type: 'string'}],
         }),
         defineField({
             name: 'media_centered',

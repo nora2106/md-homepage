@@ -12,7 +12,7 @@
   margin-top: 2em;
   margin-left: 2em;
 
-  @media (min-width: variables.$md) {
+  @media (min-width: variables.$lg) {
     flex-direction: row;
     align-items: center;
     height: fit-content;
@@ -24,18 +24,17 @@
   :last-child {
     margin-top: auto;
 
-    @media (min-width: variables.$md) {
+    @media (min-width: variables.$lg) {
       margin-top: 0;
       margin-left: auto;
     }
   }
 
   a {
-    font-size: variables.$font-size-base;
     --border-color: #{variables.$primaryLight};
     opacity: 0;
 
-    @media (min-width: variables.$md) {
+    @media (min-width: variables.$lg) {
       --border-color: #{variables.$primary};
       opacity: 1 !important;
       transform: translateX(0) !important;

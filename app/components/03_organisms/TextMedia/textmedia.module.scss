@@ -16,6 +16,10 @@
   }
 }
 
+.centered {
+  align-items: center;
+}
+
 .media {
   width: 100%;
   max-width: 40em;
@@ -27,15 +31,15 @@
   gap: 4em;
   margin: 0 auto;
 
+  img,
+  video {
+    width: 80%;
+    height: auto;
+  }
+
   @media (min-width: variables.$lg) {
     max-width: none;
     justify-self: flex-end;
     align-items: flex-end;
-  }
-
-  img,
-  video {
-    width: 85%;
-    height: auto;
   }
 }

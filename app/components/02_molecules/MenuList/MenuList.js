@@ -21,7 +21,7 @@ export const MenuList = (props) => {
 
     useEffect(() => {
         if(props.trigger === true) {
-            animate("a", {opacity: 1, x: 0}, {duration: .6, delay: stagger(.4, {startDelay: 1})})
+            animate("a", {opacity: 1, x: 0}, {duration: .8, delay: stagger(.25, {startDelay: .8})})
         }
         else {
             animate("a", {opacity: 0, x: "-100%"}, {duration: .4})
@@ -32,7 +32,7 @@ export const MenuList = (props) => {
         <ul ref={scope} className={style.list}>
             <MenuItem toggle={props.toggle} url='/' text='Homepage'/>
             <MenuItem toggle={props.toggle} url='/projekte' text='Projekte'/>
-            <MenuItem toggle={props.toggle} url='/galerie' text='Bildergalerie'/>
+            <MenuItem toggle={props.toggle} url='/galerie' text='Pressefotos'/>
             <MenuItem toggle={props.toggle} url='/unterricht' text='Unterricht'/>
             <Button slug={'mailto:' + email} text='Kontakt'/>
         </ul>

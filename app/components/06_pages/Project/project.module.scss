@@ -1,13 +1,33 @@
 @use '../../00_utilities/variables';
 
 .flowerWrapper {
-  width: 12%;
-  min-width: 10em;
-  float: right;
-  margin-top: -7%;
+  width: 30%;
+  right: 0;
+  margin-top: -20%;
   margin-right: -1%;
+  max-width: 10em;
+  position: absolute;
+
+  @media (min-width: variables.$md) {
+    width: 12%;
+    min-width: 10em;
+    float: right;
+    margin-top: -10%;
+    margin-right: 0;
+    position: relative;
+    max-width: none;
+  }
+
+  @media (min-width: variables.$xxl) {
+    margin-top: -7%;
+  }
 }
 
 .content {
-  margin-top: 6rem;
+  margin-top: 3rem;
+}
+
+.backLink button {
+  --border-color: transparent;
+  text-decoration: underline;
 }

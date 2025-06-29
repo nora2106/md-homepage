@@ -80,24 +80,35 @@ export const Media = (props) => {
 
     else if (props.media.image) {
         return (
-            <motion.img
-                initial="hide"
-                whileInView="show"
-                viewport={{once: true}}
-                variants={mediaVariants}
-                className={style.image}
-                src={urlForImage(props.media.image.asset)
-                    .width(800)
-                    .quality(100)
-                    .auto("format")
-                    .url()}
-                alt={props.media.alt}
-                width="500"
-                height="500"
-                loading="lazy"
-                fetchPriority="low"
-            />
+            <div className={style.image}>
+                <motion.img
+                    initial="hide"
+                    whileInView="show"
+                    viewport={{once: true}}
+                    variants={mediaVariants}
+                    src={urlForImage(props.media.image.asset)
+                        .width(800)
+                        .quality(100)
+                        .auto("format")
+                        .url()}
+                    alt={props.media.alt}
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    fetchPriority="low"
+                />
+                {
+                    props.media.copyright ?
+                        <span className={style.copyright}>© {props.media.copyright}</span>
+                    :
+                        <div/>
+                }
+            </div>
+
         );
+    }
+    else if(props.media.link) {
+        return <div className={style.video} dangerouslySetInnerHTML={{ __html: props.media.link}}/>
     }
 };
 

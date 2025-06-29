@@ -1,5 +1,5 @@
 import styles from "./button.module.scss"
-import { FaArrowRight } from "react-icons/fa6";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import Link from "next/link";
 
 export const Button = (props) => {
@@ -8,6 +8,7 @@ export const Button = (props) => {
             props.slug ?
                 <Link className={styles.buttonWrapper} href={props.slug}>
                     <button className={` ${styles.button} ${props.secondary ? styles.secondary : ''}`}>
+                        {props.arrowLeft ? <FaArrowLeft/> : ''}
                         {props.text}
                         {props.arrow ? <FaArrowRight/> : ''}
                     </button>

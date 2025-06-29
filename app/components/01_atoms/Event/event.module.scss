@@ -3,32 +3,45 @@
 .container {
   width: 90%;
   border: 2px solid variables.$white;
-  padding-inline: 2em;
+  padding-inline: 1em;
   min-height: 10em;
   color: variables.$white;
-  max-width: 40em;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
   position: relative;
+  pointer-events: all;
 
-  @media (min-width: variables.$lg) {
+  @media (min-width: variables.$md) {
+    padding-inline: 2em;
+  }
+
+  @media (min-width: variables.$xl) {
     width: 100%;
-    max-width: none;
-    min-height: 13em;
   }
 }
 
 .hidden {
   position: absolute;
   opacity: 0;
+  pointer-events: none;
 }
 
 .date {
   border-bottom: 1px solid variables.$light-grey;
-  padding-block: 10px;
+  padding-block: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: variables.$font-size-small;
+  margin-bottom: 10px;
+
+  @media (min-width: variables.$md) {
+    padding-block: 10px;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: variables.$xl) {
+    padding-block: .8rem;
+  }
 }
 
 .headline {
@@ -37,15 +50,22 @@
 
 .text {
   margin-bottom: 1em;
+  width: fit-content;
   font-size: variables.$font-size-small;
 }
 
 .bottomLine {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: .5rem;
+  align-items: flex-start;
   width: 100%;
+  height: fit-content;
+
+  a {
+    font-size: variables.$font-size-small;
+  }
 
   .locationText {
     display: flex;
@@ -53,10 +73,18 @@
     justify-content: center;
     gap: 5px;
     color: variables.$text-light;
+    font-size: variables.$font-size-smallest;
 
     svg {
       margin: auto 0;
       color: variables.$white;
     }
+  }
+
+  @media (min-width: variables.$md) {
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }

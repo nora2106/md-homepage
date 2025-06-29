@@ -7,61 +7,37 @@
   transform: translateX(-50%);
   align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 3em;
+  flex-direction: column-reverse;
+  gap: 2em;
   z-index: 3;
-
-  img {
-    width: 80%;
-    margin-left: -15%;
-    margin-top: 5em;
-    z-index: 3;
-
-    @media (min-width: variables.$md) {
-      width: 60%;
-      margin-left: -35%;
-    }
-  }
 
   @media (min-width: variables.$lg) {
     width: 100%;
     transform: translateX(0);
     left: 0;
-    gap: 1em;
     flex-direction: row;
-
-    img {
-      margin: 0;
-      justify-self: flex-start;
-      height: auto;
-      width: 40%;
-      transform: translateX(0);
-    }
   }
 }
 
-.flowerWrapper {
-  width: 40%;
-  position: absolute;
-  top: -6%;
-  right: -10%;
-  z-index: 2;
-  max-width: 20em;
+.mediaWrapper {
+  width: 80%;
+  z-index: 3;
+  max-width: 25rem;
 
   @media (min-width: variables.$md) {
-    right: 0;
+    width: 50%;
+    margin-left: -45%;
   }
 
   @media (min-width: variables.$lg) {
-    max-width: none;
-    width: 30%;
-    right: auto;
-    left: -2%;
-    top: 70%;
+    margin: 0;
+    justify-self: flex-start;
+    height: auto;
+    transform: translateX(0);
+    width: 40%;
   }
 
   @media (min-width: variables.$xl) {
-    top: 85%;
+    width: 30%;
   }
 }
-

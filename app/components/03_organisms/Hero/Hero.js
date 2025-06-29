@@ -13,18 +13,7 @@ export const Hero = (props) => {
         calcVH();
         window.addEventListener('onorientationchange', calcVH, true);
         window.addEventListener('resize', calcVH, true);
-    }, []);
-
-    // @todo get via props to avoid delay
-    useEffect( () => {
-        (async function() {
-            try {
-                let settingData = await getSettings();
-                setImgCredit(settingData[0].image_credit);
-            } catch (e) {
-                console.error(e);
-            }
-        })();
+        setImgCredit(props.settings.image_credit);
     }, []);
 
     //calculate height

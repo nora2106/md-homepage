@@ -12,6 +12,7 @@ export const EventSlider = (props) => {
     const indexInc = 3;
     const [index, setIndex] = useState(0);
     const wrapperRef = useRef(null);
+    const [currentHeight, setCurrentHeight] = useState(0);
 
     //get and sort data
     useEffect(() => {
@@ -21,6 +22,11 @@ export const EventSlider = (props) => {
                 return new Date(a.date) - new Date(b.date);
             });
             setEvents(data);
+        }
+        let height = wrapperRef.current.offsetHeight;
+        if(height > currentHeight) {
+            setCurrentHeight(height);
+            wrapperRef.current.parentElement.style.setProperty('--slider-height', height + "px");
         }
     });
 
@@ -37,11 +43,6 @@ export const EventSlider = (props) => {
             setBackArrow(true)
         }
 
-        //set wrapper min height if it's 0
-        if(window.getComputedStyle(wrapperRef.current).getPropertyValue('--min-height') === "0") {
-            let height = wrapperRef.current.clientHeight;
-            wrapperRef.current.style.setProperty('--min-height', height + "px");
-        }
     }, [index, events]);
 
     function increaseIndex() {
@@ -54,12 +55,12 @@ export const EventSlider = (props) => {
 
     return (
         <div className={style.container}>
-            <motion.div key={index} transition={{ease: "linear", duration: .8}} initial={{x: "100%"}}
-                        animate={{x: "0%"}} ref={wrapperRef} className={style.wrapper}>
+            <motion.div key={index} transition={{ease: "linear", duration: .8}} initial={{x: "20%", opacity: 0}}
+                        animate={{x: 0, opacity: 1}} ref={wrapperRef} className={style.wrapper}>
                 {
                     events ?
                         events.map((event, key) =>
-                            <Event shown={key < indexInc * (index + 1) && key >= (index + indexInc) - indexInc} change={index} index={key} parentRef={wrapperRef}  key={key} headline={event.name} text={event.description} date={event.date} link={event.link} linkText={event.link_name} location={event.location}/>
+                            <Event shown={key < (index + indexInc) && key >= index} change={index} index={key} parentRef={wrapperRef}  key={key} headline={event.name} text={event.description} date={event.date} link={event.link} linkText={event.link_name} location={event.location}/>
                         )
                         :
                         <div/>
