@@ -5,9 +5,9 @@ import Link from "next/link";
 export const Button = (props) => {
     return (
         (
-            props.slug ?
-                <Link className={styles.buttonWrapper} href={props.slug}>
-                    <button className={` ${styles.button} ${props.secondary ? styles.secondary : ''}`}>
+            props.url ?
+                <Link className={styles.buttonWrapper} href={props.url}>
+                    <button className={` ${styles.button} ${props.secondary ? styles.secondary : styles.primary}`}>
                         {props.arrowLeft ? <FaArrowLeft/> : ''}
                         {props.text}
                         {props.arrow ? <FaArrowRight/> : ''}

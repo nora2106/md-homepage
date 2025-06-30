@@ -4,6 +4,8 @@
   width: 100%;
   height: auto;
   max-width: 35rem;
+  display: flex;
+  flex-direction: column;
 
   img {
     width: 100%;
@@ -13,7 +15,7 @@
 
 .copyright {
   font-size: variables.$font-size-smallest;
-  //position: absolute;
+  align-self: flex-start;
 }
 
 .video {

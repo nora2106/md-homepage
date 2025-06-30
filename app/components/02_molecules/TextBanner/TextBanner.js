@@ -7,7 +7,7 @@ export const TextBanner = (props) => {
     return (
         <motion.div initial={{paddingBlock: 0}} whileInView={{paddingBlock: "3em"}} transition={{ duration: 1 }} viewport={{once: true}} className={styles.container}>
             <motion.p initial={{opacity: 0}} whileInView={{ opacity: 1}}  transition={{ duration: 1 }} viewport={{once: true}} className={styles.text}>{props.text}</motion.p>
-            <Button text={props.buttonText} slug='projekte' arrow={true}/>
+            <Button text={props.buttonText} url='projekte' arrow={true}/>
         </motion.div>
     );
 };
