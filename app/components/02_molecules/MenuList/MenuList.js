@@ -34,7 +34,7 @@ export const MenuList = (props) => {
             <MenuItem toggle={props.toggle} url='/projekte' text='Projekte'/>
             <MenuItem toggle={props.toggle} url='/galerie' text='Pressefotos'/>
             <MenuItem toggle={props.toggle} url='/unterricht' text='Unterricht'/>
-            <Button slug={'mailto:' + email} text='Kontakt'/>
+            <Button url={'mailto:' + email} text='Kontakt'/>
         </ul>
     );
 };

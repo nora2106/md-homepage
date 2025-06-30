@@ -10,7 +10,7 @@ export default function NotFound() {
                     <h1 className="headline-2">404</h1>
                     <h2 className="headline-3"> Seite nicht gefunden </h2>
                     <p>Ups, diese Seite scheint nicht zu existieren!</p>
-                    <Button slug="/" text="Startseite" arrow={true}/>
+                    <Button url="/" text="Startseite" arrow={true}/>
                 </div>
             </main>
         </RootLayout>

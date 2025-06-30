@@ -54,6 +54,21 @@ export const TextBlock = (props) => {
         }
     }, [props]);
 
+    useEffect(() => {
+        calcVH();
+        window.addEventListener('onorientationchange', calcVH, true);
+        window.addEventListener('resize', calcVH, true);
+    }, []);
+
+    //calculate height
+    function calcVH() {
+        if(textRef.current != null) {
+            const parent = textRef.current.parentElement;
+            const textHeight = textRef.current.clientHeight;
+            parent.style.setProperty("--text-height", textHeight + "px");
+        }
+    }
+
     //append text to parent element and add styles
     function appendText(text, parent, elemType, markDefs) {
         let newSpan = document.createElement(elemType);

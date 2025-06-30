@@ -33,8 +33,8 @@ header {
 
 //typography
 h1, .headline-1 {
-  font-size: clamp(3.5rem, 3.2426rem + 1.0984vw, 5rem);
-  line-height: clamp(3.125rem, 2.9105rem + 0.9153vw, 4.375rem);
+  font-size: clamp(3.4375rem, 2.9548rem + 2.0595vw, 6.25rem);
+  line-height: clamp(3.4375rem, 2.9548rem + 2.0595vw, 6.25rem);
   font-variation-settings: "wght" 600;
   font-family: var(--font-libre-franklin), sans-serif;
 }

@@ -64,7 +64,7 @@
   height: fit-content;
 
   a {
-    font-size: variables.$font-size-small;
+    --button-font-size: #{variables.$font-size-small};
   }
 
   .locationText {

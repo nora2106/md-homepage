@@ -21,7 +21,7 @@ export const ProjectDetail = async ({params}) => {
             </div>
             <div className={styles.content}>
                 <div className={styles.backLink}>
-                    <Button slug='/projekte' arrowLeft={true} text='Zurück'/>
+                    <Button url='/projekte' arrowLeft={true} text='Zurück'/>
                 </div>
             {
                 projectData ?

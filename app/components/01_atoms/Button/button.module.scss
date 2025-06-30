@@ -20,6 +20,7 @@
   background-color: transparent;
   display: flex;
   position: relative;
+  z-index: 2;
 
   &::before {
     content: '';
@@ -54,15 +55,6 @@
     padding-inline: 1.5em;
     padding-block: .5em;
   }
-
-  //@keyframes animateBg {
-  //  0% {
-  //    opacity: 0;
-  //  }
-  //  100% {
-  //    width: 100%;
-  //  }
-  //}
 }
 
 .secondary {
