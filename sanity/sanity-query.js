@@ -14,6 +14,7 @@ export async function getHomepage() {
       banner_text,
       banner_button_text,
       media_centered,
+      media_centered_title,
       title,
       media_centered_headline,
       meta_description

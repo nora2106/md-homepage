@@ -11,7 +11,7 @@
   border-radius: .8em;
   padding-inline: 1em;
   padding-block: .5em;
-  font-size: variables.$font-size-base;
+  font-size: var(--button-font-size, variables.$font-size-base);
   color: variables.$white;
   flex-direction: row;
   align-items: center;
