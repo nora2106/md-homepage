@@ -84,19 +84,19 @@ export const Media = (props) => {
                         viewport={{once: true}}
                         variants={mediaVariants}
                         className={` ${style.image} ${props.centered ? style.centeredImage : ''}`}>
-                    <img
+                <img
 
-                        src={urlForImage(props.media.image.asset)
-                            .width(800)
-                            .quality(100)
-                            .auto("format")
-                            .url()}
-                        alt={props.media.alt}
-                        width="500"
-                        height="500"
-                        loading="lazy"
-                        fetchPriority="low"
-                    />
+                    src={urlForImage(props.media.image.asset)
+                        .width(800)
+                        .quality(100)
+                        .auto("format")
+                        .url()}
+                    alt={props.media.alt}
+                    width="500"
+                    height="500"
+                    loading="lazy"
+                    fetchPriority="low"
+                />
                 {
                     props.media.copyright ?
                         <span className={style.copyright}>© {props.media.copyright}</span>
@@ -134,7 +134,7 @@ export const Media = (props) => {
 
         const ytID = getYouTubeId(props.media.url);
         return (
-            <motion.div className={style.video} initial="hide"
+            <motion.div className={style.videoWrapper} initial="hide"
                         whileInView="show"
                         viewport={{once: true}}
                         variants={mediaVariants}>
