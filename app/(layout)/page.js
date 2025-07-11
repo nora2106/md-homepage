@@ -42,6 +42,7 @@ export const Home = async () => {
 
     const data = pageContent[0];
     const settings = settingData[0];
+    console.log(data.media_centered_title);
     return (
         <main>
             <Hero settings={settings} headline1={data.page_headline[0]} headline2={data.page_headline[1]}/>
@@ -58,6 +59,11 @@ export const Home = async () => {
             {
                 data.media_centered ?
                     <div className={styles.singleMedia}>
+                        {
+                            data.media_centered_title ?
+                                <h3>{data.media_centered_title}</h3>
+                                : <div/>
+                        }
                         <Media centered={true} media={data.media_centered[0]} />
                     </div>
                     : <div/>

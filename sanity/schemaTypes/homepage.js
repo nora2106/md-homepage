@@ -86,6 +86,12 @@ export const homepage = defineType({
             validation: rule => rule.max(1),
         }),
         defineField({
+            name: 'media_centered_title',
+            title: 'Bild/Video-Titel',
+            description: 'Überschrift zu Bild/Video mittig',
+            type: 'text',
+        }),
+        defineField({
             name: 'events_headline',
             title: 'Öffentliche Termine',
             description: 'Titel zum Abschnitt "Öffentliche Termine"',

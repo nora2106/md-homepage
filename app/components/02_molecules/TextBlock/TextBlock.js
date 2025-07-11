@@ -64,8 +64,8 @@ export const TextBlock = (props) => {
     function calcVH() {
         if(textRef.current != null) {
             const parent = textRef.current.parentElement;
-            const textHeight = textRef.current.clientHeight;
-            parent.style.setProperty("--text-height", textHeight + "px");
+            const textHeight = (textRef.current.clientHeight + 150);
+            parent.style.setProperty("--text-height", (textHeight) + "px");
         }
     }
 
