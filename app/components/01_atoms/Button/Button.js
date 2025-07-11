@@ -7,7 +7,7 @@ export const Button = (props) => {
         (
             props.url ?
                 <Link className={styles.buttonWrapper} href={props.url}>
-                    <button className={` ${styles.button} ${props.secondary ? styles.secondary : styles.primary}`}>
+                    <button className={` ${styles.button} ${props.secondary ? styles.secondary : ''}`}>
                         {props.arrowLeft ? <FaArrowLeft/> : ''}
                         {props.text}
                         {props.arrow ? <FaArrowRight/> : ''}

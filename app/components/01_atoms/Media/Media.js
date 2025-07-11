@@ -3,6 +3,7 @@ import style from "./media.module.scss";
 import {urlForImage} from "@/sanity/sanity-client";
 import {useEffect, useState} from "react";
 import {motion} from "motion/react";
+import styles from "@/app/components/01_atoms/Button/button.module.scss";
 
 export const Media = (props) => {
     let mediaVariants = {
@@ -76,16 +77,15 @@ export const Media = (props) => {
                 :
                 <div/>
         );
-    }
-
-    else if (props.media.image) {
+    } else if (props.media.image) {
         return (
-            <div className={style.image}>
-                <motion.img
-                    initial="hide"
-                    whileInView="show"
-                    viewport={{once: true}}
-                    variants={mediaVariants}
+            <motion.div initial="hide"
+                        whileInView="show"
+                        viewport={{once: true}}
+                        variants={mediaVariants}
+                        className={` ${style.image} ${props.centered ? style.centeredImage : ''}`}>
+                <img
+
                     src={urlForImage(props.media.image.asset)
                         .width(800)
                         .quality(100)
@@ -100,15 +100,59 @@ export const Media = (props) => {
                 {
                     props.media.copyright ?
                         <span className={style.copyright}>© {props.media.copyright}</span>
-                    :
+                        :
                         <div/>
                 }
-            </div>
+            </motion.div>
 
         );
-    }
-    else if(props.media.link) {
-        return <div className={style.video} dangerouslySetInnerHTML={{ __html: props.media.link}}/>
+    } else if (props.media._type === 'linkObject') {
+        function getYouTubeId(url) {
+            try {
+                const u = new URL(url);
+
+                if (u.hostname === 'youtu.be') {
+                    // short URL → use pathname without leading slash
+                    return u.pathname.slice(1);
+                }
+
+                if (u.hostname.includes('youtube.com')) {
+                    if (u.pathname === '/watch') {
+                        return u.searchParams.get('v');
+                    }
+
+                    if (u.pathname.startsWith('/embed/')) {
+                        return u.pathname.split('/')[2];
+                    }
+                }
+
+                return null;
+            } catch {
+                return null;
+            }
+        }
+
+        const ytID = getYouTubeId(props.media.url);
+        return (
+            <motion.div className={style.videoWrapper} initial="hide"
+                        whileInView="show"
+                        viewport={{once: true}}
+                        variants={mediaVariants}>
+                {
+                    ytID ?
+                        <iframe
+                            src={`https://www.youtube-nocookie.com/embed/${ytID}`}
+                            title="YouTube video"
+                            loading="lazy"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope;"
+                            allowFullScreen
+                        ></iframe>
+                        :
+                        <p>Not a valid youtube link.</p>
+                }
+
+            </motion.div>
+        );
     }
 };
 

@@ -37,10 +37,14 @@ export default {
             name: 'linkObject',
             fields: [
                 {
-                    type: "string",
-                    name: "link",
-                    title: "Youtube Embed",
-                },
+                    name: 'url',
+                    type: 'url',
+                    title: 'YouTube URL',
+                    validation: Rule => Rule.uri({
+                        scheme: ['http', 'https'],
+                        allowRelative: false
+                    })
+                }
             ]
         },
     ],

@@ -17,6 +17,7 @@ export async function getHomepage() {
       media_centered_title,
       title,
       media_centered_headline,
+      media_centered_title,
       meta_description
     }`, {},
         {

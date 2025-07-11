@@ -3,7 +3,7 @@
 .wrapper {
   display: flex;
   width: 100%;
-  overflow: hidden;
+  //overflow: hidden;
   flex-direction: column;
   margin-block: 4em;
   gap: 1.5em;
@@ -13,6 +13,7 @@
     gap: 1em;
     padding-left: 2em;
     padding-right: 0;
+    max-width: variables.$content-max-width;
   }
 }
 
@@ -22,8 +23,7 @@
 
 .media {
   width: 100%;
-  max-width: 40em;
-  height: auto;
+  max-width: 40rem;
   flex: .9;
   display: flex;
   flex-direction: column;
@@ -31,15 +31,11 @@
   gap: 4em;
   margin: 0 auto;
 
-  img,
-  video {
-    width: 80%;
-    height: auto;
-  }
-
   @media (min-width: variables.$lg) {
+    height: var(--text-height, 30rem);
     max-width: none;
     justify-self: flex-end;
-    align-items: flex-end;
+    min-height: 20rem;
+    max-height: 50rem;
   }
 }
