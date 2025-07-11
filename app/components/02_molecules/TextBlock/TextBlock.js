@@ -82,7 +82,7 @@ export const TextBlock = (props) => {
                             newSpan.remove();
                             newSpan = document.createElement('a');
                             newSpan.textContent = text.text;
-                            newSpan.href = '//' + markDef.href;
+                            newSpan.href = markDef.href;
                         }
                     })
                 }

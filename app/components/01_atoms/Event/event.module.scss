@@ -17,6 +17,10 @@
   @media (min-width: variables.$xl) {
     width: 100%;
   }
+
+  button {
+    --button-font-size: #{variables.$font-size-small};
+  }
 }
 
 .hidden {
