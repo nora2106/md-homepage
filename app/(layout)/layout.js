@@ -25,7 +25,7 @@ export const metadata = {
         type: "website",
         locale: "de_DE",
         url: "https://www.mariondimbath.de",
-        description: "Professionelle Posaunistin für Jazz, Konzerte & Unterricht in München.",
+        description: "Professionelle Posaunistin für Jazz, Rock & Pop in München.",
         images: [
             {
                 url: "https://www.mariondimbath.de/img/og-image.jpg",
