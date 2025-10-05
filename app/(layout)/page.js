@@ -2,7 +2,7 @@ import Hero from "@/app/components/03_organisms/Hero/Hero";
 import TextMedia from "@/app/components/03_organisms/TextMedia/TextMedia";
 import Heading from "@/app/components/01_atoms/Heading/Heading";
 import EventColumn from "@/app/components/03_organisms/EventColumn/EventColumn";
-import {getHomepage, getSettings} from "@/sanity/sanity-query";
+import { getHomepage, getSettings } from "@/sanity/sanity-query";
 import TextBanner from "@/app/components/02_molecules/TextBanner/TextBanner";
 import styles from "../components/06_pages/Home/home.module.scss"
 import FlowerElement from "@/app/components/01_atoms/FlowerElement/FlowerElement";
@@ -12,13 +12,13 @@ export async function generateMetadata() {
     const pageContent = await getHomepage();
     const data = pageContent[0];
 
-    if(!data.meta_description) {
+    if (!data.meta_description) {
         return {
             title: data.title,
         }
     }
 
-    if(!data.title) {
+    if (!data.title) {
         return {
             description: data.meta_description,
             openGraph: {
@@ -70,16 +70,18 @@ export const Home = async () => {
     const settings = settingData[0];
     return (
         <main>
-            <Hero settings={settings} headline1={data.page_headline[0]} headline2={data.page_headline[1]}/>
+            <Hero settings={settings} headline1={data.page_headline[0]} headline2={data.page_headline[1]} />
             <div className={styles.flowerWrapper1}>
-                <FlowerElement/>
+                <FlowerElement />
             </div>
-            <Heading tag='h2'firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]}/>
-            <TextMedia centered={true} text={data.about_me_text} media={data.about_me_media}/>
+            <Heading tag='h2' firstLine={data.references_headline[0]} secondLine={data.references_headline[1]} />
+            <TextMedia centered={true} text={data.references_text} media={data.references_media} />
+            <Heading tag='h2' firstLine={data.about_me_headline[0]} secondLine={data.about_me_headline[1]} />
+            <TextMedia centered={true} text={data.about_me_text} media={data.about_me_media} />
             {
                 data.media_centered_headline ?
-                    <Heading tag='h2' firstLine={data.media_centered_headline[0]} secondLine={data.media_centered_headline[1]}/>
-                    : <div/>
+                    <Heading tag='h2' firstLine={data.media_centered_headline[0]} secondLine={data.media_centered_headline[1]} />
+                    : <div />
             }
             {
                 data.media_centered ?
@@ -87,16 +89,21 @@ export const Home = async () => {
                         {
                             data.media_centered_title ?
                                 <h3>{data.media_centered_title}</h3>
-                                : <div/>
+                                : <div />
                         }
-                        <Media centered={true} media={data.media_centered[0]} />
+                        {
+                            data.media_centered.map((media, index) =>
+                                <Media key={index} centered={true} media={media} />
+                            )
+                        }
                     </div>
-                    : <div/>
+                    : <div />
             }
-            <Heading tag='h2' firstLine={data.my_projects_headline[0]} secondLine={data.my_projects_headline[1]}/>
-            <TextBanner buttonText={data.banner_button_text} text={data.banner_text}/>
-            <Heading reversed={true} tag='h2' firstLine={data.events_headline[0]} secondLine={data.events_headline[1]}/>
-            <EventColumn media={data.events_image}/>
+            <Heading tag='h2' firstLine={data.my_projects_headline[0]} secondLine={data.my_projects_headline[1]} />
+            <TextBanner buttonText={data.banner_button_text} text={data.banner_text} />
+            <Heading reversed={true} tag='h2' firstLine={data.events_headline[0]} secondLine={data.events_headline[1]} />
+            <EventColumn media={data.events_image} />
+            <Heading tag='h2' firstLine={data.publishments_headline[0]} secondLine={data.publishments_headline[1]} />
         </main>
     );
 };

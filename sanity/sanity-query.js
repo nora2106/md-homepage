@@ -5,6 +5,9 @@ export async function getHomepage() {
     return client.fetch(
         groq`*[_type == "homepage2"]{
       page_headline,
+      references_headline,
+      references_media,
+      references_text,
       about_me_headline,
       about_me_media,
       about_me_text,
@@ -15,6 +18,9 @@ export async function getHomepage() {
       banner_button_text,
       media_centered,
       media_centered_title,
+      publishments_headline,
+      publishments_media,
+      publishments_text,
       title,
       media_centered_headline,
       media_centered_title,

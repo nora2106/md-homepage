@@ -14,6 +14,16 @@
   }
 }
 
+.autoWidth {
+  width: fit-content;
+  height: 100%;
+  align-items: center;
+
+  img {
+    width: auto;
+  }
+}
+
 .centeredImage {
   margin: 0 auto;
 
