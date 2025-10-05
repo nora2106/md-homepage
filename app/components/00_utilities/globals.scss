@@ -54,7 +54,7 @@ h3, .headline-3 {
 
 h4, .headline-4 {
   font-size: variables.$font-size-big;
-  line-height: clamp(1rem, 4.5vw, 2rem);
+  line-height: calc(variables.$font-size-big * 1.1);
   font-family: var(--font-libre-franklin), sans-serif;
 }
 

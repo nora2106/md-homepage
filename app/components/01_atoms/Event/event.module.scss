@@ -4,7 +4,6 @@
   width: 90%;
   border: 2px solid variables.$white;
   padding-inline: 1em;
-  min-height: 10em;
   color: variables.$white;
   padding-bottom: 1em;
   position: relative;
@@ -69,6 +68,12 @@
 
   a {
     --button-font-size: #{variables.$font-size-small};
+  }
+
+  &:has(a) {
+    .locationText {
+      max-width: 60%;
+    }
   }
 
   .locationText {
