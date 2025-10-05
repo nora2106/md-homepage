@@ -22,9 +22,8 @@ export const lessons = defineType({
         defineField({
             name: 'headline',
             title: 'Überschrift',
-            description: '(max. 2 Zeilen)',
             type: 'string',
-            validation: (rule) => rule.required().max(2),
+            validation: (rule) => rule.required(),
         }),
         defineField({
             name: 'text',

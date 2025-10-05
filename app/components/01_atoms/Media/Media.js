@@ -83,7 +83,7 @@ export const Media = (props) => {
                         whileInView="show"
                         viewport={{once: true}}
                         variants={mediaVariants}
-                        className={` ${style.image} ${props.centered ? style.centeredImage : ''} ${props.autoWidth ? style.autoWidth : ''}`}>
+                        className={` ${style.image} ${props.centered ? style.centeredImage : ''}`}>
                 <img
 
                     src={urlForImage(props.media.image.asset)
