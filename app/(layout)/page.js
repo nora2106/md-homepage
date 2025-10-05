@@ -104,6 +104,7 @@ export const Home = async () => {
             <Heading reversed={true} tag='h2' firstLine={data.events_headline[0]} secondLine={data.events_headline[1]} />
             <EventColumn media={data.events_image} />
             <Heading tag='h2' firstLine={data.publishments_headline[0]} secondLine={data.publishments_headline[1]} />
+            <TextMedia centered={true} text={data.publishments_text} media={data.publishments_media} />
         </main>
     );
 };

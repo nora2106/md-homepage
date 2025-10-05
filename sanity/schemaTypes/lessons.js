@@ -22,8 +22,9 @@ export const lessons = defineType({
         defineField({
             name: 'headline',
             title: 'Überschrift',
+            description: '(max. 2 Zeilen)',
             type: 'string',
-            validation: (rule) => rule.required(),
+            validation: (rule) => rule.required().max(2),
         }),
         defineField({
             name: 'text',
@@ -34,7 +35,7 @@ export const lessons = defineType({
         defineField({
             name: 'media',
             title: 'Media',
-            description: 'Bilder oder Videos',
+            description: 'ein oder mehrere Bilder oder Videos',
             type: 'array',
             of: customMedia.of,
         }),
