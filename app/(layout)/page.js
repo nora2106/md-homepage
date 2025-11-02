@@ -68,6 +68,7 @@ export const Home = async () => {
 
     const data = pageContent[0];
     const settings = settingData[0];
+
     return (
         <main>
             <Hero settings={settings} headline1={data.page_headline[0]} headline2={data.page_headline[1]} />
@@ -104,7 +105,18 @@ export const Home = async () => {
             <Heading reversed={true} tag='h2' firstLine={data.events_headline[0]} secondLine={data.events_headline[1]} />
             <EventColumn media={data.events_image} />
             <Heading tag='h2' firstLine={data.publishments_headline[0]} secondLine={data.publishments_headline[1]} />
-            <TextMedia centered={true} text={data.publishments_text} media={data.publishments_media} />
+            {
+                data.publishments_columns ?
+                    <div>
+                        {
+                            data.publishments_columns.map((column, index) => 
+                                <TextMedia key={index} centered={true} text={column.text} media={column.imageObject} />
+                            )
+                        }
+                    </div>
+                    : <div />
+
+            }
         </main>
     );
 };

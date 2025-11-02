@@ -1,8 +1,8 @@
 "use client"
 import style from "./media.module.scss";
-import {urlForImage} from "@/sanity/sanity-client";
-import {useEffect, useState} from "react";
-import {motion} from "motion/react";
+import { urlForImage } from "@/sanity/sanity-client";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import styles from "@/app/components/01_atoms/Button/button.module.scss";
 
 export const Media = (props) => {
@@ -54,59 +54,63 @@ export const Media = (props) => {
             },
         }
     }
-    if (props.media._type === "file") {
+    const [media, setMedia] = useState(props.media);
+    if (Array.isArray(media)) {
+        setMedia(props.media[0]);
+    }
+    if (media._type === "file") {
         const [videoSrc, setVideoSrc] = useState("");
 
         useEffect(() => {
-            const assetId = props.media.asset._ref.replace("file-", "").replace("-mp4", "");
+            const assetId = media.asset._ref.replace("file-", "").replace("-mp4", "");
             const projectId = "mh231zz3";
             const dataset = "production";
             const url = `https://cdn.sanity.io/files/${projectId}/${dataset}/${assetId}.mp4`;
             setVideoSrc(url);
-        }, [props.media]);
+        }, [media]);
 
         return (
             videoSrc ?
                 <motion.video initial="hide"
-                              whileInView="show"
-                              viewport={{once: true}}
-                              variants={mediaVariants}
-                              className={style.video} width='500' height='500' controls preload="true">
-                    <source src={videoSrc}/>
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={mediaVariants}
+                    className={style.video} width='500' height='500' controls preload="true">
+                    <source src={videoSrc} />
                 </motion.video>
                 :
-                <div/>
+                <div />
         );
-    } else if (props.media.image) {
+    } else if (media.image) {
         return (
             <motion.div initial="hide"
-                        whileInView="show"
-                        viewport={{once: true}}
-                        variants={mediaVariants}
-                        className={` ${style.image} ${props.centered ? style.centeredImage : ''}`}>
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={mediaVariants}
+                className={` ${style.image} ${props.centered ? style.centeredImage : ''}`}>
                 <img
 
-                    src={urlForImage(props.media.image.asset)
+                    src={urlForImage(media.image.asset)
                         .width(800)
                         .quality(100)
                         .auto("format")
                         .url()}
-                    alt={props.media.alt}
+                    alt={media.alt}
                     width="500"
                     height="500"
                     loading="lazy"
                     fetchPriority="low"
                 />
                 {
-                    props.media.copyright ?
-                        <span className={style.copyright}>© {props.media.copyright}</span>
+                    media.copyright ?
+                        <span className={style.copyright}>© {media.copyright}</span>
                         :
-                        <div/>
+                        <div />
                 }
             </motion.div>
 
         );
-    } else if (props.media._type === 'linkObject') {
+    } else if (media._type === 'linkObject') {
         function getYouTubeId(url) {
             try {
                 const u = new URL(url);
@@ -135,9 +139,9 @@ export const Media = (props) => {
         const ytID = getYouTubeId(props.media.url);
         return (
             <motion.div className={style.videoWrapper} initial="hide"
-                        whileInView="show"
-                        viewport={{once: true}}
-                        variants={mediaVariants}>
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={mediaVariants}>
                 {
                     ytID ?
                         <iframe

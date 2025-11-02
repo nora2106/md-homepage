@@ -180,19 +180,11 @@ export const homepage = defineType({
             validation: rule => rule.required().min(1).max(2),
         }),
         defineField({
-            name: 'publishments_media',
-            title: 'Media',
-            description: 'Bild oder Video (max. 1)',
+            name: 'publishments_columns',
+            title: 'Spalte',
+            description: 'beliebig viele Spalten mit Bild/Text',
             type: 'array',
-            of: customMedia.of,
-            fieldset: 'publishmentsSection',
-            validation: rule => rule.max(1),
-        }),
-        defineField({
-            name: 'publishments_text',
-            title: 'Text',
-            type: 'array',
-            of: customText.of,
+            of: [{ type: 'textImageColumn' }],
             fieldset: 'publishmentsSection',
         }),
         defineField({

@@ -17,12 +17,12 @@ export default {
                 {
                     name: 'alt',
                     type: 'string',
-                    title: 'Alt-Text (für Barrierefreiheit und SEO)',
+                    title: 'Alt-Text (Bildbeschreibung)',
                 },
                 {
                     name: 'copyright',
                     type: 'string',
-                    title: 'Name für Copyright',
+                    title: 'Copyright-Name',
                 },
             ]
         },

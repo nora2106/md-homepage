@@ -5,7 +5,7 @@ import TextBlock from "@/app/components/02_molecules/TextBlock/TextBlock";
 
 export async function TextMedia(props) {
     console.log(props.media);
-
+    
     return (
         <>
             <div className={` ${style.wrapper} ${props.centered ? style.centered : ''}`}>
@@ -17,7 +17,7 @@ export async function TextMedia(props) {
                 {
                     props.media && props.text ?
                         <div className={style.media}>
-                            <Media media={props.media[0]} />
+                            <Media media={props.media} />
                         </div>
                         : <div />
                 }
